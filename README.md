@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Arunava De
 - 👀 I’m interested in AI
-- 🌱 I’m currently learning YOLOv9
+- 🌱 I’m currently learning Tensorflow
 - 📫 How to reach me? Well connect in LinkedIn, www.linkedin.com/in/arunava-de-b70075312
 
 <!---
