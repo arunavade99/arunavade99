@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Arunava De
 - 👀 I’m interested in AI
-- 🌱 I’m currently learning Tensorflow
+- 🌱 I’m currently learning Facenet
 - 📫 How to reach me? Well connect in LinkedIn, https://www.linkedin.com/in/arunavade99
 
 <!---
