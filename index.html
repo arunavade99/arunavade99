@@ -515,19 +515,21 @@
     /* Contact section */
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
     }
     .contact-card {
       background: var(--main-card);
       border: 1px solid var(--main-border);
-      border-radius: 12px;
-      padding: 20px 22px;
+      border-radius: 14px;
+      padding: 22px 22px;
       box-shadow: var(--shadow);
       text-decoration: none;
-      display: flex; align-items: center; gap: 14px;
+      display: flex; align-items: flex-start; gap: 14px;
+      flex-wrap: wrap;
       transition: all 0.2s;
       color: var(--main-text);
+      min-height: 90px;
     }
     .contact-card:hover {
       border-color: var(--accent);
@@ -535,12 +537,17 @@
       box-shadow: var(--shadow-lg);
     }
     .contact-card-icon {
-      width: 40px; height: 40px; border-radius: 10px;
+      width: 44px; height: 44px; border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; flex-shrink: 0; color: #fff;
+      font-size: 1.1rem; flex-shrink: 0; color: #fff;
     }
-    .contact-card-label { font-size: 0.7rem; color: var(--main-muted); }
-    .contact-card-value { font-size: 0.85rem; font-weight: 600; color: var(--main-text); }
+    .contact-card > div { min-width: 0; }
+    .contact-card-label, .contact-card-value, .hero-bio, .project-desc, .timeline-desc, .cert-name, .edu-degree, .achievement-card, .stat-label {
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+    .contact-card-label { font-size: 0.72rem; color: var(--main-muted); }
+    .contact-card-value { font-size: 0.9rem; font-weight: 600; color: var(--main-text); }
 
     /* Footer */
     .footer {
@@ -558,12 +565,39 @@
     .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
 
     /* Responsive */
-    @media (max-width: 900px) {
-      .sidebar { width: 100%; height: auto; position: relative; min-width: unset; }
-      .main { margin-left: 0; max-width: 100%; padding: 24px; }
+    @media (max-width: 1200px) {
+      .sidebar { width: 100%; position: relative; min-width: unset; margin-bottom: 18px; }
+      .main { margin-left: 0; max-width: 100%; padding: 34px 32px; }
       body { flex-direction: column; }
       .cards-grid-2 { grid-template-columns: 1fr; }
       .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .sidebar-top { padding: 30px 20px 20px; }
+      .sidebar-nav { padding: 18px 16px; }
+      .main { padding: 28px 22px 50px; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .cards-grid-2 { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .section { margin-bottom: 42px; }
+    }
+    @media (max-width: 700px) {
+      .hero-card { padding: 24px 20px; }
+      .card, .project-card, .cert-card, .achievement-card, .edu-card, .timeline-item { padding: 18px 18px; }
+      .stats-bar { grid-template-columns: 1fr; }
+      .sidebar { padding-bottom: 16px; }
+      .sidebar-nav .nav-item { font-size: 0.82rem; padding: 10px 10px; }
+      .section-header { flex-wrap: wrap; gap: 12px; }
+    }
+    @media (max-width: 560px) {
+      .hero-title { font-size: 1.8rem; }
+      .hero-subtitle { font-size: 0.96rem; }
+      .hero-bio { font-size: 0.9rem; }
+      .contact-card { gap: 12px; padding: 18px 18px; }
+      .contact-card-icon { width: 38px; height: 38px; }
+      .contact-card-label { font-size: 0.68rem; }
+      .contact-card-value { font-size: 0.82rem; }
+      .sidebar-contacts, .sidebar-nav { padding-left: 14px; padding-right: 14px; }
     }
   </style>
 </head>
@@ -590,12 +624,15 @@
     <a class="nav-item" href="#certifications"><i class="fa fa-certificate"></i> Certifications</a>
     <a class="nav-item" href="#achievements"><i class="fa fa-trophy"></i> Achievements</a>
     <a class="nav-item" href="#contact"><i class="fa fa-envelope"></i> Contact</a>
+    <div class="nav-label" style="margin-top:20px">Portfolio</div>
+    <a class="nav-item" href="photography.html"><i class="fa fa-camera"></i> Photography</a>
   </nav>
 
   <div class="sidebar-contacts">
     <a class="contact-link" href="mailto:arunava_de@outlook.com"><i class="fa fa-envelope"></i> arunava_de@outlook.com</a>
     <a class="contact-link" href="https://linkedin.com/in/arunavade99" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/arunavade99</a>
     <a class="contact-link" href="https://github.com/arunavade99" target="_blank"><i class="fab fa-github"></i> github.com/arunavade99</a>
+    <a class="contact-link" href="https://www.instagram.com/arunava_de_official" target="_blank"><i class="fab fa-instagram"></i> instagram.com/arunava_de_official</a>
   </div>
 </aside>
 

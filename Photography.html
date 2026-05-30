@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photography — Arunava De</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #21262d;
+      --accent: #00e5a0;
+      --accent2: #00b4ff;
+      --text: #c9d1d9;
+      --muted: #6e7681;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0;
+      background: rgba(13,17,23,0.95);
+      backdrop-filter: blur(12px);
+      z-index: 50;
+    }
+    .topbar-left {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .back-btn {
+      display: flex; align-items: center; gap: 8px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .back-btn:hover { color: var(--accent); }
+    .topbar-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .topbar-title span { color: var(--accent); }
+    .topbar-subtitle {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 64px 24px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 300px;
+      background: radial-gradient(ellipse, rgba(0,229,160,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-label {
+      display: inline-block;
+      background: rgba(0,229,160,0.08);
+      border: 1px solid rgba(0,229,160,0.2);
+      color: var(--accent);
+      border-radius: 20px;
+      padding: 5px 18px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .hero-title span {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── GALLERY GRID ── */
+    .gallery-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    .gallery-count {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+      text-align: right;
+    }
+
+    /* ══════════════════════════════════════════
+       📸 POSTS SECTION
+       Each .post-card = one Instagram post
+    ══════════════════════════════════════════ */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .post-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .post-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,229,160,0.3);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+
+    /* Photo slider inside each card */
+    .post-slider {
+      position: relative;
+      aspect-ratio: 1/1;
+      background: #0a0d12;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .post-slider img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .post-slider img.active { opacity: 1; }
+
+    /* Prev / Next inside card */
+    .slide-btn {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.55);
+      border: none; color: #fff;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      cursor: pointer;
+      z-index: 5;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+      opacity: 0;
+    }
+    .post-slider:hover .slide-btn { opacity: 1; }
+    .slide-btn:hover { background: rgba(0,229,160,0.7); }
+    .slide-btn.prev { left: 10px; }
+    .slide-btn.next { right: 10px; }
+
+    /* Dots */
+    .slide-dots {
+      position: absolute;
+      bottom: 10px; left: 0; right: 0;
+      display: flex; justify-content: center; gap: 5px;
+    }
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .dot.active { background: var(--accent); transform: scale(1.3); }
+
+    /* Multi-photo badge */
+    .multi-badge {
+      position: absolute;
+      top: 10px; right: 10px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 3px 9px;
+      border-radius: 10px;
+      display: flex; align-items: center; gap: 4px;
+      z-index: 5;
+    }
+
+    /* Expand button */
+    .expand-btn {
+      position: absolute;
+      bottom: 10px; right: 10px;
+      background: rgba(0,0,0,0.55);
+      border: none; color: #fff;
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      z-index: 5;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+      opacity: 0;
+    }
+    .post-slider:hover .expand-btn { opacity: 1; }
+    .expand-btn:hover { background: rgba(0,180,255,0.7); }
+
+    /* Caption */
+    .post-caption {
+      padding: 16px 18px;
+    }
+    .caption-text {
+      font-size: 0.83rem;
+      color: var(--text);
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+    .caption-date {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.93);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .lightbox.open { display: flex; }
+
+    .lightbox-img-wrap {
+      position: relative;
+      max-width: 88vw;
+      max-height: 78vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-img-wrap img {
+      max-width: 88vw;
+      max-height: 78vh;
+      border-radius: 10px;
+      object-fit: contain;
+      box-shadow: 0 0 80px rgba(0,0,0,0.8);
+    }
+    .lb-btn {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .lb-btn:hover { background: var(--accent); color: #000; }
+    .lb-btn.prev { left: -56px; }
+    .lb-btn.next { right: -56px; }
+    .lb-close {
+      position: fixed;
+      top: 20px; right: 24px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .lb-close:hover { background: #e74c3c; }
+
+    .lb-caption {
+      max-width: 600px;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      padding: 0 24px;
+    }
+    .lb-counter {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--muted);
+    }
+    .empty-state i { font-size: 3rem; margin-bottom: 16px; opacity: 0.3; display: block; }
+    .empty-state p { font-size: 0.9rem; }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+    .footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .topbar { padding: 14px 20px; }
+      .gallery-container { padding: 0 16px 60px; }
+      .hero-title { font-size: 2rem; }
+      .lb-btn.prev { left: -40px; }
+      .lb-btn.next { right: -40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── TOPBAR ── -->
+<header class="topbar">
+  <div class="topbar-left">
+    <a class="back-btn" href="index.html"><i class="fa fa-arrow-left"></i> Back to Dashboard</a>
+    <div style="width:1px;height:20px;background:var(--border)"></div>
+    <div>
+      <div class="topbar-title">Arunava <span>De</span></div>
+      <div class="topbar-subtitle">Photography Portfolio</div>
+    </div>
+  </div>
+  <a href="https://instagram.com" target="_blank" style="color:var(--muted);font-size:1.2rem;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#e1306c'" onmouseout="this.style.color='var(--muted)'">
+    <i class="fab fa-instagram"></i>
+  </a>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-label">📷 Visual Stories</div>
+  <h1 class="hero-title">Through The <span>Lens</span></h1>
+  <p class="hero-desc">A collection of moments frozen in time. Each frame tells a story — light, shadow, and everything in between.</p>
+</section>
+
+<!-- ── GALLERY ── -->
+<div class="gallery-container">
+  <div class="gallery-count" id="gallery-count"></div>
+  <div class="posts-grid" id="posts-grid">
+    <!-- Posts are rendered from the POSTS array below -->
+  </div>
+  <div class="empty-state" id="empty-state" style="display:none">
+    <i class="fa fa-camera"></i>
+    <p>No photos added yet. See the instructions below to add your first post!</p>
+  </div>
+</div>
+
+<!-- ── LIGHTBOX ── -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lb-close"><i class="fa fa-times"></i></button>
+  <div class="lightbox-img-wrap">
+    <button class="lb-btn prev" id="lb-prev"><i class="fa fa-chevron-left"></i></button>
+    <img id="lb-img" src="" alt=""/>
+    <button class="lb-btn next" id="lb-next"><i class="fa fa-chevron-right"></i></button>
+  </div>
+  <div class="lb-caption" id="lb-caption"></div>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
+<footer class="footer">
+  Built with ❤️ by <a href="index.html">Arunava De</a> · <a href="https://github.com/arunavade99" target="_blank">github.com/arunavade99</a>
+</footer>
+
+<script>
+/* ════════════════════════════════════════════════════════
+   📸 ADD YOUR PHOTOS HERE
+   ════════════════════════════════════════════════════════
+
+   Each object below = one Instagram post.
+   - title:   Short title for the post (optional)
+   - date:    Date of the post (optional)
+   - caption: Paste your Instagram caption here.
+              Hashtags are automatically removed.
+   - photos:  Array of image paths.
+              Put your images in the photos/ folder.
+              For a single photo post: ["photos/post1/img1.jpg"]
+              For a multi photo post:  ["photos/post1/img1.jpg", "photos/post1/img2.jpg"]
+
+   HOW TO ADD A NEW POST:
+   1. Create a folder: photos/postN/
+   2. Put your images inside it
+   3. Copy the template below and fill in your details
+   4. git add . → git commit -m "Add photos" → git push
+
+   ════════════════════════════════════════════════════════ */
+
+const POSTS = [
+
+  // ── TEMPLATE (copy this block to add a new post) ──────
+  // {
+  //   title:   "Your Post Title",
+  //   date:    "May 2024",
+  //   caption: "Your Instagram caption here. Hashtags like #photography will be auto-removed.",
+  //   photos:  [
+  //     "photos/post1/img1.jpg",
+  //     "photos/post1/img2.jpg",
+  //   ]
+  // },
+  // ──────────────────────────────────────────────────────
+
+  // ── EXAMPLE POST 1 (replace with your real photos) ────
+  {
+    title:   "Golden Hour",
+    date:    "January 2023",
+    caption: "Chasing the light until the very last second. #goldenhour #photography #kolkata",
+    photos:  [
+      "photos/post1/img1.jpg",
+    ]
+  },
+
+  // ── EXAMPLE POST 2 ─────────────────────────────────────
+  {
+    title:   "Street Stories",
+    date:    "December 2022",
+    caption: "Every street has a story. You just need to stop and listen. #street #streetphotography #india",
+    photos:  [
+      "photos/post2/img1.jpg",
+      "photos/post2/img2.jpg",
+    ]
+  },
+
+];
+
+/* ════════════════════════════════════════════════════════
+   ENGINE — DO NOT EDIT BELOW THIS LINE
+   ════════════════════════════════════════════════════════ */
+
+// Strip hashtags from caption
+function stripHashtags(text) {
+  return text.replace(/#\S+/g, '').replace(/\s{2,}/g, ' ').trim();
+}
+
+// Current lightbox state
+let lbImages = [];
+let lbIndex  = 0;
+
+function openLightbox(images, index, caption) {
+  lbImages = images;
+  lbIndex  = index;
+  document.getElementById('lb-img').src = images[index];
+  document.getElementById('lb-caption').textContent = stripHashtags(caption);
+  updateLbCounter();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function updateLbCounter() {
+  document.getElementById('lb-counter').textContent =
+    lbImages.length > 1 ? `${lbIndex + 1} / ${lbImages.length}` : '';
+  document.getElementById('lb-img').src = lbImages[lbIndex];
+}
+
+document.getElementById('lb-close').onclick = () => {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+};
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target === document.getElementById('lightbox')) {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+document.getElementById('lb-prev').onclick = e => {
+  e.stopPropagation();
+  lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
+  updateLbCounter();
+};
+document.getElementById('lb-next').onclick = e => {
+  e.stopPropagation();
+  lbIndex = (lbIndex + 1) % lbImages.length;
+  updateLbCounter();
+};
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowLeft')  { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; updateLbCounter(); }
+  if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; updateLbCounter(); }
+  if (e.key === 'Escape')     { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
+});
+
+// Render posts
+function renderPosts() {
+  const grid  = document.getElementById('posts-grid');
+  const empty = document.getElementById('empty-state');
+  const count = document.getElementById('gallery-count');
+
+  const realPosts = POSTS.filter(p => p.photos && p.photos.length > 0);
+  if (realPosts.length === 0) { empty.style.display = 'block'; return; }
+
+  count.textContent = `${realPosts.length} post${realPosts.length !== 1 ? 's' : ''}`;
+
+  realPosts.forEach((post, pi) => {
+    const card   = document.createElement('div');
+    card.className = 'post-card';
+
+    const multi  = post.photos.length > 1;
+    const clean  = stripHashtags(post.caption || '');
+
+    // Slider HTML
+    let imgsHtml = post.photos.map((src, i) =>
+      `<img src="${src}" alt="photo ${i+1}" class="${i===0?'active':''}" loading="lazy"/>`
+    ).join('');
+
+    let dotsHtml = multi ? `<div class="slide-dots">${post.photos.map((_,i) =>
+      `<div class="dot${i===0?' active':''}"></div>`).join('')}</div>` : '';
+
+    let arrowsHtml = multi
+      ? `<button class="slide-btn prev"><i class="fa fa-chevron-left"></i></button>
+         <button class="slide-btn next"><i class="fa fa-chevron-right"></i></button>`
+      : '';
+
+    let badgeHtml = multi
+      ? `<div class="multi-badge"><i class="fa fa-images"></i>${post.photos.length}</div>` : '';
+
+    card.innerHTML = `
+      <div class="post-slider">
+        ${imgsHtml}
+        ${badgeHtml}
+        ${arrowsHtml}
+        ${dotsHtml}
+        <button class="expand-btn" title="View fullscreen"><i class="fa fa-expand"></i></button>
+      </div>
+      <div class="post-caption">
+        ${post.title ? `<div style="font-family:'Syne',sans-serif;font-weight:700;color:#fff;font-size:0.92rem;margin-bottom:6px">${post.title}</div>` : ''}
+        <div class="caption-text">${clean}</div>
+        ${post.date ? `<div class="caption-date"><i class="fa fa-calendar" style="font-size:0.65rem"></i> ${post.date}</div>` : ''}
+      </div>
+    `;
+
+    // Slider logic
+    let current = 0;
+    const imgs  = card.querySelectorAll('.post-slider img');
+    const dots  = card.querySelectorAll('.dot');
+
+    function goTo(n) {
+      imgs[current].classList.remove('active');
+      dots[current]?.classList.remove('active');
+      current = (n + imgs.length) % imgs.length;
+      imgs[current].classList.add('active');
+      dots[current]?.classList.add('active');
+    }
+
+    card.querySelector('.slide-btn.prev')?.addEventListener('click', e => { e.stopPropagation(); goTo(current - 1); });
+    card.querySelector('.slide-btn.next')?.addEventListener('click', e => { e.stopPropagation(); goTo(current + 1); });
+
+    // Open lightbox on expand or image click
+    const openLb = () => openLightbox(post.photos, current, post.caption || '');
+    card.querySelector('.expand-btn')?.addEventListener('click', e => { e.stopPropagation(); openLb(); });
+    card.querySelector('.post-slider').addEventListener('click', openLb);
+
+    grid.appendChild(card);
+  });
+}
+
+renderPosts();
+</script>
+</body>
+</html>
