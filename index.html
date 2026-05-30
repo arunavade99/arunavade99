@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arunava De — AI/ML Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --sidebar-bg: #0d1117;
+      --sidebar-accent: #00e5a0;
+      --sidebar-accent2: #00b4ff;
+      --sidebar-text: #c9d1d9;
+      --sidebar-muted: #6e7681;
+      --main-bg: #f5f7fa;
+      --main-card: #ffffff;
+      --main-text: #1a1f2e;
+      --main-muted: #6b7280;
+      --main-border: #e5e7eb;
+      --accent: #00c896;
+      --accent2: #0096d6;
+      --tag-bg: #e8faf5;
+      --tag-text: #00966e;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      min-height: 100vh;
+      background: var(--main-bg);
+      color: var(--main-text);
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 280px;
+      min-width: 280px;
+      background: var(--sidebar-bg);
+      color: var(--sidebar-text);
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0; left: 0;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 100;
+      padding: 0 0 32px 0;
+    }
+
+    .sidebar-top {
+      padding: 40px 28px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .avatar-ring {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sidebar-accent), var(--sidebar-accent2));
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .avatar-ring::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sidebar-accent), var(--sidebar-accent2));
+      z-index: -1;
+      opacity: 0.3;
+    }
+    .avatar-initials {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--sidebar-bg);
+    }
+
+    .sidebar-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .sidebar-role {
+      font-size: 0.78rem;
+      color: var(--sidebar-accent);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .sidebar-location {
+      font-size: 0.78rem;
+      color: var(--sidebar-muted);
+      display: flex; align-items: center; gap: 5px;
+    }
+
+    .sidebar-nav {
+      padding: 24px 16px;
+      flex: 1;
+    }
+    .nav-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--sidebar-muted);
+      text-transform: uppercase;
+      padding: 0 12px;
+      margin-bottom: 8px;
+      margin-top: 16px;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: var(--sidebar-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .nav-item:hover, .nav-item.active {
+      background: rgba(0,229,160,0.08);
+      color: var(--sidebar-accent);
+    }
+    .nav-item i { width: 18px; text-align: center; font-size: 0.9rem; }
+
+    .sidebar-contacts {
+      padding: 20px 28px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--sidebar-muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+      padding: 6px 0;
+      transition: color 0.2s;
+    }
+    .contact-link:hover { color: var(--sidebar-accent); }
+    .contact-link i { width: 16px; font-size: 0.85rem; }
+
+    /* ── MAIN ── */
+    .main {
+      margin-left: 280px;
+      flex: 1;
+      padding: 48px 48px 80px;
+      max-width: calc(100% - 280px);
+    }
+
+    /* Section headers */
+    .section { margin-bottom: 56px; opacity: 0; transform: translateY(20px); animation: fadeUp 0.5s forwards; }
+    .section:nth-child(1) { animation-delay: 0.1s; }
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.3s; }
+    .section:nth-child(4) { animation-delay: 0.4s; }
+    .section:nth-child(5) { animation-delay: 0.5s; }
+    .section:nth-child(6) { animation-delay: 0.6s; }
+    .section:nth-child(7) { animation-delay: 0.7s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 24px;
+    }
+    .section-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--main-text);
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--main-border);
+    }
+
+    /* Hero / About */
+    .hero-card {
+      background: var(--main-card);
+      border-radius: 16px;
+      padding: 36px 40px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--main-border);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--main-text);
+      margin-bottom: 6px;
+    }
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 20px;
+      letter-spacing: 0.01em;
+    }
+    .hero-bio {
+      font-size: 0.93rem;
+      line-height: 1.8;
+      color: var(--main-muted);
+      max-width: 680px;
+    }
+    .hero-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 20px;
+    }
+    .hero-tag {
+      background: linear-gradient(135deg, rgba(0,200,150,0.08), rgba(0,150,214,0.08));
+      border: 1px solid rgba(0,200,150,0.2);
+      color: var(--accent);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--main-card);
+      border-radius: 14px;
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--main-border);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+    .cards-grid { display: grid; gap: 16px; }
+    .cards-grid-2 { grid-template-columns: 1fr 1fr; }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .skill-item {
+      background: var(--main-card);
+      border: 1px solid var(--main-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      text-align: center;
+      transition: all 0.2s;
+      box-shadow: var(--shadow);
+    }
+    .skill-item:hover {
+      border-color: var(--accent);
+      background: rgba(0,200,150,0.03);
+      transform: translateY(-2px);
+    }
+    .skill-icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .skill-name { font-size: 0.82rem; font-weight: 600; color: var(--main-text); }
+    .skill-level {
+      font-size: 0.7rem;
+      color: var(--main-muted);
+      margin-top: 4px;
+    }
+
+    /* Timeline / Experience */
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 32px;
+      padding-left: 24px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -24px; top: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 3px rgba(0,200,150,0.2);
+    }
+    .timeline-company {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--main-text);
+    }
+    .timeline-role {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+    .timeline-duration {
+      font-size: 0.76rem;
+      color: var(--main-muted);
+      margin: 4px 0 10px;
+    }
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: var(--main-muted);
+      line-height: 1.7;
+    }
+    .timeline-bullets {
+      list-style: none;
+      margin-top: 8px;
+    }
+    .timeline-bullets li {
+      font-size: 0.83rem;
+      color: var(--main-muted);
+      line-height: 1.7;
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+    .timeline-bullets li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Projects */
+    .project-card {
+      background: var(--main-card);
+      border: 1px solid var(--main-border);
+      border-radius: 14px;
+      padding: 24px 28px;
+      box-shadow: var(--shadow);
+      transition: all 0.2s;
+      border-top: 3px solid transparent;
+    }
+    .project-card:hover {
+      border-top-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .project-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--main-text);
+      margin-bottom: 8px;
+    }
+    .project-desc {
+      font-size: 0.83rem;
+      color: var(--main-muted);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    /* Certifications */
+    .cert-card {
+      display: flex; align-items: center; gap: 18px;
+      background: var(--main-card);
+      border: 1px solid var(--main-border);
+      border-radius: 12px;
+      padding: 18px 24px;
+      box-shadow: var(--shadow);
+      transition: all 0.2s;
+    }
+    .cert-card:hover { border-color: var(--accent); transform: translateX(4px); }
+    .cert-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 1.1rem; flex-shrink: 0;
+    }
+    .cert-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--main-text);
+    }
+    .cert-issuer {
+      font-size: 0.76rem;
+      color: var(--main-muted);
+      margin-top: 3px;
+    }
+
+    /* Achievements */
+    .achievement-card {
+      background: var(--main-card);
+      border: 1px solid var(--main-border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      box-shadow: var(--shadow);
+      display: flex; align-items: flex-start; gap: 16px;
+      transition: all 0.2s;
+    }
+    .achievement-card:hover { border-color: var(--accent2); }
+    .ach-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .ach-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--main-text);
+      margin-bottom: 4px;
+    }
+    .ach-desc {
+      font-size: 0.8rem;
+      color: var(--main-muted);
+      line-height: 1.6;
+    }
+
+    /* Education */
+    .edu-card {
+      background: var(--main-card);
+      border: 1px solid var(--main-border);
+      border-radius: 14px;
+      padding: 24px 28px;
+      box-shadow: var(--shadow);
+      display: flex; gap: 18px; align-items: flex-start;
+      transition: all 0.2s;
+    }
+    .edu-card:hover { border-color: var(--accent2); }
+    .edu-icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      background: linear-gradient(135deg, #0096d6, #00c896);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 1.1rem; flex-shrink: 0;
+    }
+    .edu-degree {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--main-text);
+    }
+    .edu-school { font-size: 0.85rem; color: var(--accent2); font-weight: 500; margin-top: 2px; }
+    .edu-year { font-size: 0.76rem; color: var(--main-muted); margin-top: 4px; }
+
+    /* Stats bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+    .stat-card {
+      background: var(--main-card);
+      border: 1px solid var(--main-border);
+      border-radius: 14px;
+      padding: 22px 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: all 0.2s;
+    }
+    .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label {
+      font-size: 0.76rem;
+      color: var(--main-muted);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* Contact section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px;
+    }
+    .contact-card {
+      background: var(--main-card);
+      border: 1px solid var(--main-border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 14px;
+      transition: all 0.2s;
+      color: var(--main-text);
+    }
+    .contact-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .contact-card-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0; color: #fff;
+    }
+    .contact-card-label { font-size: 0.7rem; color: var(--main-muted); }
+    .contact-card-value { font-size: 0.85rem; font-weight: 600; color: var(--main-text); }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--main-border);
+      font-size: 0.78rem;
+      color: var(--main-muted);
+    }
+
+    /* Scrollbar */
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .sidebar { width: 100%; height: auto; position: relative; min-width: unset; }
+      .main { margin-left: 0; max-width: 100%; padding: 24px; }
+      body { flex-direction: column; }
+      .cards-grid-2 { grid-template-columns: 1fr; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ SIDEBAR ══ -->
+<aside class="sidebar">
+  <div class="sidebar-top">
+    <div class="avatar-ring">
+      <span class="avatar-initials">AD</span>
+    </div>
+    <div class="sidebar-name">Arunava De</div>
+    <div class="sidebar-role">AI/ML Engineer · Computer Vision</div>
+    <div class="sidebar-location"><i class="fa fa-location-dot"></i> Kolkata, West Bengal, India</div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-label">Navigation</div>
+    <a class="nav-item active" href="#about"><i class="fa fa-user"></i> About</a>
+    <a class="nav-item" href="#skills"><i class="fa fa-code"></i> Skills</a>
+    <a class="nav-item" href="#experience"><i class="fa fa-briefcase"></i> Experience</a>
+    <a class="nav-item" href="#projects"><i class="fa fa-diagram-project"></i> Projects</a>
+    <a class="nav-item" href="#education"><i class="fa fa-graduation-cap"></i> Education</a>
+    <a class="nav-item" href="#certifications"><i class="fa fa-certificate"></i> Certifications</a>
+    <a class="nav-item" href="#achievements"><i class="fa fa-trophy"></i> Achievements</a>
+    <a class="nav-item" href="#contact"><i class="fa fa-envelope"></i> Contact</a>
+  </nav>
+
+  <div class="sidebar-contacts">
+    <a class="contact-link" href="mailto:arunava_de@outlook.com"><i class="fa fa-envelope"></i> arunava_de@outlook.com</a>
+    <a class="contact-link" href="https://linkedin.com/in/arunavade99" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/arunavade99</a>
+    <a class="contact-link" href="https://github.com/arunavade99" target="_blank"><i class="fab fa-github"></i> github.com/arunavade99</a>
+  </div>
+</aside>
+
+<!-- ══ MAIN CONTENT ══ -->
+<main class="main">
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-num">3+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">15K+</div>
+      <div class="stat-label">Images Annotated</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">6</div>
+      <div class="stat-label">PPE Classes Trained</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Certifications</div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="section-header">
+      <div class="section-icon"><i class="fa fa-user"></i></div>
+      <div class="section-title">About Me</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-title">Arunava De</div>
+      <div class="hero-subtitle">L2A Software Engineer-I (AI/ML) · Computer Vision Engineer</div>
+      <div class="hero-bio">
+        Computer Vision Engineer with 3+ years of hands-on experience building real-world AI systems. I design and deploy scalable computer vision solutions for object tracking, face recognition, and real-time video analytics. Currently expanding expertise in AWS and cloud-based ML deployment to build scalable intelligent systems. I take projects from <strong>concept → deployment</strong> with a strong focus on performance optimization and reliability.
+      </div>
+      <div class="hero-tags">
+        <span class="hero-tag">Computer Vision</span>
+        <span class="hero-tag">Real-Time Video Analytics</span>
+        <span class="hero-tag">Deep Learning</span>
+        <span class="hero-tag">Object Tracking</span>
+        <span class="hero-tag">Face Recognition</span>
+        <span class="hero-tag">AWS ML Deployment</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section" id="skills">
+    <div class="section-header">
+      <div class="section-icon"><i class="fa fa-code"></i></div>
+      <div class="section-title">Skills & Technologies</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-item"><div class="skill-icon">🐍</div><div class="skill-name">Python</div><div class="skill-level">Expert</div></div>
+      <div class="skill-item"><div class="skill-icon">👁️</div><div class="skill-name">OpenCV</div><div class="skill-level">Expert</div></div>
+      <div class="skill-item"><div class="skill-icon">🔥</div><div class="skill-name">PyTorch</div><div class="skill-level">Advanced</div></div>
+      <div class="skill-item"><div class="skill-icon">🎯</div><div class="skill-name">YOLOv8 / YOLO11</div><div class="skill-level">Advanced</div></div>
+      <div class="skill-item"><div class="skill-icon">🧠</div><div class="skill-name">InsightFace</div><div class="skill-level">Advanced</div></div>
+      <div class="skill-item"><div class="skill-icon">🚀</div><div class="skill-name">DeepSORT</div><div class="skill-level">Advanced</div></div>
+      <div class="skill-item"><div class="skill-icon">🌐</div><div class="skill-name">Flask</div><div class="skill-level">Intermediate</div></div>
+      <div class="skill-item"><div class="skill-icon">☁️</div><div class="skill-name">Amazon Bedrock</div><div class="skill-level">Intermediate</div></div>
+      <div class="skill-item"><div class="skill-icon">🔢</div><div class="skill-name">ANPR</div><div class="skill-level">Advanced</div></div>
+      <div class="skill-item"><div class="skill-icon">🍓</div><div class="skill-name">Raspberry Pi</div><div class="skill-level">Intermediate</div></div>
+      <div class="skill-item"><div class="skill-icon">🛡️</div><div class="skill-name">PPE Detection</div><div class="skill-level">Expert</div></div>
+      <div class="skill-item"><div class="skill-icon">📊</div><div class="skill-name">ML Pipelines</div><div class="skill-level">Advanced</div></div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section" id="experience">
+    <div class="section-header">
+      <div class="section-icon"><i class="fa fa-briefcase"></i></div>
+      <div class="section-title">Experience</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-company">Adamas Tech Consulting</div>
+        <div class="timeline-role">L2A Software Engineer-I (AI/ML)</div>
+        <div class="timeline-duration"><i class="fa fa-calendar" style="font-size:0.7rem"></i> February 2026 – Present · Kolkata</div>
+        <div class="timeline-desc">Currently working on AI/ML engineering projects with a focus on intelligent systems and scalable pipelines.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-company">Xiphos Technology Solutions Pvt. Ltd.</div>
+        <div class="timeline-role">Junior Developer (AI/ML)</div>
+        <div class="timeline-duration"><i class="fa fa-calendar" style="font-size:0.7rem"></i> March 2023 – January 2026 · 2 yrs 11 months</div>
+        <ul class="timeline-bullets">
+          <li>Developed industrial safety AI systems upgrading YOLOv3 → YOLOv8, improving detection accuracy and inference performance</li>
+          <li>Created and annotated 15,000+ images across 6 PPE classes, significantly improving model robustness</li>
+          <li>Designed real-time alert mechanisms for PPE violations, enabling proactive safety enforcement</li>
+          <li>Deployed models in live industrial environments with real-time camera feeds</li>
+          <li>Built OpenCV-based molten metal detection using color-space analysis</li>
+          <li>Designed IoT-integrated AI system using Raspberry Pi + PIR sensors for wildlife (elephant) detection</li>
+          <li>Reduced false alerts by filtering irrelevant motion events; enabled real-time field alerting</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-company">Xiphos Technology Solutions Pvt. Ltd.</div>
+        <div class="timeline-role">Intern</div>
+        <div class="timeline-duration"><i class="fa fa-calendar" style="font-size:0.7rem"></i> September 2022 – March 2023 · 7 months · Kolkata</div>
+        <div class="timeline-desc">Started my professional AI journey — learned the fundamentals of computer vision and real-world deployment.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background: var(--accent2)"></div>
+        <div class="timeline-company">Self-Employed</div>
+        <div class="timeline-role">Photographer</div>
+        <div class="timeline-duration"><i class="fa fa-calendar" style="font-size:0.7rem"></i> January 2022 – February 2023 · 1 yr 2 months</div>
+        <div class="timeline-desc">Freelance photography — developed a sharp eye for visual composition and attention to detail, skills that naturally translate into computer vision work.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="section-header">
+      <div class="section-icon"><i class="fa fa-diagram-project"></i></div>
+      <div class="section-title">Projects</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="cards-grid cards-grid-2">
+
+      <div class="project-card">
+        <div class="project-title">🧑‍💼 AI-based Attendance System</div>
+        <div class="project-desc">Built an attendance system using FaceNet to recognize employees by name and ID, with real-time tracking of daily in/out times. Automated the attendance process to improve accuracy and reduce manual effort.</div>
+        <div class="project-tags">
+          <span class="tag">FaceNet</span><span class="tag">Face Recognition</span><span class="tag">Python</span><span class="tag">Real-Time</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">🚗 Vehicle Speed Detection</div>
+        <div class="project-desc">YOLOv8-based computer vision system to detect and count vehicles using virtual lines and estimate their speed. Also implemented a people-count tracker to monitor room occupancy.</div>
+        <div class="project-tags">
+          <span class="tag">YOLOv8</span><span class="tag">Speed Estimation</span><span class="tag">Object Tracking</span><span class="tag">OpenCV</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">🦺 PPE Compliance Detection</div>
+        <div class="project-desc">Industrial safety AI system detecting PPE violations in real-time from live camera feeds. Upgraded from YOLOv3 → YOLOv8 with 15K+ custom annotated images across 6 PPE classes.</div>
+        <div class="project-tags">
+          <span class="tag">YOLOv8</span><span class="tag">Safety AI</span><span class="tag">Real-Time</span><span class="tag">Industrial</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">🐘 Wildlife Elephant Detection (IoT)</div>
+        <div class="project-desc">IoT-integrated AI pipeline using Raspberry Pi + PIR sensors for motion-triggered elephant detection in the field. Reduced false alerts and enabled real-time alerting for field deployment.</div>
+        <div class="project-tags">
+          <span class="tag">Raspberry Pi</span><span class="tag">IoT</span><span class="tag">PIR Sensor</span><span class="tag">Wildlife AI</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section" id="education">
+    <div class="section-header">
+      <div class="section-icon"><i class="fa fa-graduation-cap"></i></div>
+      <div class="section-title">Education</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="cards-grid">
+      <div class="edu-card">
+        <div class="edu-icon"><i class="fa fa-university"></i></div>
+        <div>
+          <div class="edu-degree">Bachelor of Technology — Computer Science</div>
+          <div class="edu-school">Bengal Institute of Technology</div>
+          <div class="edu-year">August 2018 – July 2022</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon"><i class="fa fa-school"></i></div>
+        <div>
+          <div class="edu-degree">Higher Secondary — Pure Science</div>
+          <div class="edu-school">Sonamukhi B.J. High School</div>
+          <div class="edu-year">March 2016 – April 2018</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="section" id="certifications">
+    <div class="section-header">
+      <div class="section-icon"><i class="fa fa-certificate"></i></div>
+      <div class="section-title">Certifications</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="cards-grid">
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa fa-fire"></i></div>
+        <div>
+          <div class="cert-name">PyTorch Bootcamp</div>
+          <div class="cert-issuer">Deep Learning · PyTorch Framework</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa fa-eye"></i></div>
+        <div>
+          <div class="cert-name">OpenCV Bootcamp</div>
+          <div class="cert-issuer">Computer Vision · OpenCV</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa fa-chart-line"></i></div>
+        <div>
+          <div class="cert-name">Python for Data Science</div>
+          <div class="cert-issuer">Data Science · Python</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa fa-crosshairs"></i></div>
+        <div>
+          <div class="cert-name">YOLOv8 & YOLO11: Custom Object Detection & Web Apps 2025</div>
+          <div class="cert-issuer">Object Detection · YOLO · Web Deployment</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section class="section" id="achievements">
+    <div class="section-header">
+      <div class="section-icon"><i class="fa fa-trophy"></i></div>
+      <div class="section-title">Achievements</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="cards-grid cards-grid-2">
+      <div class="achievement-card">
+        <div class="ach-icon">🏭</div>
+        <div>
+          <div class="ach-title">Live Industrial AI Deployment</div>
+          <div class="ach-desc">Successfully deployed real-time PPE compliance AI in live industrial environments — a production-grade achievement with direct safety impact.</div>
+        </div>
+      </div>
+      <div class="achievement-card">
+        <div class="ach-icon">🖼️</div>
+        <div>
+          <div class="ach-title">15,000+ Image Dataset Built</div>
+          <div class="ach-desc">Single-handedly created and annotated a 15,000+ image dataset across 6 PPE classes, significantly boosting model robustness.</div>
+        </div>
+      </div>
+      <div class="achievement-card">
+        <div class="ach-icon">🐘</div>
+        <div>
+          <div class="ach-title">Field-Deployed Wildlife AI</div>
+          <div class="ach-desc">Built and deployed an IoT + AI elephant detection system in real field conditions — bridging edge computing and wildlife conservation.</div>
+        </div>
+      </div>
+      <div class="achievement-card">
+        <div class="ach-icon">⚡</div>
+        <div>
+          <div class="ach-title">YOLOv3 → YOLOv8 Upgrade</div>
+          <div class="ach-desc">Led model architecture upgrade from YOLOv3 to YOLOv8, delivering measurable improvements in detection accuracy and inference speed.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="section-header">
+      <div class="section-icon"><i class="fa fa-envelope"></i></div>
+      <div class="section-title">Contact</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:arunava_de@outlook.com">
+        <div class="contact-card-icon" style="background: linear-gradient(135deg,#0078d4,#00bcf2)"><i class="fa fa-envelope"></i></div>
+        <div>
+          <div class="contact-card-label">Email</div>
+          <div class="contact-card-value">arunava_de@outlook.com</div>
+        </div>
+      </a>
+      <a class="contact-card" href="https://linkedin.com/in/arunavade99" target="_blank">
+        <div class="contact-card-icon" style="background: linear-gradient(135deg,#0077b5,#00a0dc)"><i class="fab fa-linkedin"></i></div>
+        <div>
+          <div class="contact-card-label">LinkedIn</div>
+          <div class="contact-card-value">arunavade99</div>
+        </div>
+      </a>
+      <a class="contact-card" href="https://github.com/arunavade99" target="_blank">
+        <div class="contact-card-icon" style="background: linear-gradient(135deg,#24292e,#586069)"><i class="fab fa-github"></i></div>
+        <div>
+          <div class="contact-card-label">GitHub</div>
+          <div class="contact-card-value">arunavade99</div>
+        </div>
+      </a>
+      <a class="contact-card" href="https://www.instagram.com/arunava_de_official" target="_blank">
+        <div class="contact-card-icon" style="background: linear-gradient(135deg,#e4405f,#ff6768)"><i class="fab fa-instagram"></i></div>
+        <div>
+          <div class="contact-card-label">Instagram</div>
+          <div class="contact-card-value">@arunava_de_official</div>
+        </div>
+      </a>
+      <div class="contact-card" style="cursor:default">
+        <div class="contact-card-icon" style="background: linear-gradient(135deg,#00c896,#0096d6)"><i class="fa fa-location-dot"></i></div>
+        <div>
+          <div class="contact-card-label">Location</div>
+          <div class="contact-card-value">Kolkata, West Bengal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">Built with ❤️ by Arunava De · <a href="https://github.com/arunavade99" style="color:var(--accent);text-decoration:none">github.com/arunavade99</a></div>
+
+</main>
+
+<script>
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navItems = document.querySelectorAll('.nav-item');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navItems.forEach(n => {
+      n.classList.toggle('active', n.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+</body>
+</html>
