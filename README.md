@@ -18,12 +18,12 @@
 
 ## 🧠 About Me
 
-Computer Vision Engineer with **3+ years** of hands-on experience building real-world AI systems. I design and deploy scalable solutions for **object tracking**, **face recognition**, and **real-time video analytics**.
+Computer Vision and AI/ML Engineer with **3+ years** of hands-on experience building real-world AI systems. I design and deploy scalable solutions for **object detection**, **multi-object tracking**, **face recognition**, and **real-time video analytics** — taking projects from concept to production.
 
-- 🏭 Deployed live AI in industrial environments (PPE compliance, molten metal detection)
-- 🐘 Built IoT-integrated wildlife detection systems (Raspberry Pi + PIR sensors)
-- 🚗 Developed vehicle speed detection & people counting systems
-- 🧑‍💼 Built face recognition-based attendance systems using FaceNet
+- 🏭 Deployed production-grade AI in live industrial environments (PPE compliance, molten metal detection)
+- 🚘 Built ANPR systems using RF-DeTR + LLM-powered OCR (Gemini Flash Pro)
+- 🧑‍💼 Built face recognition attendance & real-time people counting systems
+- 🔩 Developed AI-based hand measurement for jewelry size recommendation
 - ☁️ Currently expanding in **AWS** and cloud-based ML deployment
 
 ---
@@ -32,12 +32,12 @@ Computer Vision Engineer with **3+ years** of hands-on experience building real-
 
 | Domain | Tools |
 |--------|-------|
-| **Languages** | Python |
-| **Computer Vision** | OpenCV, InsightFace, DeepSORT, ANPR |
-| **Deep Learning** | PyTorch, YOLOv8, YOLO11, FaceNet |
-| **Web / API** | Flask |
-| **Cloud / AI** | Amazon Bedrock, AWS |
-| **Hardware / IoT** | Raspberry Pi, PIR Sensors |
+| **Computer Vision** | OpenCV, YOLOv8, YOLO11, InsightFace, FaceNet, MediaPipe, DeepSORT, RF-DeTR, Supervision |
+| **Deep Learning** | PyTorch, CNNs, Transfer Learning, Object Tracking, Image Classification |
+| **OCR & Multimodal** | Gemini Flash Pro, EasyOCR, Mobile SAM, ANPR |
+| **Languages & Web** | Python, Flask, Django, SQL |
+| **Data & Cloud** | AWS (in progress), Amazon Bedrock, Pandas, MySQL, Power BI, Git |
+| **Hardware / IoT** | Raspberry Pi, PIR Sensors, Embedded AI |
 
 ---
 
@@ -46,55 +46,58 @@ Computer Vision Engineer with **3+ years** of hands-on experience building real-
 **L2A Software Engineer-I (AI/ML)** — *Adamas Tech Consulting*
 `Feb 2026 – Present` · Kolkata
 
-**Junior Developer (AI/ML)** — *Xiphos Technology Solutions Pvt. Ltd.*
-`Mar 2023 – Jan 2026` · 2 yrs 11 months
-- Upgraded PPE detection system YOLOv3 → YOLOv8
-- Annotated 15,000+ images across 6 PPE classes
-- Built molten metal detection with OpenCV color-space analysis
-- Deployed IoT + AI wildlife detection (elephant) in the field
+- AI-based jewelry hand measurement system (MediaPipe + Mobile SAM)
+- Real-time face recognition attendance & people counting (InsightFace, YOLOv8)
+- ANPR system with RF-DeTR detection + Gemini Flash Pro OCR
+
+**Junior Developer (Computer Vision / AI)** — *Xiphos Technology Solutions Pvt. Ltd.*
+`Mar 2023 – Jan 2026` · Kolkata
+
+- Upgraded PPE detection pipeline YOLOv3 → YOLOv8; annotated 15,000+ images across 6 PPE classes
+- Built OpenCV-based molten metal detection with event-triggered AI safety pipeline
+- Deployed models in live industrial environments with real-time camera feeds
 
 **Intern** — *Xiphos Technology Solutions Pvt. Ltd.*
 `Sep 2022 – Mar 2023` · Kolkata
 
 ---
 
-## 🚀 Featured Projects
+## 🚀 Personal Featured Projects
 
 | Project | Description | Tech |
 |---------|-------------|------|
-| 🧑‍💼 **AI Attendance System** | FaceNet-based employee recognition with in/out tracking | FaceNet, Python |
-| 🚗 **Vehicle Speed Detection** | YOLOv8 speed estimation + people counter | YOLOv8, OpenCV |
-| 🦺 **PPE Compliance AI** | Real-time industrial safety detection from live feeds | YOLOv8, OpenCV |
-| 🐘 **Wildlife Elephant Detection** | IoT motion-triggered AI pipeline for field deployment | Raspberry Pi, PIR |
+| 🧑‍💼 **AI Attendance System** | FaceNet-based employee recognition with in/out tracking | FaceNet, OpenCV, Python |
+| 🚗 **Vehicle Speed Detection** | YOLOv8 speed estimation via virtual lines + people counter | YOLOv8, OpenCV |
 
 ---
 
 ## 🎓 Education
 
-**B.Tech — Computer Science** · Bengal Institute of Technology `2018–2022`
+**B.Tech — Computer Science & Engineering** · Bengal Institute of Technology, MAKAUT University
+`2018 – 2022` · CGPA: 8.83 / 10
 
 ---
 
 ## 📜 Certifications
 
+- 🎯 YOLOv8 & YOLO11: Custom Object Detection & Web Apps (2025)
 - 🔥 PyTorch Bootcamp
 - 👁️ OpenCV Bootcamp
 - 📊 Python for Data Science
-- 🎯 YOLOv8 & YOLO11: Custom Object Detection & Web Apps 2025
 
 ---
 
-## 🏆 Achievements
+## 💡 Work Highlights
 
-- ✅ Deployed production-grade AI in live industrial environments
-- 🖼️ Built & annotated 15,000+ image dataset from scratch
-- 🐘 Field-deployed IoT + AI wildlife detection system
-- ⚡ Led YOLOv3 → YOLOv8 architecture upgrade with measurable accuracy gains
+- 🏭 Deployed production-grade PPE compliance AI in live industrial environments
+- 🖼️ Built & annotated a 15,000+ image dataset from scratch across 6 classes
+- ⚡ Led YOLOv3 → YOLOv8 architecture upgrade with measurable accuracy and speed gains
+- 🚘 Replaced traditional OCR with Gemini Flash Pro for ANPR, significantly improving real-time accuracy
 
 ---
 
 <div align="center">
 
-🌐 **[View My Full Portfolio Dashboard →](https://arunavade99.github.io/arunavade99/)**
+🌐 **[View My Full Portfolio →](https://arunavade99.github.io/arunavade99/)**
 
 </div>
