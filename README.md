@@ -20,7 +20,8 @@
 
 Computer Vision and AI/ML Engineer with **3+ years** of hands-on experience building real-world AI systems. I design and deploy scalable solutions for **object detection**, **multi-object tracking**, **face recognition**, and **real-time video analytics** — taking projects from concept to production.
 
-- 🏭 Deployed production-grade AI in live industrial environments (PPE compliance, molten metal detection)
+- 🏭 Building a pose-estimation-based worker & machine productivity monitoring system (YOLO-Pose + Flask dashboard)
+- 🏗️ Deployed production-grade AI in live industrial environments (PPE compliance, molten metal detection)
 - 🚘 Built ANPR systems using RF-DeTR + LLM-powered OCR (Gemini Flash Pro)
 - 🧑‍💼 Built face recognition attendance & real-time people counting systems
 - 🔩 Developed AI-based hand measurement for jewelry size recommendation
@@ -32,7 +33,7 @@ Computer Vision and AI/ML Engineer with **3+ years** of hands-on experience buil
 
 | Domain | Tools |
 |--------|-------|
-| **Computer Vision** | OpenCV, YOLOv8, YOLO11, InsightFace, FaceNet, MediaPipe, DeepSORT, RF-DeTR, Supervision |
+| **Computer Vision** | OpenCV, YOLOv8, YOLO11, YOLO-Pose, InsightFace, FaceNet, MediaPipe, DeepSORT, RF-DeTR, Supervision |
 | **Deep Learning** | PyTorch, CNNs, Transfer Learning, Object Tracking, Image Classification |
 | **OCR & Multimodal** | Gemini Flash Pro, EasyOCR, Mobile SAM, ANPR |
 | **Languages & Web** | Python, Flask, Django, SQL |
@@ -46,6 +47,7 @@ Computer Vision and AI/ML Engineer with **3+ years** of hands-on experience buil
 **L2A Software Engineer-I (AI/ML)** — *Adamas Tech Consulting*
 `Feb 2026 – Present` · Kolkata
 
+- AI-based worker & machine productivity monitoring system (YOLO-Pose, Flask dashboard)
 - AI-based jewelry hand measurement system (MediaPipe + Mobile SAM)
 - Real-time face recognition attendance & people counting (InsightFace, YOLOv8)
 - ANPR system with RF-DeTR detection + Gemini Flash Pro OCR
