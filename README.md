@@ -1,6 +1,6 @@
 <div align="center">
 
-# 👋 Hi, I'm Arunava De
+# Arunava De
 
 ### AI/ML Engineer · Computer Vision · Real-Time Video Analytics
 
@@ -10,47 +10,47 @@
 [![Email](https://img.shields.io/badge/Email-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white)](mailto:arunava_de@outlook.com)
 [![Portfolio](https://img.shields.io/badge/Portfolio-00C896?style=for-the-badge&logo=googlechrome&logoColor=white)](https://arunavade99.github.io/arunavade99/)
 
-📍 Kolkata, West Bengal, India
+Kolkata, West Bengal, India
 
 </div>
 
 ---
 
-## 🧠 About Me
+## About Me
 
 Computer Vision and AI/ML Engineer with **3+ years** of hands-on experience building real-world AI systems. I design and deploy scalable solutions for **object detection**, **multi-object tracking**, **face recognition**, and **real-time video analytics** — taking projects from concept to production.
 
-- 🏭 Building a pose-estimation-based worker & machine productivity monitoring system (YOLO-Pose + Flask dashboard)
-- 🏗️ Deployed production-grade AI in live industrial environments (PPE compliance, molten metal detection)
-- 🚘 Built ANPR systems using RF-DeTR + LLM-powered OCR (Gemini Flash Pro)
-- 🧑‍💼 Built face recognition attendance & real-time people counting systems
-- 🔩 Developed AI-based hand measurement for jewelry size recommendation
-- ☁️ Currently expanding in **AWS** and cloud-based ML deployment
+- Building a pose-estimation-based worker & machine productivity monitoring system (YOLO-Pose + Flask dashboard)
+- Deployed production-grade AI in live industrial environments (PPE compliance, molten metal detection)
+- Built ANPR systems using RF-DeTR detection, benchmarking EasyOCR, Amazon Textract, and Gemini Flash Pro as OCR backends
+- Built face recognition attendance & real-time people counting systems
+- Developed AI-based hand measurement for jewelry size recommendation
+- Expanding into AWS and cloud-based ML deployment, with hands-on experience in Amazon Bedrock and preparation underway for the AWS Certified AI Practitioner certification
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Domain | Tools |
 |--------|-------|
-| **Computer Vision** | OpenCV, YOLOv8, YOLO11, YOLO-Pose, InsightFace, FaceNet, MediaPipe, DeepSORT, RF-DeTR, Supervision |
-| **Deep Learning** | PyTorch, CNNs, Transfer Learning, Object Tracking, Image Classification |
-| **OCR & Multimodal** | Gemini Flash Pro, EasyOCR, Mobile SAM, ANPR |
+| **Computer Vision** | OpenCV, YOLOv8, YOLO26, YOLO-Pose, InsightFace, FaceNet, MediaPipe, DeepSORT, RF-DeTR, Supervision |
+| **Deep Learning** | PyTorch, CNNs, Transfer Learning, Object Detection & Tracking, Image Classification |
+| **OCR & Multimodal** | Gemini Flash Pro, EasyOCR, Amazon Textract, Mobile SAM, ANPR |
 | **Languages & Web** | Python, Flask, Django, SQL |
 | **Data & Cloud** | AWS (in progress), Amazon Bedrock, Pandas, MySQL, Power BI, Git |
 | **Hardware / IoT** | Raspberry Pi, PIR Sensors, Embedded AI |
 
 ---
 
-## 💼 Experience
+## Experience
 
-**L2A Software Engineer-I (AI/ML)** — *Adamas Tech Consulting*
+**L2A Software Engineer-I (AI/ML)** — *Adamas Tech Consulting Pvt. Ltd.*
 `Feb 2026 – Present` · Kolkata
 
 - AI-based worker & machine productivity monitoring system (YOLO-Pose, Flask dashboard)
 - AI-based jewelry hand measurement system (MediaPipe + Mobile SAM)
 - Real-time face recognition attendance & people counting (InsightFace, YOLOv8)
-- ANPR system with RF-DeTR detection + Gemini Flash Pro OCR
+- ANPR system with RF-DeTR detection, benchmarking EasyOCR, Amazon Textract, and Gemini Flash Pro for OCR
 
 **Junior Developer (Computer Vision / AI)** — *Xiphos Technology Solutions Pvt. Ltd.*
 `Mar 2023 – Jan 2026` · Kolkata
@@ -64,42 +64,42 @@ Computer Vision and AI/ML Engineer with **3+ years** of hands-on experience buil
 
 ---
 
-## 🚀 Personal Featured Projects
+## Personal Featured Projects
 
 | Project | Description | Tech |
 |---------|-------------|------|
-| 🧑‍💼 **AI Attendance System** | FaceNet-based employee recognition with in/out tracking | FaceNet, OpenCV, Python |
-| 🚗 **Vehicle Speed Detection** | YOLOv8 speed estimation via virtual lines + people counter | YOLOv8, OpenCV |
+| **AI Attendance System** | FaceNet-based employee recognition with in/out tracking | FaceNet, OpenCV, Python |
+| **Vehicle Speed Detection** | YOLOv8 speed estimation via virtual lines + people counter | YOLOv8, OpenCV |
 
 ---
 
-## 🎓 Education
+## Education
 
-**B.Tech — Computer Science & Engineering** · Bengal Institute of Technology, MAKAUT University
+**B.Tech — Computer Science & Engineering** · Bengal Institute of Technology (TIG), MAKAUT
 `2018 – 2022` · CGPA: 8.83 / 10
 
 ---
 
-## 📜 Certifications
+## Certifications
 
-- 🎯 YOLOv8 & YOLO11: Custom Object Detection & Web Apps (2025)
-- 🔥 PyTorch Bootcamp
-- 👁️ OpenCV Bootcamp
-- 📊 Python for Data Science
+- YOLOv8 & YOLO11: Custom Object Detection & Web Apps (2025)
+- PyTorch Bootcamp
+- OpenCV Bootcamp
+- Python for Data Science
 
 ---
 
-## 💡 Work Highlights
+## Work Highlights
 
-- 🏭 Deployed production-grade PPE compliance AI in live industrial environments
-- 🖼️ Built & annotated a 15,000+ image dataset from scratch across 6 classes
-- ⚡ Led YOLOv3 → YOLOv8 architecture upgrade with measurable accuracy and speed gains
-- 🚘 Replaced traditional OCR with Gemini Flash Pro for ANPR, significantly improving real-time accuracy
+- Deployed production-grade PPE compliance AI in live industrial environments
+- Built & annotated a 15,000+ image dataset from scratch across 6 classes
+- Led YOLOv3 → YOLOv8 architecture upgrade with measurable accuracy and speed gains
+- Benchmarked EasyOCR, Amazon Textract, and Gemini Flash Pro for ANPR, identifying significant read-accuracy improvements
 
 ---
 
 <div align="center">
 
-🌐 **[View My Full Portfolio →](https://arunavade99.github.io/arunavade99/)**
+**[View My Full Portfolio →](https://arunavade99.github.io/arunavade99/)**
 
 </div>
