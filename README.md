@@ -4,11 +4,11 @@
 
 ### AI/ML Engineer · Computer Vision · Real-Time Video Analytics
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/arunavade99)
-[![GitHub](https://img.shields.io/badge/GitHub-24292e?style=for-the-badge&logo=github&logoColor=white)](https://github.com/arunavade99)
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/arunava_de_official)
-[![Email](https://img.shields.io/badge/Email-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white)](mailto:arunava_de@outlook.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-00C896?style=for-the-badge&logo=googlechrome&logoColor=white)](https://arunavade99.github.io/arunavade99/)
+<a href="https://linkedin.com/in/arunavade99" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+<a href="https://github.com/arunavade99" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-24292e?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
+<a href="https://arunavade99.github.io/arunavade99/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Portfolio-00C896?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio"/></a>
+<a href="mailto:arunava_de@outlook.com" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Email-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white" alt="Email"/></a>
+<a href="https://www.instagram.com/arunava_de_official" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"/></a>
 
 Kolkata, West Bengal, India
 
@@ -100,6 +100,6 @@ Computer Vision and AI/ML Engineer with **3+ years** of hands-on experience buil
 
 <div align="center">
 
-**[View My Full Portfolio →](https://arunavade99.github.io/arunavade99/)**
+**<a href="https://arunavade99.github.io/arunavade99/" target="_blank" rel="noopener noreferrer">View My Full Portfolio →</a>**
 
 </div>
