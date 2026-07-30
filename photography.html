@@ -113,9 +113,9 @@
       line-height: 1.7;
     }
 
-    /* ── GALLERY GRID ── */
+    /* ── INSTAGRAM GRID ── */
     .gallery-container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 32px 80px;
     }
@@ -129,203 +129,47 @@
 
     .posts-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(328px, 1fr));
+      gap: 28px;
+      justify-items: center;
     }
 
-    .post-card {
+    /* Each Instagram embed wrapper */
+    .ig-embed-wrapper {
+      width: 100%;
+      max-width: 450px;
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 16px;
       overflow: hidden;
-      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
-    .post-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(0,229,160,0.3);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-    }
-
-    .post-slider {
-      position: relative;
-      aspect-ratio: 1/1;
-      background: #0a0d12;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .post-slider img {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-    }
-    .post-slider img.active { opacity: 1; }
-
-    .slide-btn {
-      position: absolute;
-      top: 50%; transform: translateY(-50%);
-      background: rgba(0,0,0,0.55);
-      border: none; color: #fff;
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      font-size: 0.75rem;
-      cursor: pointer;
-      z-index: 5;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s;
-      opacity: 0;
-    }
-    .post-slider:hover .slide-btn { opacity: 1; }
-    .slide-btn:hover { background: rgba(0,229,160,0.7); }
-    .slide-btn.prev { left: 10px; }
-    .slide-btn.next { right: 10px; }
-
-    .slide-dots {
-      position: absolute;
-      bottom: 10px; left: 0; right: 0;
-      display: flex; justify-content: center; gap: 5px;
-    }
-    .dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.35);
-      transition: background 0.2s, transform 0.2s;
-    }
-    .dot.active { background: var(--accent); transform: scale(1.3); }
-
-    .multi-badge {
-      position: absolute;
-      top: 10px; right: 10px;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      font-size: 0.7rem;
-      padding: 3px 9px;
-      border-radius: 10px;
-      display: flex; align-items: center; gap: 4px;
-      z-index: 5;
+    .ig-embed-wrapper:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0,229,160,0.35);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.45);
     }
 
-    .expand-btn {
-      position: absolute;
-      bottom: 10px; right: 10px;
-      background: rgba(0,0,0,0.55);
-      border: none; color: #fff;
-      width: 30px; height: 30px;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      cursor: pointer;
-      z-index: 5;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s;
-      opacity: 0;
-    }
-    .post-slider:hover .expand-btn { opacity: 1; }
-    .expand-btn:hover { background: rgba(0,180,255,0.7); }
-
-    .post-caption {
-      padding: 16px 18px;
-    }
-    .caption-text {
-      font-size: 0.83rem;
-      color: var(--text);
-      line-height: 1.7;
-      white-space: pre-wrap;
-    }
-    .caption-text a {
-      color: var(--accent2);
-      text-decoration: none;
-      word-break: break-all;
-    }
-    .caption-text a:hover {
-      text-decoration: underline;
-    }
-    .caption-date {
-      font-size: 0.72rem;
-      color: var(--muted);
-      margin-top: 8px;
-    }
-
-    /* ── LIGHTBOX ── */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.93);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-    .lightbox.open { display: flex; }
-
-    .lightbox-img-wrap {
-      position: relative;
-      max-width: 88vw;
-      max-height: 78vh;
+    /* Embed loading shimmer */
+    .ig-embed-wrapper .embed-loading {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-    }
-    .lightbox-img-wrap img {
-      max-width: 88vw;
-      max-height: 78vh;
-      border-radius: 10px;
-      object-fit: contain;
-      box-shadow: 0 0 80px rgba(0,0,0,0.8);
-    }
-    .lb-btn {
-      position: absolute;
-      top: 50%; transform: translateY(-50%);
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #fff;
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      font-size: 1rem;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s;
-    }
-    .lb-btn:hover { background: var(--accent); color: #000; }
-    .lb-btn.prev { left: -56px; }
-    .lb-btn.next { right: -56px; }
-    .lb-close {
-      position: fixed;
-      top: 20px; right: 24px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #fff;
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      font-size: 1rem;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s;
-    }
-    .lb-close:hover { background: #e74c3c; }
-
-    .lb-caption {
-      max-width: 600px;
-      text-align: center;
-      margin-top: 20px;
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.6;
-      padding: 0 24px;
-    }
-    .lb-caption a {
-      color: var(--accent2);
-      text-decoration: none;
-      word-break: break-all;
-    }
-    .lb-caption a:hover { text-decoration: underline; }
-    .lb-counter {
-      font-size: 0.75rem;
+      gap: 12px;
+      padding: 40px 24px;
       color: var(--muted);
-      margin-top: 8px;
+      font-size: 0.82rem;
+      min-height: 200px;
+    }
+    .ig-embed-wrapper .embed-loading i {
+      font-size: 2rem;
+      color: #e1306c;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.9); }
     }
 
     /* ── EMPTY STATE ── */
@@ -347,12 +191,11 @@
     }
     .footer a { color: var(--accent); text-decoration: none; }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       .topbar { padding: 14px 20px; }
       .gallery-container { padding: 0 16px 60px; }
       .hero-title { font-size: 2rem; }
-      .lb-btn.prev { left: -40px; }
-      .lb-btn.next { right: -40px; }
+      .posts-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -391,17 +234,7 @@
   </div>
 </div>
 
-<!-- ── LIGHTBOX ── -->
-<div class="lightbox" id="lightbox">
-  <button class="lb-close" id="lb-close"><i class="fa fa-times"></i></button>
-  <div class="lightbox-img-wrap">
-    <button class="lb-btn prev" id="lb-prev"><i class="fa fa-chevron-left"></i></button>
-    <img id="lb-img" src="" alt=""/>
-    <button class="lb-btn next" id="lb-next"><i class="fa fa-chevron-right"></i></button>
-  </div>
-  <div class="lb-caption" id="lb-caption"></div>
-  <div class="lb-counter" id="lb-counter"></div>
-</div>
+
 
 <footer class="footer">
   Built with ❤️ by <a href="index.html">Arunava De</a> · <a href="https://github.com/arunavade99" target="_blank">github.com/arunavade99</a>
@@ -409,50 +242,30 @@
 
 <script>
 /* ════════════════════════════════════════════════════════
-   📸 ADD YOUR PHOTOS HERE
+   📸 ADD YOUR INSTAGRAM POST LINKS HERE
    ════════════════════════════════════════════════════════
-   - Use forward slashes (/) in all photo paths, not backslashes
-   - Path is relative to this HTML file's location
+   Steps:
+   1. Open your Instagram post in a browser
+   2. Copy the URL from the address bar
+      e.g. https://www.instagram.com/p/C9tVLDuSVg4/
+   3. Paste it as the value of `url` below
+   4. The photo, caption & likes load automatically!
    ════════════════════════════════════════════════════════ */
 
-const POSTS = [
+const INSTAGRAM_POSTS = [
 
-  {
-    title:   "Monkey",
-    date:    "25 Jul, 2024",
-    caption: "Look at the beauty of the curious eyes of an innocent monkey... https://www.instagram.com/p/C9tVLDuSVg4/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    photos:  [
-      "photos/post1/img1.jpg",
-      "photos/post1/img2.jpg",
-      "photos/post1/img3.jpg",
-      "photos/post1/img4.jpg",
-      "photos/post1/img5.jpg",
-      "photos/post1/img6.jpg",
-    ]
-  },
+  { url: "https://www.instagram.com/p/C9tVLDuSVg4/" },
+  { url: "https://www.instagram.com/p/CI0wzMDD502/" },
+  { url: "https://www.instagram.com/p/CLo9iLhjbYO/" },
+  { url: "https://www.instagram.com/p/DK56yLBS6sb/" },
+  { url: "https://www.instagram.com/p/DK-9pv9Svfn/" },
+  { url: "https://www.instagram.com/p/DMmKUmdS24B/" },
+  { url: "https://www.instagram.com/p/DOYTMd7ks-9/" },
+  { url: "https://www.instagram.com/reel/DO12nt0ksRT/" },
+  { url: "https://www.instagram.com/p/DHCuSIty2Nk/" },
 
-  {
-    title:   "Cooper's Hawk",
-    date:    "25 April 2022",
-    caption: "Some beautiful creation of nature are not meant to be caged https://www.instagram.com/p/CI0wzMDD502/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    photos:  [
-      "photos/post2/img1.jpg",
-      "photos/post2/img2.jpg",
-      "photos/post2/img3.jpg",
-      "photos/post2/img4.jpg",
-      "photos/post2/img5.jpg",
-    ]
-  },
-
-  {
-    title:   "Flower & Insect",
-    date:    "13 Jun 2021",
-    caption: "Flower and an unknown insect. If anyone know please inform me. https://www.instagram.com/p/CLo9iLhjbYO/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    photos:  [
-      "photos/post3/img1.jpg",
-      "photos/post3/img2.jpg",
-    ]
-  }
+  // ── Add more posts below ──
+  // { url: "https://www.instagram.com/p/YOUR_POST_ID/" },
 
 ];
 
@@ -460,140 +273,57 @@ const POSTS = [
    ENGINE — DO NOT EDIT BELOW THIS LINE
    ════════════════════════════════════════════════════════ */
 
-// Strip hashtags, then convert URLs to clickable <a> tags
-function formatCaption(text) {
-  // Remove hashtags
-  let clean = text.replace(/#\S+/g, '').replace(/\s{2,}/g, ' ').trim();
-  // Convert URLs to hyperlinks
-  clean = clean.replace(
-    /(https?:\/\/[^\s]+)/g,
-    '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
-  );
-  return clean;
-}
-
-// Strip hashtags only (plain text, for lightbox textContent fallback)
-function stripHashtags(text) {
-  return text.replace(/#\S+/g, '').replace(/\s{2,}/g, ' ').trim();
-}
-
-// Current lightbox state
-let lbImages = [];
-let lbIndex  = 0;
-
-function openLightbox(images, index, caption) {
-  lbImages = images;
-  lbIndex  = index;
-  document.getElementById('lb-img').src = images[index];
-  // Use innerHTML so links work in lightbox caption too
-  document.getElementById('lb-caption').innerHTML = formatCaption(caption);
-  updateLbCounter();
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function updateLbCounter() {
-  document.getElementById('lb-counter').textContent =
-    lbImages.length > 1 ? `${lbIndex + 1} / ${lbImages.length}` : '';
-  document.getElementById('lb-img').src = lbImages[lbIndex];
-}
-
-document.getElementById('lb-close').onclick = () => {
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-};
-document.getElementById('lightbox').addEventListener('click', e => {
-  if (e.target === document.getElementById('lightbox')) {
-    document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-});
-document.getElementById('lb-prev').onclick = e => {
-  e.stopPropagation();
-  lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
-  updateLbCounter();
-};
-document.getElementById('lb-next').onclick = e => {
-  e.stopPropagation();
-  lbIndex = (lbIndex + 1) % lbImages.length;
-  updateLbCounter();
-};
-document.addEventListener('keydown', e => {
-  if (!document.getElementById('lightbox').classList.contains('open')) return;
-  if (e.key === 'ArrowLeft')  { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; updateLbCounter(); }
-  if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; updateLbCounter(); }
-  if (e.key === 'Escape')     { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
-});
-
-// Render posts
 function renderPosts() {
   const grid  = document.getElementById('posts-grid');
   const empty = document.getElementById('empty-state');
   const count = document.getElementById('gallery-count');
 
-  const realPosts = POSTS.filter(p => p.photos && p.photos.length > 0);
-  if (realPosts.length === 0) { empty.style.display = 'block'; return; }
+  const posts = INSTAGRAM_POSTS.filter(p => p && p.url && p.url.trim() !== '');
 
-  count.textContent = `${realPosts.length} post${realPosts.length !== 1 ? 's' : ''}`;
+  if (posts.length === 0) {
+    empty.style.display = 'block';
+    return;
+  }
 
-  realPosts.forEach((post, pi) => {
-    const card   = document.createElement('div');
-    card.className = 'post-card';
+  count.textContent = `${posts.length} post${posts.length !== 1 ? 's' : ''}`;
 
-    const multi  = post.photos.length > 1;
+  posts.forEach(post => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'ig-embed-wrapper';
 
-    let imgsHtml = post.photos.map((src, i) =>
-      `<img src="${src}" alt="photo ${i+1}" class="${i===0?'active':''}" loading="lazy"/>`
-    ).join('');
+    // Normalize URL — strip query params, ensure trailing slash
+    let cleanUrl = post.url.split('?')[0].replace(/\/?$/, '/');
 
-    let dotsHtml = multi ? `<div class="slide-dots">${post.photos.map((_,i) =>
-      `<div class="dot${i===0?' active':''}"></div>`).join('')}</div>` : '';
-
-    let arrowsHtml = multi
-      ? `<button class="slide-btn prev"><i class="fa fa-chevron-left"></i></button>
-         <button class="slide-btn next"><i class="fa fa-chevron-right"></i></button>`
-      : '';
-
-    let badgeHtml = multi
-      ? `<div class="multi-badge"><i class="fa fa-images"></i>${post.photos.length}</div>` : '';
-
-    card.innerHTML = `
-      <div class="post-slider">
-        ${imgsHtml}
-        ${badgeHtml}
-        ${arrowsHtml}
-        ${dotsHtml}
-        <button class="expand-btn" title="View fullscreen"><i class="fa fa-expand"></i></button>
-      </div>
-      <div class="post-caption">
-        ${post.title ? `<div style="font-family:'Syne',sans-serif;font-weight:700;color:#fff;font-size:0.92rem;margin-bottom:6px">${post.title}</div>` : ''}
-        <div class="caption-text">${formatCaption(post.caption || '')}</div>
-        ${post.date ? `<div class="caption-date"><i class="fa fa-calendar" style="font-size:0.65rem"></i> ${post.date}</div>` : ''}
+    // Loading placeholder shown until embed.js fires
+    wrapper.innerHTML = `
+      <div class="embed-loading">
+        <i class="fab fa-instagram"></i>
+        <span>Loading post…</span>
       </div>
     `;
 
-    // Slider logic
-    let current = 0;
-    const imgs  = card.querySelectorAll('.post-slider img');
-    const dots  = card.querySelectorAll('.dot');
+    // Build the blockquote that Instagram's embed.js picks up
+    const blockquote = document.createElement('blockquote');
+    blockquote.className = 'instagram-media';
+    blockquote.setAttribute('data-instgrm-captioned', '');
+    blockquote.setAttribute('data-instgrm-permalink', cleanUrl);
+    blockquote.setAttribute('data-instgrm-version', '14');
+    blockquote.style.cssText = 'background:#fff;border:0;border-radius:3px;margin:0;max-width:100%;min-width:326px;padding:0;width:100%;';
 
-    function goTo(n) {
-      imgs[current].classList.remove('active');
-      dots[current]?.classList.remove('active');
-      current = (n + imgs.length) % imgs.length;
-      imgs[current].classList.add('active');
-      dots[current]?.classList.add('active');
-    }
-
-    card.querySelector('.slide-btn.prev')?.addEventListener('click', e => { e.stopPropagation(); goTo(current - 1); });
-    card.querySelector('.slide-btn.next')?.addEventListener('click', e => { e.stopPropagation(); goTo(current + 1); });
-
-    const openLb = () => openLightbox(post.photos, current, post.caption || '');
-    card.querySelector('.expand-btn')?.addEventListener('click', e => { e.stopPropagation(); openLb(); });
-    card.querySelector('.post-slider').addEventListener('click', openLb);
-
-    grid.appendChild(card);
+    wrapper.innerHTML = '';
+    wrapper.appendChild(blockquote);
+    grid.appendChild(wrapper);
   });
+
+  // Load or re-trigger Instagram embed script
+  if (window.instgrm) {
+    window.instgrm.Embeds.process();
+  } else {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src   = 'https://www.instagram.com/embed.js';
+    document.body.appendChild(script);
+  }
 }
 
 renderPosts();
