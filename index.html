@@ -331,6 +331,211 @@
       border-radius: 0 8px 8px 0;
     }
 
+    /* ── AI Engineering Architecture Tree ── */
+    .ai-tree-container {
+      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .ai-tree-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(0, 220, 160, 0.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    .ai-root-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 24px;
+    }
+    .ai-root-card {
+      position: relative;
+      background: linear-gradient(135deg, #0d1a29, #15273b);
+      border: 1.5px solid var(--neon);
+      border-radius: 12px;
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--glow), 0 4px 20px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .ai-root-card:hover {
+      transform: translateY(-3px) scale(1.02);
+      border-color: #00ffbc;
+      box-shadow: 0 0 35px rgba(0,220,160,0.4);
+    }
+    .ai-root-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: rgba(0,220,160,0.15);
+      border: 1px solid rgba(0,220,160,0.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--neon);
+      font-size: 1.4rem;
+      animation: pulseGlow 3s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 5px rgba(0,220,160,0.2); }
+      100% { box-shadow: 0 0 20px rgba(0,220,160,0.6); }
+    }
+    .ai-root-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.03em;
+    }
+    .ai-root-subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--neon);
+      margin-top: 2px;
+    }
+
+    .ai-tree-svg-wrap {
+      position: relative;
+      width: 100%;
+      height: 48px;
+      z-index: 1;
+      margin-bottom: 8px;
+    }
+    .ai-tree-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+    .tree-line {
+      stroke: var(--border2);
+      stroke-width: 2;
+      fill: none;
+      transition: stroke 0.3s, stroke-width 0.3s;
+    }
+    .tree-line-pulse {
+      stroke: var(--neon);
+      stroke-width: 2.5;
+      fill: none;
+      stroke-dasharray: 8 16;
+      animation: flowLines 2s linear infinite;
+    }
+    @keyframes flowLines {
+      from { stroke-dashoffset: 48; }
+      to { stroke-dashoffset: 0; }
+    }
+
+    .ai-branches-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 1100px) {
+      .ai-branches-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .ai-branches-grid { grid-template-columns: 1fr; }
+      .ai-tree-svg-wrap { display: none; }
+    }
+
+    .ai-branch-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ai-branch-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 12px 12px 0 0;
+      background: var(--branch-color, var(--neon));
+      opacity: 0.8;
+      transition: opacity 0.3s, box-shadow 0.3s;
+    }
+    .ai-branch-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--branch-color, var(--neon));
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5), 0 0 20px rgba(var(--branch-rgb), 0.25);
+    }
+    .ai-branch-card:hover::before {
+      opacity: 1;
+      box-shadow: 0 0 12px var(--branch-color, var(--neon));
+    }
+
+    .ai-branch-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ai-branch-icon {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--branch-color, var(--neon));
+      font-size: 1.1rem;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .ai-branch-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .ai-branch-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      margin-left: auto;
+    }
+
+    .ai-leaf-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ai-leaf-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 7px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.2s ease;
+      cursor: default;
+    }
+    .ai-leaf-item:hover {
+      background: rgba(var(--branch-rgb), 0.12);
+      border-color: var(--branch-color);
+      color: var(--white);
+      transform: translateX(4px);
+    }
+    .ai-leaf-bullet {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--branch-color, var(--neon));
+      box-shadow: 0 0 6px var(--branch-color, var(--neon));
+    }
+
     /* ── Skills ── */
     .skills-groups { display: flex; flex-direction: column; gap: 12px; }
     .skill-group {
@@ -677,6 +882,7 @@
   <nav class="sidebar-nav">
     <div class="nav-label">Navigate</div>
     <a class="nav-item active" href="#about"><i class="fa fa-user"></i> About</a>
+    <a class="nav-item" href="#ai-engineering"><i class="fa fa-sitemap"></i> AI Architecture</a>
     <a class="nav-item" href="#skills"><i class="fa fa-code"></i> Skills</a>
     <a class="nav-item" href="#experience"><i class="fa fa-briefcase"></i> Experience</a>
     <a class="nav-item" href="#projects"><i class="fa fa-diagram-project"></i> Projects</a>
@@ -748,6 +954,117 @@
           <span class="hero-tag">Industrial AI</span>
         </div>
         <div class="hero-quote">"Turning research-grade models into pipelines that run reliably on a factory floor, not just in a notebook."</div>
+      </div>
+    </div>
+  <!-- AI Engineering Architecture -->
+  <section class="section" id="ai-engineering">
+    <div class="section-header">
+      <div class="section-icon"><i class="fa fa-sitemap"></i></div>
+      <div class="section-title">AI Engineering Architecture</div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="ai-tree-container">
+      <!-- Root Node Hub -->
+      <div class="ai-root-wrapper">
+        <div class="ai-root-card">
+          <div class="ai-root-icon"><i class="fa-solid fa-brain"></i></div>
+          <div>
+            <div class="ai-root-title">AI Engineering</div>
+            <div class="ai-root-subtitle">// System Architecture & Core Stack</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Connector SVG Lines -->
+      <div class="ai-tree-svg-wrap">
+        <svg class="ai-tree-svg" viewBox="0 0 1000 50" preserveAspectRatio="none">
+          <line x1="500" y1="0" x2="500" y2="25" class="tree-line" />
+          <line x1="500" y1="0" x2="500" y2="25" class="tree-line-pulse" />
+
+          <line x1="125" y1="25" x2="875" y2="25" class="tree-line" />
+          <line x1="125" y1="25" x2="875" y2="25" class="tree-line-pulse" />
+
+          <line x1="125" y1="25" x2="125" y2="50" class="tree-line" />
+          <line x1="375" y1="25" x2="375" y2="50" class="tree-line" />
+          <line x1="625" y1="25" x2="625" y2="50" class="tree-line" />
+          <line x1="875" y1="25" x2="875" y2="50" class="tree-line" />
+
+          <line x1="125" y1="25" x2="125" y2="50" class="tree-line-pulse" />
+          <line x1="375" y1="25" x2="375" y2="50" class="tree-line-pulse" />
+          <line x1="625" y1="25" x2="625" y2="50" class="tree-line-pulse" />
+          <line x1="875" y1="25" x2="875" y2="50" class="tree-line-pulse" />
+        </svg>
+      </div>
+
+      <!-- 4 Main Branches -->
+      <div class="ai-branches-grid">
+        <!-- 1. Computer Vision -->
+        <div class="ai-branch-card" style="--branch-color: #00dca0; --branch-rgb: 0, 220, 160;">
+          <div class="ai-branch-header">
+            <div class="ai-branch-icon"><i class="fa-solid fa-eye"></i></div>
+            <div>
+              <div class="ai-branch-name">Computer Vision</div>
+              <div class="ai-branch-count">5 Core Tools</div>
+            </div>
+          </div>
+          <div class="ai-leaf-list">
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> YOLOv8</div>
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> OpenCV</div>
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> DeepSORT</div>
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> FaceNet</div>
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> InsightFace</div>
+          </div>
+        </div>
+
+        <!-- 2. Generative AI -->
+        <div class="ai-branch-card" style="--branch-color: #a855f7; --branch-rgb: 168, 85, 247;">
+          <div class="ai-branch-header">
+            <div class="ai-branch-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div>
+              <div class="ai-branch-name">Generative AI</div>
+              <div class="ai-branch-count">3 Capabilities</div>
+            </div>
+          </div>
+          <div class="ai-leaf-list">
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> Gemini</div>
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> Amazon Bedrock</div>
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> Prompt Engineering</div>
+          </div>
+        </div>
+
+        <!-- 3. Deployment -->
+        <div class="ai-branch-card" style="--branch-color: #00b4ff; --branch-rgb: 0, 180, 255;">
+          <div class="ai-branch-header">
+            <div class="ai-branch-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <div>
+              <div class="ai-branch-name">Deployment</div>
+              <div class="ai-branch-count">4 Stack Tools</div>
+            </div>
+          </div>
+          <div class="ai-leaf-list">
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> Flask</div>
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> Django</div>
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> AWS</div>
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> Git</div>
+          </div>
+        </div>
+
+        <!-- 4. Hardware AI -->
+        <div class="ai-branch-card" style="--branch-color: #ffaa00; --branch-rgb: 255, 170, 0;">
+          <div class="ai-branch-header">
+            <div class="ai-branch-icon"><i class="fa-solid fa-microchip"></i></div>
+            <div>
+              <div class="ai-branch-name">Hardware AI</div>
+              <div class="ai-branch-count">3 Edge Units</div>
+            </div>
+          </div>
+          <div class="ai-leaf-list">
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> Raspberry Pi</div>
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> PIR Sensors</div>
+            <div class="ai-leaf-item"><span class="ai-leaf-bullet"></span> Embedded AI</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
