@@ -32,7 +32,6 @@
 
 Computer Vision and AI/ML Engineer with **3+ years** of hands-on experience designing, training, and deploying production-grade AI systems. Specializing in **object detection**, **multi-object tracking**, **face recognition**, and **real-time edge analytics** — taking models from prototype to live factory floor deployment.
 
-> [!IMPORTANT]
 > **Production Achievements:** Upgraded industrial PPE detection from YOLOv3 to YOLOv8 with a custom-annotated dataset of **15,000+ images**, built real-time molten metal safety systems, and benchmarked EasyOCR, Textract, and Gemini Flash Pro for high-accuracy ANPR pipelines.
 
 - ⚙️ **Productivity Monitoring:** Building pose-estimation-based worker & machine tracking (YOLO-Pose + Flask dashboard).
@@ -138,14 +137,9 @@ AI Engineering Architecture
 
 ---
 
-## 📊 GitHub Animated Contributions & Activity
+## 📊 AI Architecture
 
 <div align="center">
-
-### 🐍 Contribution Graph Animation
-![GitHub Snake Contribution Graph](https://raw.githubusercontent.com/arunavade99/arunavade99/output/github-contribution-grid-snake.svg)
-
-<br />
 
 ### 📈 Interactive Activity Summary
 <a href="https://github.com/arunavade99">
