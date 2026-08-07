@@ -46,7 +46,7 @@ Computer Vision and AI/ML Engineer with **3+ years** of hands-on experience desi
 
 The graphical visual map below outlines my core technical architecture spanning Computer Vision, Generative AI, MLOps Deployment, and Hardware Edge AI:
 
-### 🌐 Graphical Visual Map
+### AI Architecture
 
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'lineColor': '#00dca0', 'primaryColor': '#0b1118', 'primaryBorderColor': '#00dca0', 'primaryTextColor': '#ffffff'} }}%%
@@ -136,8 +136,6 @@ AI Engineering Architecture
 | **Hardware & Edge** | `Raspberry Pi` `PIR Sensors` `Embedded AI` `NVIDIA Jetson` | On-device video inference, IoT sensor trigger automation, edge deployment |
 
 ---
-
-## 📊 AI Architecture
 
 <div align="center">
 
