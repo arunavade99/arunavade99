@@ -2114,7 +2114,8 @@
                   <div class="pe-label"><i class="fa fa-image"></i>In Action</div>
                   <div class="pe-media-grid">
                     <div class="pe-media">
-                      <img src="photos/project infos/Workerstatus.png" alt="Worker & Machine Productivity Monitoring in Action">
+                      <img src="photos/project infos/Workerstatus.png"
+                        alt="Worker & Machine Productivity Monitoring in Action">
                     </div>
                   </div>
                 </div>
@@ -2345,6 +2346,77 @@
                 </li>
               </ul>
               <div class="tl-tech"><span>Stack:</span> Python, YOLOv8, YOLOv3, OpenCV, PyTorch</div>
+              <div class="tl-project-toggle"><i class="fa fa-plus"></i></div>
+              <div class="tl-expand">
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
+                  <div class="pe-plan-text">Manual PPE compliance checks on a factory floor don't scale across shifts
+                    and cameras. The goal was a system that watches live NVR camera feeds continuously, flags missing
+                    helmets/vests/shoes/glasses/masks in real time, and automatically saves evidence video of each
+                    violation for review — running unattended, 24/7, across multiple camera channels.</div>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
+                  <div class="pipeline">
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-video"></i></div>
+                      <div class="pipeline-step-label">RTSP Camera Feed</div>
+                      <div class="pipeline-step-sub">Threaded frame reader</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-crosshairs"></i></div>
+                      <div class="pipeline-step-label">YOLOv8 Detection</div>
+                      <div class="pipeline-step-sub">80% confidence threshold</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-layer-group"></i></div>
+                      <div class="pipeline-step-label">Frame Buffering</div>
+                      <div class="pipeline-step-sub">Collects full clip duration</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-triangle-exclamation"></i></div>
+                      <div class="pipeline-step-label">Violation Check</div>
+                      <div class="pipeline-step-sub">Save if violation found</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-file-video"></i></div>
+                      <div class="pipeline-step-label">Evidence Video + Log</div>
+                      <div class="pipeline-step-sub">Atomic write, alert log</div>
+                    </div>
+                  </div>
+                  <div class="pe-caveat">Shown at a high level — this system was built for a Xiphos client and was never
+                    open-sourced, so infrastructure specifics (camera/network details, credentials) are intentionally
+                    omitted.</div>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
+                  <ul class="pe-impl-list">
+                    <li>Threaded frame capture decouples network/camera latency from the detection loop, so the system
+                      stays responsive even on unreliable RTSP connections</li>
+                    <li>YOLOv8 inference runs on a resized 640×640 frame; detections below 80% confidence are discarded
+                      to minimize false alarms in a safety-critical setting</li>
+                    <li>Full-duration frame buffering (e.g. 250 frames for a 10s clip at 25fps) captures
+                      before/during/after context for each incident rather than saving on first detection</li>
+                    <li>Two-stage atomic file writes (temp folder → final folder) ensure downstream systems never read a
+                      partially-written video</li>
+                    <li>Three independent log streams — detection log, real-time announcement log, and error log — plus
+                      automatic crash recovery that restarts the main loop on any uncaught exception</li>
+                    <li>Multi-camera deployment by running one instance per NVR channel</li>
+                  </ul>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-image"></i>In Action</div>
+                  <div class="pe-media-grid">
+                    <div class="pe-media">
+                      <img src="photos/project infos/safety.jpg" alt="AI-Based PPE Compliance Detection in Action">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="tl-project">
@@ -2354,6 +2426,62 @@
                   pipeline only during hazardous operations.</li>
               </ul>
               <div class="tl-tech"><span>Stack:</span> Python, OpenCV</div>
+              <div class="tl-project-toggle"><i class="fa fa-plus"></i></div>
+              <div class="tl-expand">
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
+                  <div class="pe-plan-text">Running full PPE detection continuously, even when no hazardous
+                    pouring/casting operation is happening, wastes compute and generates irrelevant alerts. This system
+                    watches for the distinct glow of molten metal via color analysis and only activates the PPE
+                    compliance pipeline during actual hazardous operations.</div>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
+                  <div class="pipeline">
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-video"></i></div>
+                      <div class="pipeline-step-label">Camera Feed</div>
+                      <div class="pipeline-step-sub">Continuous monitoring</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-eye-dropper"></i></div>
+                      <div class="pipeline-step-label">HSV Color Analysis</div>
+                      <div class="pipeline-step-sub">Detect molten-metal glow</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-bolt"></i></div>
+                      <div class="pipeline-step-label">Event Trigger</div>
+                      <div class="pipeline-step-sub">Hazard state detected</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-hard-hat"></i></div>
+                      <div class="pipeline-step-label">Activate PPE Pipeline</div>
+                      <div class="pipeline-step-sub">Only during hazard window</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
+                  <ul class="pe-impl-list">
+                    <li>HSV color-range masking isolates the characteristic bright orange/red glow of molten metal
+                      against the factory-floor background</li>
+                    <li>Event-driven logic keeps the heavier PPE detection pipeline idle until a hazardous state is
+                      confirmed, reducing unnecessary compute and alert noise</li>
+                  </ul>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-image"></i>In Action</div>
+                  <div class="pe-media-grid">
+                    <div class="pe-media">
+                      <img src="photos/project infos/molten metal.jpg"
+                        alt="Molten Metal Detection & Safety Trigger in Action">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="tl-project">
@@ -2364,6 +2492,65 @@
                 <li>Real-time alerting with false-alarm filtering for field deployment.</li>
               </ul>
               <div class="tl-tech"><span>Stack:</span> Python, Raspberry Pi, PIR Sensors, OpenCV</div>
+              <div class="tl-project-toggle"><i class="fa fa-plus"></i></div>
+              <div class="tl-expand">
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
+                  <div class="pe-plan-text">Human-elephant conflict causes both loss of life and crop damage. The idea
+                    was a low-cost field sensor that detects nearby movement, captures an image, and uses AI to tell
+                    whether it's an elephant or a human — routing only relevant detections to a monitoring dashboard,
+                    without needing constant video streaming from remote field locations.</div>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
+                  <div class="pipeline">
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-wave-square"></i></div>
+                      <div class="pipeline-step-label">Ultrasonic Sensor</div>
+                      <div class="pipeline-step-sub">Motion within ~200cm</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-camera"></i></div>
+                      <div class="pipeline-step-label">USB Camera Capture</div>
+                      <div class="pipeline-step-sub">Raspberry Pi triggers shot</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-database"></i></div>
+                      <div class="pipeline-step-label">Upload to DB</div>
+                      <div class="pipeline-step-sub">Local MySQL table</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-brain"></i></div>
+                      <div class="pipeline-step-label">AI Classification</div>
+                      <div class="pipeline-step-sub">GPU machine: human vs elephant</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-bell"></i></div>
+                      <div class="pipeline-step-label">Alert Dashboard</div>
+                      <div class="pipeline-step-sub">Relevant detections only</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
+                  <ul class="pe-impl-list">
+                    <li>Raspberry Pi with an ultrasonic sensor (trig/echo on GPIO 23/24) detects motion within ~200cm
+                      and triggers a USB camera capture</li>
+                    <li>Captured images are uploaded to a local MySQL database table for the processing machine to pick
+                      up</li>
+                    <li>A GPU-enabled Windows machine downloads new images and runs an AI/ML model (Ultralytics-based)
+                      to classify human vs elephant</li>
+                    <li>Relevant detections are moved to a shared folder consumed by a separate dashboard (built by the
+                      Java developer team) for monitoring and visualization</li>
+                  </ul>
+                  <div class="pe-caveat">R&D stage — this system was prototyped and validated in development but was not
+                    field-tested in a real deployment.</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -2448,10 +2635,15 @@
               <div class="pe-block">
                 <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
                 <ul class="pe-impl-list">
-                  <li>FaceNet for face embeddings, matched against a pre-enrolled employee encoding database</li>
-                  <li>OpenCV handles frame capture, face cropping, and preprocessing</li>
-                  <li>De-duplication logic prevents repeated logging within the same session window</li>
-                  <li>Daily in/out timestamps written per employee for reporting</li>
+                  <li>MTCNN detects and aligns faces from the dataset (<code>align.py</code>), producing consistent
+                    crops for embedding</li>
+                  <li><code>facenet-pytorch</code> generates the identity embeddings, built into a searchable database
+                    (<code>build_db.py</code> → <code>embeddings.npz</code>)</li>
+                  <li>Live recognition (<code>main.py</code>) matches webcam faces against the embedding database using
+                    a distance threshold; no close match is labeled "Unknown"</li>
+                  <li><code>rebuild_db.py</code> syncs the dataset and re-generates embeddings whenever employees are
+                    added or removed</li>
+                  <li>Runs on GPU automatically when available, falling back to CPU otherwise</li>
                 </ul>
               </div>
 
@@ -2462,19 +2654,20 @@
             <div class="project-card-head">
               <div class="project-icon"><i class="fa fa-car"></i></div>
               <div class="project-title">Vehicle Speed Detection & People Analytics</div>
-              <div class="project-desc">YOLOv8-based system detecting and counting vehicles via virtual lines with
-                real-time speed estimation. Includes a people-count tracker for enclosed space occupancy.</div>
+              <div class="project-desc">YOLOv8-based system detecting and tracking vehicles via virtual lines with
+                real-time dual-direction speed estimation, plus a separate ByteTrack-based live person counter.</div>
               <div class="project-tags">
-                <span class="tag">YOLOv8</span><span class="tag">Speed Estimation</span><span class="tag">Object
-                  Tracking</span><span class="tag">OpenCV</span>
+                <span class="tag">YOLOv8</span><span class="tag">ByteTrack</span><span class="tag">Speed
+                  Estimation</span><span class="tag">OpenCV</span>
               </div>
               <div class="project-toggle"><i class="fa fa-plus"></i></div>
             </div>
             <div class="project-expand">
               <div class="pe-block">
                 <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
-                <div class="pe-plan-text">Traffic and occupancy monitoring usually needs dedicated hardware sensors. The
-                  aim was to get the same insight — vehicle speed and room occupancy — from ordinary CCTV footage using
+                <div class="pe-plan-text">Traffic monitoring usually needs dedicated hardware sensors. The
+                  aim was to get the same insight — dual-direction vehicle speed and live people counts — from ordinary
+                  CCTV footage using
                   vision models alone.</div>
               </div>
               <div class="pe-block">
@@ -2514,11 +2707,22 @@
               <div class="pe-block">
                 <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
                 <ul class="pe-impl-list">
-                  <li>YOLOv8 for vehicle/person detection, tuned for real-time inference</li>
+                  <li>YOLOv8n for vehicle/person detection, run via two scripts: <code>speed.py</code> for
+                    dual-direction vehicle speed estimation and <code>tracking.py</code> for people counting</li>
+                  <li>ByteTrack assigns a persistent ID to each tracked object so speed/count isn't double-counted
+                    across frames</li>
                   <li>Virtual counting lines trigger speed calculation as objects cross calibrated points</li>
-                  <li>Separate people-counter mode tracks net entries/exits for occupancy in enclosed spaces</li>
-                  <li>OpenCV used for drawing overlays and exporting annotated video</li>
+                  <li>OpenCV used for drawing overlays, live display, and exporting annotated video</li>
                 </ul>
+              </div>
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-image"></i>In Action</div>
+                <div class="pe-media-grid">
+                  <div class="pe-media">
+                    <img src="photos/project infos/Vehicle.png"
+                      alt="Vehicle Speed Detection & People Analytics in Action">
+                  </div>
+                </div>
               </div>
 
             </div>
