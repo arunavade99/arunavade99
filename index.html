@@ -1328,6 +1328,105 @@
       font-style: italic;
     }
 
+    /* LinkedIn video embed wrapper */
+    .li-embed-wrap {
+      width: 100%;
+      max-width: 700px;
+      min-height: 580px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border2);
+      background: var(--bg3);
+      position: relative;
+    }
+
+    .li-embed-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 580px;
+      border: none;
+    }
+
+    /* Error overlay — shown when LinkedIn embed fails to load */
+    .li-embed-error {
+      display: none;
+      position: absolute;
+      inset: 0;
+      background: rgba(6, 10, 15, 0.93);
+      border-radius: 12px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: var(--text2);
+      font-size: .84rem;
+      text-align: center;
+      padding: 32px;
+      z-index: 10;
+    }
+
+    .li-embed-error.show {
+      display: flex;
+    }
+
+    .li-embed-error .li-err-icon {
+      font-size: 2.2rem;
+      color: #f59e0b;
+      animation: pulseGlow 2s infinite alternate;
+    }
+
+    .li-embed-error p {
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .li-embed-error a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 4px;
+      color: var(--neon);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .85rem;
+      border: 1px solid rgba(0, 220, 160, 0.3);
+      border-radius: 6px;
+      padding: 8px 18px;
+      transition: all .2s;
+    }
+
+    .li-embed-error a:hover {
+      background: rgba(0, 220, 160, 0.1);
+      border-color: var(--neon);
+      box-shadow: var(--glow);
+    }
+
+    /* Small fallback link always visible below embed */
+    .li-embed-fallback {
+      margin-top: 9px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .71rem;
+      color: var(--muted);
+    }
+
+    .li-embed-fallback i {
+      font-size: .78rem;
+      color: #0077b5;
+    }
+
+    .li-embed-fallback a {
+      color: var(--neon2);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color .18s;
+    }
+
+    .li-embed-fallback a:hover {
+      color: var(--neon);
+    }
+
     @media (max-width: 700px) {
       .pipeline {
         flex-direction: column;
@@ -2409,13 +2508,30 @@
                   </ul>
                 </div>
                 <div class="pe-block">
-                  <div class="pe-label"><i class="fa fa-video"></i>In Action</div>
-                  <div class="pe-media-grid">
-                    <div class="pe-media">
-                      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7359245265549049858" height="500" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                    </div>
-                  </div>
-                </div>
+                   <div class="pe-label"><i class="fa fa-video"></i>In Action</div>
+                   <div class="li-embed-wrap" id="li-wrap-ppe">
+                     <iframe
+                       id="li-iframe-ppe"
+                       class="li-embed-iframe"
+                       src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7359245265549049858?dnt=1"
+                       allowfullscreen
+                       title="PPE Compliance Detection Demo"
+                       allow="autoplay; fullscreen"
+                       loading="lazy"></iframe>
+                     <div class="li-embed-error" id="li-error-ppe">
+                       <span class="li-err-icon"><i class="fa fa-triangle-exclamation"></i></span>
+                       <p>The video couldn't load in this frame.<br>Click below to watch it directly on LinkedIn.</p>
+                       <a href="https://www.linkedin.com/posts/arunavade99_detection-perfection-of-yolov8-source-code-activity-7359245265549049858-0AZF/" target="_blank" rel="noopener">
+                         <i class="fab fa-linkedin"></i> Watch on LinkedIn
+                       </a>
+                     </div>
+                   </div>
+                   <div class="li-embed-fallback">
+                     <i class="fab fa-linkedin"></i>
+                     <span>Can't see the video?</span>
+                     <a href="https://www.linkedin.com/posts/arunavade99_detection-perfection-of-yolov8-source-code-activity-7359245265549049858-0AZF/" target="_blank" rel="noopener">View on LinkedIn →</a>
+                   </div>
+                 </div>
               </div>
             </div>
 
@@ -2473,13 +2589,30 @@
                   </ul>
                 </div>
                 <div class="pe-block">
-                  <div class="pe-label"><i class="fa fa-video"></i>In Action</div>
-                  <div class="pe-media-grid">
-                    <div class="pe-media">
-                      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7355998896789037056" height="500" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                    </div>
-                  </div>
-                </div>
+                   <div class="pe-label"><i class="fa fa-video"></i>In Action</div>
+                   <div class="li-embed-wrap" id="li-wrap-molten">
+                     <iframe
+                       id="li-iframe-molten"
+                       class="li-embed-iframe"
+                       src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7355998896789037056?dnt=1"
+                       allowfullscreen
+                       title="Molten Metal Detection Demo"
+                       allow="autoplay; fullscreen"
+                       loading="lazy"></iframe>
+                     <div class="li-embed-error" id="li-error-molten">
+                       <span class="li-err-icon"><i class="fa fa-triangle-exclamation"></i></span>
+                       <p>The video couldn't load in this frame.<br>Click below to watch it directly on LinkedIn.</p>
+                       <a href="https://www.linkedin.com/posts/arunavade99_opencv-python-colordetection-activity-7355998896789037056-ko_v/" target="_blank" rel="noopener">
+                         <i class="fab fa-linkedin"></i> Watch on LinkedIn
+                       </a>
+                     </div>
+                   </div>
+                   <div class="li-embed-fallback">
+                     <i class="fab fa-linkedin"></i>
+                     <span>Can't see the video?</span>
+                     <a href="https://www.linkedin.com/posts/arunavade99_opencv-python-colordetection-activity-7355998896789037056-ko_v/" target="_blank" rel="noopener">View on LinkedIn →</a>
+                   </div>
+                 </div>
               </div>
             </div>
 
@@ -3014,6 +3147,73 @@
         n.classList.toggle('active', n.getAttribute('href') === '#' + current);
       });
     }, { passive: true });
+  </script>
+
+  <script>
+    // ── LinkedIn embed error detection ──────────────────────────────────────
+    // LinkedIn's player sends postMessage events when it initialises.
+    // We listen for 7 seconds; if nothing arrives from the iframe, we assume
+    // the embed is blocked and show the error overlay + prompt the user.
+    (function () {
+      var embeds = [
+        { iframeId: 'li-iframe-ppe',    errorId: 'li-error-ppe' },
+        { iframeId: 'li-iframe-molten', errorId: 'li-error-molten' }
+      ];
+
+      var received = {};
+      embeds.forEach(function (e) { received[e.iframeId] = false; });
+
+      // Listen for any postMessage from LinkedIn's player
+      window.addEventListener('message', function (ev) {
+        embeds.forEach(function (e) {
+          var iframe = document.getElementById(e.iframeId);
+          if (iframe && ev.source === iframe.contentWindow) {
+            received[e.iframeId] = true;
+          }
+        });
+      });
+
+      // After 7 s, if an embed is visible in the DOM and never sent a message,
+      // reveal the error overlay so the user sees the fallback link.
+      setTimeout(function () {
+        embeds.forEach(function (e) {
+          var iframe = document.getElementById(e.iframeId);
+          var errorDiv = document.getElementById(e.errorId);
+          if (!iframe || !errorDiv) return;
+          // Only trigger if the parent tl-expand is open (i.e. card was expanded)
+          var wrap = iframe.closest('.tl-expand');
+          if (wrap && !wrap.classList.contains('visible')) return;
+          if (!received[e.iframeId]) {
+            errorDiv.classList.add('show');
+          }
+        });
+      }, 7000);
+
+      // Also re-check each time a tl-project card is opened
+      document.querySelectorAll('.tl-project').forEach(function (item) {
+        item.addEventListener('click', function () {
+          // Wait for expand animation then check
+          setTimeout(function () {
+            embeds.forEach(function (e) {
+              var iframe = document.getElementById(e.iframeId);
+              var errorDiv = document.getElementById(e.errorId);
+              if (!iframe || !errorDiv) return;
+              // Check if this iframe is now visible
+              var rect = iframe.getBoundingClientRect();
+              if (rect.height === 0) return; // still collapsed
+              if (!received[e.iframeId]) {
+                // Give 7 more seconds from when the card was opened
+                setTimeout(function () {
+                  if (!received[e.iframeId]) {
+                    errorDiv.classList.add('show');
+                  }
+                }, 7000);
+              }
+            });
+          }, 500);
+        });
+      });
+    })();
   </script>
 </body>
 
