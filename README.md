@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧠 Arunava De
+# Arunava De
 
 ### AI/ML Engineer · Computer Vision Specialist · MLOps & GenAI
 
@@ -30,15 +30,16 @@
 
 ## 👨‍💻 About Me
 
-Computer Vision and AI/ML Engineer with **4 years** of hands-on experience designing, training, and deploying production-grade AI systems. Specializing in **object detection**, **multi-object tracking**, **face recognition**, and **real-time edge analytics** — taking models from prototype to live factory floor deployment.
+Computer Vision and AI/ML Engineer with **4+ years** of hands-on experience designing, training, and deploying production-grade AI systems. Specializing in **object detection & pose tracking (YOLO-Pose)**, **multimodal GenAI (Amazon Bedrock, GPT-5.6 Luna)**, **face recognition**, and **real-time edge analytics** — taking models from prototype to live factory floor & web platform deployment.
 
-> **Production Achievements:** Upgraded industrial PPE detection from YOLOv3 to YOLOv8 with a custom-annotated dataset of **15,000+ images**, built real-time molten metal safety systems, and benchmarked EasyOCR, Textract, and Gemini Flash Pro for high-accuracy ANPR pipelines.
+> **Production Achievements:** Engineered pose-estimation worker productivity tracking (YOLO-Pose + Flask dashboard), deployed production-grade PPE compliance AI across live camera feeds with automated real-time violation triggers, built exam paper translation pipelines with LlamaParse & Bedrock (GPT-5.6 Luna), and benchmarked EasyOCR, Textract, and Gemini Flash Pro for high-accuracy ANPR pipelines.
 
-- ⚙️ **Productivity Monitoring:** Building pose-estimation-based worker & machine tracking (YOLO-Pose + Flask dashboard).
+- ⚙️ **Productivity Monitoring:** Engineered pose-estimation worker & station activity tracking (YOLO-Pose + Flask dashboard).
 - 🏭 **Industrial Vision AI:** Live deployment of real-time camera feed analytics (PPE compliance, molten metal hazard detection).
+- 📄 **Multimodal GenAI & Translation:** Exam paper parsing & Bengali translation pipeline using LlamaParse & Amazon Bedrock (GPT-5.6 Luna).
 - 🚗 **ANPR & OCR:** Benchmarking EasyOCR, Amazon Textract, and Gemini Flash Pro using RF-DeTR object detection.
 - 👤 **Biometrics & Analytics:** Real-time face recognition attendance & people counting system.
-- ☁️ **Cloud & Generative AI:** Hands-on experience with Amazon Bedrock, preparing for **AWS Certified AI Practitioner** certification.
+- ☁️ **Cloud & Generative AI:** Hands-on experience with Amazon Bedrock & AWS S3, preparing for **AWS Certified AI Practitioner** certification.
 
 ---
 
@@ -139,10 +140,8 @@ AI Engineering Architecture
 
 <div align="center">
 
-### 📈 Interactive Activity Summary
-<a href="https://github.com/arunavade99">
-  <img src="https://ghchart.rshah.org/00dca0/arunavade99" alt="Arunava's GitHub Activity Contributions" width="100%" />
-</a>
+### 🌊 Dynamic AI Model & Pipeline Activity
+![Dynamic AI Workflow Sine Wave Cadence](photos/ai_workflow_cadence.svg)
 
 </div>
 
@@ -174,9 +173,9 @@ AI Engineering Architecture
 
 | Project Name | Highlights & Features | Technologies Used |
 |:---|:---|:---|
-| 👤 **AI Face Recognition Attendance** | Employee verification with automatic in/out logging, spoof prevention, and log generation | `FaceNet` `OpenCV` `Python` `SQLite` |
-| 🚘 **Vehicle Speed & Line-Cross Counter** | Real-time vehicle speed estimation using perspective transformation, virtual calibration lines, and directional counter | `YOLOv8` `DeepSORT` `OpenCV` `Python` |
 | 🚗 **Vehicle Recommendation Platform** | **Phase 1 complete:** guided preference questionnaire builds a structured vehicle profile. **Phase 2 planned:** conversational assistant over the existing data and recommendation pipeline, with follow-up Q&A and match explanations. | `Flask` `HTML/CSS/JS` `LLM Integration (planned)` |
+| 🚘 **Vehicle Speed & Line-Cross Counter** | Real-time vehicle speed estimation using perspective transformation, virtual calibration lines, and directional counter | `YOLOv8` `DeepSORT` `OpenCV` `Python` |
+| 👤 **AI Face Recognition Attendance** | Employee verification with automatic in/out logging, spoof prevention, and log generation | `FaceNet` `OpenCV` `Python` `SQLite` |
 
 ---
 

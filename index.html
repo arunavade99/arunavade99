@@ -599,7 +599,7 @@
       font-size: .89rem;
       line-height: 1.85;
       color: var(--text2);
-      max-width: 680px;
+      max-width: 100%;
     }
 
     .hero-bio strong {
@@ -1192,10 +1192,30 @@
       position: relative;
     }
 
-    .pe-media:has(img) {
+    .pe-media:has(img),
+    .pe-media:has(video),
+    .pe-media-video {
       border-style: solid;
       border-color: var(--border);
       padding: 0;
+    }
+
+    .pe-media-video {
+      width: 100%;
+      max-width: 540px;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .pe-media video,
+    .pe-media-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 9px;
+      display: block;
     }
 
     .pe-media img {
@@ -1203,6 +1223,98 @@
       height: 100%;
       object-fit: cover;
       border-radius: 9px;
+      cursor: pointer;
+      transition: transform .25s ease, filter .25s ease, box-shadow .25s ease;
+    }
+
+    .pe-media img:hover {
+      transform: scale(1.03);
+      filter: brightness(1.1);
+      box-shadow: 0 4px 20px rgba(0, 220, 160, 0.25);
+    }
+
+    /* ── Lightbox Modal ── */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(5, 10, 16, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      padding: 24px;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 92vw;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(0, 220, 160, 0.15);
+      transform: scale(0.95);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lightbox-modal.active .lightbox-img {
+      transform: scale(1);
+    }
+
+    .lightbox-caption {
+      margin-top: 14px;
+      color: var(--fg);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-align: center;
+      letter-spacing: 0.5px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 6px 16px;
+      border-radius: 20px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -44px;
+      right: 0;
+      color: var(--muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      transition: all 0.2s ease;
+    }
+
+    .lightbox-close:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.1);
     }
 
     .pe-media i {
@@ -1919,9 +2031,8 @@
             </div>
             <div class="reel-line reel-line-company" id="rl-3">L2A Software Engineer I &middot; Adamas Tech Consulting
               Pvt. Ltd.</div>
-            <div class="reel-line reel-line-stack" id="rl-4">Python<span class="dot">&bull;</span>YOLO<span
-                class="dot">&bull;</span>OpenCV<span class="dot">&bull;</span>Flask<span
-                class="dot">&bull;</span>PyTorch</div>
+            <div class="reel-line reel-line-stack" id="rl-4">Python<span class="dot">&bull;</span>OpenCV<span
+                class="dot">&bull;</span>LLM<span class="dot">&bull;</span>Flask<span class="dot">&bull;</span>AWS</div>
           </div>
         </div>
       </div>
@@ -1945,30 +2056,32 @@
         <div>
           <div class="hero-subtitle">L2A SOFTWARE ENGINEER I · AI/ML · COMPUTER VISION</div>
           <div class="hero-bio">
-            Computer Vision and AI/ML Engineer with <strong>4 years</strong> of hands-on experience designing and
-            deploying
-            real-world vision systems. Proven track record building production-grade pipelines for
-            <strong>object detection</strong>, <strong>multi-object tracking</strong>, <strong>face
-              recognition</strong>,
-            and <strong>real-time video analytics</strong>. Experienced across the full lifecycle — from dataset
-            creation
-            and model training to live deployment in industrial environments. Currently expanding into
-            <strong>AWS and cloud-based ML deployment</strong>, with hands-on experience in Amazon Bedrock and
-            preparation
-            underway for the AWS Certified AI Practitioner certification.
+            Computer Vision and AI/ML Engineer with <strong>4+ years</strong> of hands-on experience designing,
+            fine-tuning, and
+            deploying production-grade AI systems. Proven track record building end-to-end pipelines across
+            <strong>object detection &amp; tracking</strong> (YOLOv8/11/26), <strong>pose estimation</strong>
+            (YOLO-Pose),
+            <strong>biometrics &amp; face recognition</strong> (InsightFace), and <strong>multimodal GenAI &amp; LLM
+              integration</strong>
+            (LlamaParse, Bedrock GPT-5.6 Luna, Gemini OCR). Experienced across the full lifecycle — from custom dataset
+            curation
+            and edge optimization to live factory floor deployment and interactive recommendation platforms. Actively
+            expanding
+            cloud ML capabilities on <strong>AWS</strong> and preparing for the AWS Certified AI Practitioner
+            certification.
           </div>
           <div class="hero-tags">
             <span class="hero-tag">Computer Vision</span>
             <span class="hero-tag">Real-Time Analytics</span>
-            <span class="hero-tag">Deep Learning</span>
-            <span class="hero-tag">Object Tracking</span>
+            <span class="hero-tag">Pose Analytics</span>
+            <span class="hero-tag">GenAI &amp; LLMs</span>
             <span class="hero-tag">Face Recognition</span>
-            <span class="hero-tag">ANPR</span>
-            <span class="hero-tag">AWS ML</span>
-            <span class="hero-tag">Industrial AI</span>
+            <span class="hero-tag">ANPR &amp; OCR</span>
+            <span class="hero-tag">AWS AI</span>
+            <span class="hero-tag">Industrial MLOps</span>
           </div>
-          <div class="hero-quote">"Turning research-grade models into pipelines that run reliably on a factory floor,
-            not just in a notebook."</div>
+          <div class="hero-quote">"Turning research-grade vision &amp; LLM models into production pipelines that run
+            reliably on factory floors and web platforms."</div>
         </div>
       </div>
 
@@ -1985,7 +2098,8 @@
             <div class="skill-group-label">COMPUTER VISION</div>
             <div class="skill-pills">
               <span class="skill-pill">OpenCV</span>
-              <span class="skill-pill">YOLOv8 / YOLO26</span>
+              <span class="skill-pill">YOLOv8 / YOLO11 / YOLO26</span>
+              <span class="skill-pill">YOLO-Pose</span>
               <span class="skill-pill">InsightFace</span>
               <span class="skill-pill">FaceNet</span>
               <span class="skill-pill">MediaPipe</span>
@@ -2287,17 +2401,21 @@
               <div class="tl-project-name">Exam Paper Translation Tool</div>
               <ul class="tl-bullets">
                 <li>Web app that uses LlamaParse for document parsing and OpenAI GPT-5.6 Luna through Amazon Bedrock
-                  for translation, preserving question order, tables, mathematical expressions, and embedded figures in a print-ready PDF.</li>
+                  for translation, preserving question order, tables, mathematical expressions, and embedded figures in
+                  a print-ready PDF.</li>
               </ul>
-              <div class="tl-tech"><span>Stack:</span> Flask, PyMuPDF, LlamaParse, Amazon S3, Amazon Bedrock, OpenAI GPT-5.6 Luna, WeasyPrint</div>
+              <div class="tl-tech"><span>Stack:</span> Flask, PyMuPDF, LlamaParse, Amazon S3, Amazon Bedrock, OpenAI
+                GPT-5.6 Luna, WeasyPrint</div>
               <div class="tl-project-toggle"><i class="fa fa-plus"></i></div>
               <div class="tl-expand">
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
                   <div class="pe-plan-text">Manually translating exam papers into Bengali while preserving exact
                     question numbering, layout, and embedded images is slow and error-prone. This tool automates the
-                    full pipeline: extract figures and insert protected placeholders, parse the document with LlamaParse,
-                    translate only the content with Bedrock, then restore the source figures and generate a print-ready PDF.</div>
+                    full pipeline: extract figures and insert protected placeholders, parse the document with
+                    LlamaParse,
+                    translate only the content with Bedrock, then restore the source figures and generate a print-ready
+                    PDF.</div>
                 </div>
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
@@ -2339,18 +2457,26 @@
                   <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
                   <ul class="pe-impl-list">
                     <li>Flask web application handling upload, processing, and download</li>
-                    <li>PyMuPDF extracts source figures before parsing; each figure is represented by a protected placeholder and stored with the source PDF, metadata, and raw parsed Markdown in Amazon S3</li>
-                    <li>LlamaParse is used only for document parsing. The Markdown is cleaned and split at question boundaries while retaining relevant section context</li>
-                    <li>OpenAI GPT-5.6 Luna, accessed through Amazon Bedrock, translates the content while preserving placeholders, question numbering, and source-language questions that must remain unchanged</li>
-                    <li>Validation detects missing or rewritten placeholders and restores them; original figure bytes are embedded as data URIs so final rendering never depends on an expiring S3 presigned URL</li>
-                    <li>LaTeX expressions are rendered as SVGs and WeasyPrint generates an A4 two-column PDF with Bengali font support</li>
+                    <li>PyMuPDF extracts source figures before parsing; each figure is represented by a protected
+                      placeholder and stored with the source PDF, metadata, and raw parsed Markdown in Amazon S3</li>
+                    <li>LlamaParse is used only for document parsing. The Markdown is cleaned and split at question
+                      boundaries while retaining relevant section context</li>
+                    <li>OpenAI GPT-5.6 Luna, accessed through Amazon Bedrock, translates the content while preserving
+                      placeholders, question numbering, and source-language questions that must remain unchanged</li>
+                    <li>Validation detects missing or rewritten placeholders and restores them; original figure bytes
+                      are embedded as data URIs so final rendering never depends on an expiring S3 presigned URL</li>
+                    <li>LaTeX expressions are rendered as SVGs and WeasyPrint generates an A4 two-column PDF with
+                      Bengali font support</li>
                   </ul>
                 </div>
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-image"></i>In Action</div>
                   <div class="pe-media-grid">
                     <div class="pe-media">
-                      <img src="photos/project infos/translation.png" alt="Exam Paper Translation Tool in Action">
+                      <img src="photos/project infos/translation.png" alt="Exam Paper Translation Tool Interface">
+                    </div>
+                    <div class="pe-media">
+                      <img src="photos/project infos/translation2.png" alt="Exam Paper Translation Tool Output">
                     </div>
                   </div>
                 </div>
@@ -2642,72 +2768,76 @@
 
           <div class="project-card">
             <div class="project-card-head">
-              <div class="project-icon"><i class="fa fa-id-badge"></i></div>
-              <div class="project-title">AI-Based Attendance System</div>
-              <div class="project-desc">FaceNet-based attendance system recognising employees by name and ID with
-                real-time daily in/out time tracking. Automated to reduce manual effort and improve accuracy.</div>
+              <div class="project-icon"><i class="fa fa-car-side"></i></div>
+              <div class="project-title">Vehicle Recommendation Platform</div>
+              <div class="project-desc"><strong>Phase 1 complete:</strong> a guided preference questionnaire builds a
+                structured vehicle profile. <strong>Phase 2 planned:</strong> a chatbot over the existing data and
+                recommendation pipeline.</div>
               <div class="project-tags">
-                <span class="tag">FaceNet</span><span class="tag">Face Recognition</span><span
-                  class="tag">Python</span><span class="tag">OpenCV</span>
+                <span class="tag">Flask</span><span class="tag">HTML/CSS/JS</span><span
+                  class="tag">Recommendations</span><span class="tag">LLM Integration</span>
               </div>
               <div class="project-toggle"><i class="fa fa-plus"></i></div>
             </div>
             <div class="project-expand">
               <div class="pe-block">
                 <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
-                <div class="pe-plan-text">Manual attendance registers are slow and error-prone at scale. The goal was a
-                  touchless system that identifies each employee by face, logs daily in/out time automatically, and
-                  removes the need for ID cards or manual entry.</div>
+                <div class="pe-plan-text">Choosing a vehicle usually involves comparing budget, body type, running
+                  needs, seating, fuel preference, and practical constraints. The platform turns those inputs into a
+                  structured profile and a transparent shortlist instead of relying on a generic search.</div>
               </div>
               <div class="pe-block">
-                <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
+                <div class="pe-label"><i class="fa fa-diagram-project"></i>Delivery Roadmap</div>
                 <div class="pipeline">
                   <div class="pipeline-step">
-                    <div class="pipeline-step-icon"><i class="fa fa-camera"></i></div>
-                    <div class="pipeline-step-label">Camera Feed</div>
-                    <div class="pipeline-step-sub">Live entry-point video</div>
+                    <div class="pipeline-step-icon"><i class="fa fa-list-check"></i></div>
+                    <div class="pipeline-step-label">Phase 1 Complete</div>
+                    <div class="pipeline-step-sub">Guided preferences form</div>
                   </div>
                   <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
                   <div class="pipeline-step">
-                    <div class="pipeline-step-icon"><i class="fa fa-user"></i></div>
-                    <div class="pipeline-step-label">Face Detection</div>
-                    <div class="pipeline-step-sub">Locate face in frame</div>
+                    <div class="pipeline-step-icon"><i class="fa fa-database"></i></div>
+                    <div class="pipeline-step-label">Existing Pipeline</div>
+                    <div class="pipeline-step-sub">Profile + vehicle data</div>
                   </div>
                   <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
                   <div class="pipeline-step">
-                    <div class="pipeline-step-icon"><i class="fa fa-fingerprint"></i></div>
-                    <div class="pipeline-step-label">FaceNet Embedding</div>
-                    <div class="pipeline-step-sub">128-d identity vector</div>
+                    <div class="pipeline-step-icon"><i class="fa fa-robot"></i></div>
+                    <div class="pipeline-step-label">Phase 2 Planned</div>
+                    <div class="pipeline-step-sub">Conversational assistant</div>
                   </div>
                   <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
                   <div class="pipeline-step">
-                    <div class="pipeline-step-icon"><i class="fa fa-check-double"></i></div>
-                    <div class="pipeline-step-label">Match to ID</div>
-                    <div class="pipeline-step-sub">Compare vs known encodings</div>
-                  </div>
-                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
-                  <div class="pipeline-step">
-                    <div class="pipeline-step-icon"><i class="fa fa-clock"></i></div>
-                    <div class="pipeline-step-label">Log In/Out</div>
-                    <div class="pipeline-step-sub">Timestamped record</div>
+                    <div class="pipeline-step-icon"><i class="fa fa-comments"></i></div>
+                    <div class="pipeline-step-label">Guided Choice</div>
+                    <div class="pipeline-step-sub">Answers + explanations</div>
                   </div>
                 </div>
               </div>
               <div class="pe-block">
-                <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
+                <div class="pe-label"><i class="fa fa-code"></i>Implementation Plan</div>
                 <ul class="pe-impl-list">
-                  <li>MTCNN detects and aligns faces from the dataset (<code>align.py</code>), producing consistent
-                    crops for embedding</li>
-                  <li><code>facenet-pytorch</code> generates the identity embeddings, built into a searchable database
-                    (<code>build_db.py</code> → <code>embeddings.npz</code>)</li>
-                  <li>Live recognition (<code>main.py</code>) matches webcam faces against the embedding database using
-                    a distance threshold; no close match is labeled "Unknown"</li>
-                  <li><code>rebuild_db.py</code> syncs the dataset and re-generates embeddings whenever employees are
-                    added or removed</li>
-                  <li>Runs on GPU automatically when available, falling back to CPU otherwise</li>
+                  <li><strong>Phase 1 — completed:</strong> implement the responsive multi-step questionnaire and
+                    capture preferences as structured data for the recommendation workflow</li>
+                  <li><strong>Phase 2 — planned:</strong> add a chat interface that receives the saved profile, relevant
+                    vehicle data, and current recommendation results as controlled context</li>
+                  <li>Design the assistant to answer follow-up questions, explain why a vehicle matches the profile,
+                    compare shortlisted options, and request only missing details</li>
+                  <li>Keep recommendation calculations deterministic in the existing pipeline; use the LLM for
+                    conversation, clarification, and explanation rather than allowing it to invent specifications or
+                    rankings</li>
+                  <li>Add evaluation cases for conflicting preferences, missing values, and grounded answers before
+                    exposing the chatbot to users</li>
                 </ul>
               </div>
-
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-video"></i>In Action</div>
+                <div class="pe-media-grid">
+                  <div class="pe-media pe-media-video">
+                    <video src="photos/project infos/vehicle_recomendation.mp4" controls preload="metadata" playsinline muted loop></video>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -2791,41 +2921,72 @@
 
           <div class="project-card">
             <div class="project-card-head">
-              <div class="project-icon"><i class="fa fa-car-side"></i></div>
-              <div class="project-title">Vehicle Recommendation Platform</div>
-              <div class="project-desc"><strong>Phase 1 complete:</strong> a guided preference questionnaire builds a structured vehicle profile. <strong>Phase 2 planned:</strong> a chatbot over the existing data and recommendation pipeline.</div>
+              <div class="project-icon"><i class="fa fa-id-badge"></i></div>
+              <div class="project-title">AI-Based Attendance System</div>
+              <div class="project-desc">FaceNet-based attendance system recognising employees by name and ID with
+                real-time daily in/out time tracking. Automated to reduce manual effort and improve accuracy.</div>
               <div class="project-tags">
-                <span class="tag">Flask</span><span class="tag">HTML/CSS/JS</span><span class="tag">Recommendations</span><span class="tag">LLM Integration</span>
+                <span class="tag">FaceNet</span><span class="tag">Face Recognition</span><span
+                  class="tag">Python</span><span class="tag">OpenCV</span>
               </div>
               <div class="project-toggle"><i class="fa fa-plus"></i></div>
             </div>
             <div class="project-expand">
               <div class="pe-block">
                 <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
-                <div class="pe-plan-text">Choosing a vehicle usually involves comparing budget, body type, running needs, seating, fuel preference, and practical constraints. The platform turns those inputs into a structured profile and a transparent shortlist instead of relying on a generic search.</div>
+                <div class="pe-plan-text">Manual attendance registers are slow and error-prone at scale. The goal was a
+                  touchless system that identifies each employee by face, logs daily in/out time automatically, and
+                  removes the need for ID cards or manual entry.</div>
               </div>
               <div class="pe-block">
-                <div class="pe-label"><i class="fa fa-diagram-project"></i>Delivery Roadmap</div>
+                <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
                 <div class="pipeline">
-                  <div class="pipeline-step"><div class="pipeline-step-icon"><i class="fa fa-list-check"></i></div><div class="pipeline-step-label">Phase 1 Complete</div><div class="pipeline-step-sub">Guided preferences form</div></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-camera"></i></div>
+                    <div class="pipeline-step-label">Camera Feed</div>
+                    <div class="pipeline-step-sub">Live entry-point video</div>
+                  </div>
                   <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
-                  <div class="pipeline-step"><div class="pipeline-step-icon"><i class="fa fa-database"></i></div><div class="pipeline-step-label">Existing Pipeline</div><div class="pipeline-step-sub">Profile + vehicle data</div></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-user"></i></div>
+                    <div class="pipeline-step-label">Face Detection</div>
+                    <div class="pipeline-step-sub">Locate face in frame</div>
+                  </div>
                   <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
-                  <div class="pipeline-step"><div class="pipeline-step-icon"><i class="fa fa-robot"></i></div><div class="pipeline-step-label">Phase 2 Planned</div><div class="pipeline-step-sub">Conversational assistant</div></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-fingerprint"></i></div>
+                    <div class="pipeline-step-label">FaceNet Embedding</div>
+                    <div class="pipeline-step-sub">128-d identity vector</div>
+                  </div>
                   <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
-                  <div class="pipeline-step"><div class="pipeline-step-icon"><i class="fa fa-comments"></i></div><div class="pipeline-step-label">Guided Choice</div><div class="pipeline-step-sub">Answers + explanations</div></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-check-double"></i></div>
+                    <div class="pipeline-step-label">Match to ID</div>
+                    <div class="pipeline-step-sub">Compare vs known encodings</div>
+                  </div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-clock"></i></div>
+                    <div class="pipeline-step-label">Log In/Out</div>
+                    <div class="pipeline-step-sub">Timestamped record</div>
+                  </div>
                 </div>
               </div>
               <div class="pe-block">
-                <div class="pe-label"><i class="fa fa-code"></i>Implementation Plan</div>
+                <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
                 <ul class="pe-impl-list">
-                  <li><strong>Phase 1 — completed:</strong> implement the responsive multi-step questionnaire and capture preferences as structured data for the recommendation workflow</li>
-                  <li><strong>Phase 2 — planned:</strong> add a chat interface that receives the saved profile, relevant vehicle data, and current recommendation results as controlled context</li>
-                  <li>Design the assistant to answer follow-up questions, explain why a vehicle matches the profile, compare shortlisted options, and request only missing details</li>
-                  <li>Keep recommendation calculations deterministic in the existing pipeline; use the LLM for conversation, clarification, and explanation rather than allowing it to invent specifications or rankings</li>
-                  <li>Add evaluation cases for conflicting preferences, missing values, and grounded answers before exposing the chatbot to users</li>
+                  <li>MTCNN detects and aligns faces from the dataset (<code>align.py</code>), producing consistent
+                    crops for embedding</li>
+                  <li><code>facenet-pytorch</code> generates the identity embeddings, built into a searchable database
+                    (<code>build_db.py</code> → <code>embeddings.npz</code>)</li>
+                  <li>Live recognition (<code>main.py</code>) matches webcam faces against the embedding database using
+                    a distance threshold; no close match is labeled "Unknown"</li>
+                  <li><code>rebuild_db.py</code> syncs the dataset and re-generates embeddings whenever employees are
+                    added or removed</li>
+                  <li>Runs on GPU automatically when available, falling back to CPU otherwise</li>
                 </ul>
               </div>
+
             </div>
           </div>
 
@@ -2909,35 +3070,35 @@
         </div>
         <div class="highlights-grid">
           <div class="hl-card">
-            <div class="hl-icon"><i class="fa fa-industry"></i></div>
+            <div class="hl-icon"><i class="fa fa-person-running"></i></div>
             <div>
-              <div class="hl-title">Live Industrial AI Deployment</div>
-              <div class="hl-desc">Deployed real-time PPE compliance AI in live industrial environments —
-                production-grade with direct safety impact.</div>
+              <div class="hl-title">Worker Productivity Tracking AI</div>
+              <div class="hl-desc">Designed YOLO-Pose tracking system with ROI activity classification and interactive
+                Flask dashboards for live factory productivity monitoring.</div>
             </div>
           </div>
           <div class="hl-card">
-            <div class="hl-icon"><i class="fa fa-images"></i></div>
+            <div class="hl-icon"><i class="fa fa-shield-halved"></i></div>
             <div>
-              <div class="hl-title">15,000+ Image Dataset from Scratch</div>
-              <div class="hl-desc">Built and annotated a 15,000+ image dataset across 6 PPE classes, significantly
-                boosting model robustness.</div>
+              <div class="hl-title">AI-Based PPE Compliance Detection</div>
+              <div class="hl-desc">Deployed production-grade PPE compliance AI across live industrial camera feeds with
+                automated real-time violation alerts and hazardous area triggers.</div>
             </div>
           </div>
           <div class="hl-card">
-            <div class="hl-icon"><i class="fa fa-bolt"></i></div>
+            <div class="hl-icon"><i class="fa fa-file-contract"></i></div>
             <div>
-              <div class="hl-title">YOLOv3 → YOLOv8 Architecture Upgrade</div>
-              <div class="hl-desc">Led model migration delivering measurable improvements in detection accuracy and
-                inference speed in production.</div>
+              <div class="hl-title">GenAI Multimodal Document Intelligence</div>
+              <div class="hl-desc">Integrated LlamaParse and Amazon Bedrock (GPT-5.6 Luna) to parse, translate, and
+                preserve layout, math formulas, and figures in complex documents.</div>
             </div>
           </div>
           <div class="hl-card">
             <div class="hl-icon"><i class="fa fa-car-side"></i></div>
             <div>
-              <div class="hl-title">LLM-Powered ANPR OCR</div>
-              <div class="hl-desc">Replaced traditional OCR with Gemini Flash Pro for license plate reading,
-                significantly improving real-time accuracy on live feeds.</div>
+              <div class="hl-title">LLM-Powered ANPR &amp; Multimodal OCR</div>
+              <div class="hl-desc">Benchmarking RF-DeTR license plate detection against EasyOCR, Textract, and Gemini
+                Flash Pro for high-precision real-time OCR.</div>
             </div>
           </div>
         </div>
@@ -3284,24 +3445,34 @@
     // Active nav on scroll — skip video-reel (sidebar is hidden then)
     const sections = document.querySelectorAll('section[id]');
     const navItems = document.querySelectorAll('.nav-item[href^="#"]');
-    window.addEventListener('scroll', () => {
+
+    function updateActiveNav() {
       let current = '';
-      sections.forEach(s => {
-        if (s.id === 'video-reel') return; // ignore reel
-        const rect = s.getBoundingClientRect();
-        // If the top of the section is scrolled past 150px from the top of the viewport
-        if (rect.top <= 150) {
-          current = s.id;
-        }
-      });
-      // Fallback: if we are near the top of the page, default to about-bio
+      const isAtBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60);
+
+      if (isAtBottom) {
+        current = 'contact';
+      } else {
+        sections.forEach(s => {
+          if (s.id === 'video-reel') return; // ignore reel
+          const rect = s.getBoundingClientRect();
+          if (rect.top <= 220) {
+            current = s.id;
+          }
+        });
+      }
+
       if (!current) {
         current = 'about-bio';
       }
+
       navItems.forEach(n => {
         n.classList.toggle('active', n.getAttribute('href') === '#' + current);
       });
-    }, { passive: true });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
   </script>
 
   <script>
@@ -3367,6 +3538,74 @@
             });
           }, 500);
         });
+      });
+    })();
+  </script>
+
+  <!-- Lightbox Modal HTML -->
+  <div id="imageLightbox" class="lightbox-modal">
+    <div class="lightbox-content">
+      <div class="lightbox-close" id="lightboxClose"><i class="fa fa-times"></i></div>
+      <img id="lightboxImg" class="lightbox-img" src="" alt="Enlarged View" />
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script>
+    // ── Image Lightbox Click Handler (Capture Phase) ─────────────────────────
+    (function () {
+      const lightbox = document.getElementById('imageLightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      if (!lightbox || !lightboxImg) return;
+
+      function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxCaption.textContent = alt || 'In Action View';
+        lightbox.classList.add('active');
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+      }
+
+      // Use capture phase (true) so parent stopPropagation() in bubble phase doesn't block this
+      window.addEventListener('click', function (e) {
+        const img = e.target.closest('.pe-media img, .pe-media-grid img');
+        if (img) {
+          e.preventDefault();
+          e.stopPropagation();
+          openLightbox(img.src, img.alt);
+          return;
+        }
+        const mediaBox = e.target.closest('.pe-media');
+        if (mediaBox) {
+          const innerImg = mediaBox.querySelector('img');
+          if (innerImg) {
+            e.preventDefault();
+            e.stopPropagation();
+            openLightbox(innerImg.src, innerImg.alt);
+          }
+        }
+      }, true);
+
+      if (lightboxClose) {
+        lightboxClose.addEventListener('click', function (e) {
+          e.stopPropagation();
+          closeLightbox();
+        });
+      }
+
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox || e.target === lightbox.querySelector('.lightbox-content') || e.target.classList.contains('lightbox-modal')) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeLightbox();
       });
     })();
   </script>

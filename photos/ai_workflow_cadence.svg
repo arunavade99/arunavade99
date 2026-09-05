@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="100%" height="100%" style="background: #0b1118; border-radius: 12px; font-family: system-ui, -apple-system, sans-serif;">
+  <defs>
+    <!-- Line Gradient -->
+    <linearGradient id="sineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00dca0" />
+      <stop offset="25%" stop-color="#00b4ff" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="75%" stop-color="#ffaa00" />
+      <stop offset="100%" stop-color="#00dca0" />
+    </linearGradient>
+
+    <linearGradient id="waveArea" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00dca0" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#0b1118" stop-opacity="0.0" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes flow {
+      0% { stroke-dashoffset: 600; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.4); opacity: 0.4; }
+    }
+    @keyframes scan {
+      0% { transform: translateX(0px); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateX(720px); opacity: 0; }
+    }
+    .animated-wave {
+      stroke-dasharray: 20 8;
+      animation: flow 12s linear infinite;
+    }
+    .node-pulse {
+      transform-origin: center;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+    .scanner-line {
+      animation: scan 4s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Card Outer Border -->
+  <rect x="1" y="1" width="798" height="238" rx="12" fill="#0b1118" stroke="#1c2c3e" stroke-width="1.5" />
+
+  <!-- Title & Subtitle -->
+  <text x="30" y="32" fill="#e2e8f0" font-size="14" font-weight="700" letter-spacing="1">DYNAMIC AI MODEL &amp; PIPELINE ACTIVITY (SINE WAVE PROFILE)</text>
+  <text x="30" y="48" fill="#64748b" font-size="11">Real-Time Continuous Optimization Flow Across Computer Vision, Pose Tracking, GenAI &amp; MLOps</text>
+
+  <!-- Horizontal Axis Lines & Grid -->
+  <line x1="40" y1="75" x2="760" y2="75" stroke="#162332" stroke-width="1" stroke-dasharray="4 4" />
+  <line x1="40" y1="135" x2="760" y2="135" stroke="#1c2d42" stroke-width="1" />
+  <line x1="40" y1="195" x2="760" y2="195" stroke="#162332" stroke-width="1" stroke-dasharray="4 4" />
+
+  <!-- Background Area Fill -->
+  <path d="M 40 135 C 90 55, 140 55, 190 135 C 240 215, 290 215, 340 135 C 390 55, 440 55, 490 135 C 540 215, 590 215, 640 135 C 690 55, 740 55, 760 95 L 760 195 L 40 195 Z" 
+        fill="url(#waveArea)" />
+
+  <!-- Smooth Glowing Sine Wave Path (Solid Base) -->
+  <path d="M 40 135 C 90 55, 140 55, 190 135 C 240 215, 290 215, 340 135 C 390 55, 440 55, 490 135 C 540 215, 590 215, 640 135 C 690 55, 740 55, 760 95" 
+        fill="none" stroke="url(#sineGrad)" stroke-width="2.5" opacity="0.4" />
+
+  <!-- Animated Flowing Sine Wave Path -->
+  <path class="animated-wave" d="M 40 135 C 90 55, 140 55, 190 135 C 240 215, 290 215, 340 135 C 390 55, 440 55, 490 135 C 540 215, 590 215, 640 135 C 690 55, 740 55, 760 95" 
+        fill="none" stroke="url(#sineGrad)" stroke-width="3.5" filter="url(#glow)" stroke-linecap="round" />
+
+  <!-- Traveling Scanner Indicator -->
+  <line class="scanner-line" x1="40" y1="65" x2="40" y2="205" stroke="#00dca0" stroke-width="1.5" opacity="0.7" filter="url(#glow)" />
+
+  <!-- Node 1 (Data Ingestion & Annotation) -->
+  <circle class="node-pulse" cx="140" cy="75" r="8" fill="#00dca0" opacity="0.4" />
+  <circle cx="140" cy="75" r="5" fill="#00dca0" stroke="#0b1118" stroke-width="2" filter="url(#glow)" />
+  <text x="140" y="54" fill="#00dca0" font-size="11" font-weight="700" text-anchor="middle">Data Curation &amp; 15k+ Datasets</text>
+  <text x="140" y="112" fill="#94a3b8" font-size="10" text-anchor="middle">Multi-class PPE &amp; Video Streams</text>
+
+  <!-- Node 2 (Pose & Object Detection) -->
+  <circle class="node-pulse" cx="290" cy="195" r="8" fill="#00b4ff" opacity="0.4" />
+  <circle cx="290" cy="195" r="5" fill="#00b4ff" stroke="#0b1118" stroke-width="2" filter="url(#glow)" />
+  <text x="290" y="222" fill="#00b4ff" font-size="11" font-weight="700" text-anchor="middle">Worker Pose &amp; Object Detection</text>
+  <text x="290" y="165" fill="#94a3b8" font-size="10" text-anchor="middle">YOLO-Pose · YOLOv8/11/26 · InsightFace</text>
+
+  <!-- Node 3 (Multimodal GenAI & LLMs) -->
+  <circle class="node-pulse" cx="440" cy="75" r="8" fill="#a855f7" opacity="0.4" />
+  <circle cx="440" cy="75" r="5" fill="#a855f7" stroke="#0b1118" stroke-width="2" filter="url(#glow)" />
+  <text x="440" y="54" fill="#c084fc" font-size="11" font-weight="700" text-anchor="middle">Multimodal GenAI &amp; Bedrock LLMs</text>
+  <text x="440" y="112" fill="#94a3b8" font-size="10" text-anchor="middle">LlamaParse · GPT-5.6 Luna · Gemini OCR</text>
+
+  <!-- Node 4 (Edge MLOps Deployment) -->
+  <circle class="node-pulse" cx="590" cy="195" r="8" fill="#ffaa00" opacity="0.4" />
+  <circle cx="590" cy="195" r="5" fill="#ffaa00" stroke="#0b1118" stroke-width="2" filter="url(#glow)" />
+  <text x="590" y="222" fill="#fbbf24" font-size="11" font-weight="700" text-anchor="middle">Production MLOps &amp; Flask Dashboards</text>
+  <text x="590" y="165" fill="#94a3b8" font-size="10" text-anchor="middle">Real-time Factory Floor Analytics</text>
+
+  <!-- Node 5 (Vehicle Recommendation Engine) -->
+  <circle class="node-pulse" cx="740" cy="75" r="8" fill="#00dca0" opacity="0.4" />
+  <circle cx="740" cy="75" r="5" fill="#00dca0" stroke="#0b1118" stroke-width="2" filter="url(#glow)" />
+  <text x="740" y="54" fill="#00dca0" font-size="11" font-weight="700" text-anchor="middle">Vehicle Recommendation Engine</text>
+</svg>
