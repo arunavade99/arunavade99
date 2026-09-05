@@ -191,6 +191,35 @@
     }
     .footer a { color: var(--accent); text-decoration: none; }
 
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .footer-socials a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      color: var(--text);
+      font-size: 1.1rem;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    .footer-socials a:hover {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
     @media (max-width: 700px) {
       .topbar { padding: 14px 20px; }
       .gallery-container { padding: 0 16px 60px; }
@@ -206,10 +235,10 @@
   <div class="topbar-left">
     <a class="back-btn" href="index.html"><i class="fa fa-arrow-left"></i> Back to Dashboard</a>
     <div style="width:1px;height:20px;background:var(--border)"></div>
-    <div>
+    <a href="index.html" style="text-decoration: none; color: inherit; display: block;">
       <div class="topbar-title">Arunava <span>De</span></div>
       <div class="topbar-subtitle">Photography Portfolio</div>
-    </div>
+    </a>
   </div>
   <a href="https://instagram.com/arunava_de_official/" target="_blank" style="color:var(--muted);font-size:1.2rem;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#e1306c'" onmouseout="this.style.color='var(--muted)'">
     <i class="fab fa-instagram"></i>
@@ -237,7 +266,21 @@
 
 
 <footer class="footer">
-  Built with ❤️ by <a href="index.html">Arunava De</a> · <a href="https://github.com/arunavade99" target="_blank">github.com/arunavade99</a>
+  <div class="footer-socials">
+    <a href="https://x.com/arunava_de_" target="_blank" rel="noopener" aria-label="X (Twitter)"><i
+        class="fa-brands fa-x-twitter"></i></a>
+    <a href="https://www.facebook.com/arunava.de.98" target="_blank" rel="noopener" aria-label="Facebook"><i
+        class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/arunava_de_official" target="_blank" rel="noopener"
+      aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://github.com/arunavade99" target="_blank" rel="noopener" aria-label="GitHub"><i
+        class="fa-brands fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/arunavade99" target="_blank" rel="noopener" aria-label="LinkedIn"><i
+        class="fa-brands fa-linkedin-in"></i></a>
+    <a href="https://www.threads.com/@arunava_de_official" target="_blank" rel="noopener" aria-label="Threads"><i
+        class="fa-brands fa-threads"></i></a>
+  </div>
+  © 2026 <a href="index.html">Arunava De</a> | AI/ML Engineer | Photographer | Videographer | Content Creator · <a href="https://instagram.com/arunava_de_official/" target="_blank">Instagram</a>
 </footer>
 
 <script>

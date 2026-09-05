@@ -6,7 +6,7 @@
 
 <a href="https://linkedin.com/in/arunavade99" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
 <a href="https://github.com/arunavade99" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-24292e?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
-<a href="https://arunavade99.github.io/arunavade99/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Portfolio-00C896?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio"/></a>
+<a href="https://arunavadeportfolio.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Portfolio-00C896?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio"/></a>
 <a href="mailto:arunava_de@outlook.com" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Email-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white" alt="Email"/></a>
 <a href="https://www.instagram.com/arunava_de_official" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"/></a>
 
@@ -30,7 +30,7 @@
 
 ## 👨‍💻 About Me
 
-Computer Vision and AI/ML Engineer with **3+ years** of hands-on experience designing, training, and deploying production-grade AI systems. Specializing in **object detection**, **multi-object tracking**, **face recognition**, and **real-time edge analytics** — taking models from prototype to live factory floor deployment.
+Computer Vision and AI/ML Engineer with **4 years** of hands-on experience designing, training, and deploying production-grade AI systems. Specializing in **object detection**, **multi-object tracking**, **face recognition**, and **real-time edge analytics** — taking models from prototype to live factory floor deployment.
 
 > **Production Achievements:** Upgraded industrial PPE detection from YOLOv3 to YOLOv8 with a custom-annotated dataset of **15,000+ images**, built real-time molten metal safety systems, and benchmarked EasyOCR, Textract, and Gemini Flash Pro for high-accuracy ANPR pipelines.
 
@@ -130,9 +130,9 @@ AI Engineering Architecture
 |:---|:---|:---|
 | **Computer Vision** | `OpenCV` `YOLOv8` `YOLO26` `YOLO-Pose` `InsightFace` `FaceNet` `MediaPipe` `DeepSORT` `RF-DeTR` `Supervision` | Real-time object tracking, safety compliance monitoring, pose estimation, face attendance |
 | **Deep Learning** | `PyTorch` `CNNs` `Transfer Learning` `Object Detection` `Image Segmentation` | Custom neural net fine-tuning, dataset annotation, multi-class classification |
-| **OCR & GenAI** | `Gemini` `Amazon Bedrock` `EasyOCR` `Amazon Textract` `Mobile SAM` | Multimodal document & license plate extraction, prompt engineering, segmentation |
+| **OCR, Document AI & GenAI** | `LlamaParse` `OpenAI GPT-5.6 Luna` `Amazon Bedrock` `EasyOCR` `Amazon Textract` `Gemini Flash Pro` `Mobile SAM` | Structured document parsing, Bengali translation, license plate OCR, multimodal extraction, segmentation |
 | **Backend & Web** | `Python` `Flask` `Django` `MySQL` `RESTful APIs` | AI dashboard development, video stream ingestion pipelines, backend REST endpoints |
-| **Cloud & DevOps** | `AWS` `Amazon Bedrock` `Git` `GitHub Actions` `Power BI` | Model deployment, dataset management, version control, analytics reporting |
+| **Cloud & DevOps** | `AWS` `Amazon S3` `Amazon Bedrock` `Git` `GitHub Actions` `Power BI` | Cloud document assets, model integration, dataset management, version control, analytics reporting |
 | **Hardware & Edge** | `Raspberry Pi` `PIR Sensors` `Embedded AI` `NVIDIA Jetson` | On-device video inference, IoT sensor trigger automation, edge deployment |
 
 ---
@@ -141,7 +141,7 @@ AI Engineering Architecture
 
 ### 📈 Interactive Activity Summary
 <a href="https://github.com/arunavade99">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=arunavade99&theme=react-dark&custom_title=Arunava's%20GitHub%20Activity%20Contributions&hide_border=true&area=true" alt="Arunava's GitHub Activity Graph" width="100%" />
+  <img src="https://ghchart.rshah.org/00dca0/arunavade99" alt="Arunava's GitHub Activity Contributions" width="100%" />
 </a>
 
 </div>
@@ -176,6 +176,7 @@ AI Engineering Architecture
 |:---|:---|:---|
 | 👤 **AI Face Recognition Attendance** | Employee verification with automatic in/out logging, spoof prevention, and log generation | `FaceNet` `OpenCV` `Python` `SQLite` |
 | 🚘 **Vehicle Speed & Line-Cross Counter** | Real-time vehicle speed estimation using perspective transformation, virtual calibration lines, and directional counter | `YOLOv8` `DeepSORT` `OpenCV` `Python` |
+| 🚗 **Vehicle Recommendation Platform** | **Phase 1 complete:** guided preference questionnaire builds a structured vehicle profile. **Phase 2 planned:** conversational assistant over the existing data and recommendation pipeline, with follow-up Q&A and match explanations. | `Flask` `HTML/CSS/JS` `LLM Integration (planned)` |
 
 ---
 

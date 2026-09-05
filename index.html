@@ -73,7 +73,147 @@
       z-index: 200;
       display: flex;
       flex-direction: column;
-      transition: transform 0.3s ease;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ══ REEL MODE: sidebar hidden, main full-width ══ */
+    body.reel-mode .sidebar {
+      transform: translateX(-110%);
+    }
+
+    body.reel-mode .main {
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    body.reel-mode .hamburger {
+      display: none !important;
+    }
+
+    body.reel-mode #video-reel {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    /* Sidebar reveal animation when reel ends */
+    .sidebar {
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Smooth main width transition when sidebar appears */
+    .main {
+      transition: margin-left 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+        padding 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ══ REEL NAME OVERLAY ══ */
+    .reel-name-overlay {
+      position: absolute;
+      top: 8%;
+      /* name sits near top of frame */
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 20;
+      pointer-events: none;
+      width: 90%;
+      max-width: 900px;
+    }
+
+    /* ══ REEL DETAILS OVERLAY ══ */
+    .reel-details-overlay {
+      position: absolute;
+      bottom: 12%;
+      /* details sit near bottom */
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 20;
+      pointer-events: none;
+      width: 90%;
+      max-width: 900px;
+    }
+
+    /* Frosted backdrop behind details for maximum legibility */
+    .reel-details-overlay::before {
+      content: '';
+      position: absolute;
+      inset: -16px -24px;
+      background: rgba(6, 10, 15, 0.45);
+      border-radius: 12px;
+      backdrop-filter: blur(3px);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.7s ease;
+    }
+
+    .reel-details-overlay.any-visible::before {
+      opacity: 1;
+    }
+
+    .reel-line {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      line-height: 1.2;
+    }
+
+    .reel-line.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reel-line-name {
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: .01em;
+      margin-bottom: 12px;
+      text-shadow: 0 0 40px rgba(0, 0, 0, 1), 0 2px 6px rgba(0, 0, 0, 1), 0 0 12px rgba(0, 220, 160, 0.4);
+    }
+
+    .reel-line-name span {
+      color: var(--neon);
+    }
+
+    .reel-line-role {
+      font-size: clamp(0.9rem, 2.2vw, 1.2rem);
+      font-weight: 600;
+      color: #e8f4fa;
+      margin-bottom: 8px;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 1), 0 2px 4px rgba(0, 0, 0, 1);
+    }
+
+    .reel-line-tagline {
+      font-size: clamp(0.78rem, 1.7vw, 0.95rem);
+      color: #b0ccd8;
+      margin-bottom: 12px;
+      text-shadow: 0 0 16px rgba(0, 0, 0, 1), 0 1px 3px rgba(0, 0, 0, 1);
+    }
+
+    .reel-line-company {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(0.62rem, 1.5vw, 0.75rem);
+      color: #6a8898;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      text-shadow: 0 0 14px rgba(0, 0, 0, 1), 0 1px 3px rgba(0, 0, 0, 1);
+    }
+
+    .reel-line-stack {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(0.72rem, 1.6vw, 0.85rem);
+      color: var(--neon2);
+      letter-spacing: .05em;
+      text-shadow: 0 0 14px rgba(0, 0, 0, 1), 0 1px 3px rgba(0, 0, 0, 1);
+    }
+
+    .reel-line-stack .dot {
+      color: #4a6a7a;
+      margin: 0 7px;
     }
 
     .sidebar::before {
@@ -1467,6 +1607,92 @@
       border-radius: 3px;
     }
 
+    /* ══════════ VIDEO REEL ══════════ */
+
+    /* Hero becomes full-screen landing */
+    .intro-hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .intro-hero .scroll-cue {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: .65rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      animation: cue-bounce 2s ease-in-out infinite;
+    }
+
+    .intro-hero .scroll-cue i {
+      font-size: 1.1rem;
+      color: var(--neon);
+    }
+
+    @keyframes cue-bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 0.6;
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(8px);
+        opacity: 1;
+      }
+    }
+
+    /* Reel wrapper — inside .main, uses negative margins to fill full content width */
+    #video-reel {
+      position: relative;
+      background: var(--bg);
+      margin-left: -52px;
+      margin-right: -52px;
+      margin-bottom: 58px;
+    }
+
+    .reel-track {
+      height: 5600px;
+      /* scroll travel: controls playback speed */
+    }
+
+    /* ── Reel sticky: full viewport cover ── */
+    .reel-sticky {
+      position: sticky;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      /* fallback */
+      height: 100dvh;
+      /* mobile: excludes collapsing browser chrome */
+      overflow: hidden;
+      background: #000;
+    }
+
+    #reel-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+      -webkit-touch-callout: none;
+    }
+
+
     /* ══════════ RESPONSIVE ══════════ */
 
     /* Tablet: collapse sidebar to icon-rail */
@@ -1477,6 +1703,11 @@
 
       .main {
         padding: 40px 36px 80px;
+      }
+
+      #video-reel {
+        margin-left: -36px;
+        margin-right: -36px;
       }
     }
 
@@ -1545,6 +1776,11 @@
       .hero-icons {
         justify-content: center;
       }
+
+      #video-reel {
+        margin-left: -22px;
+        margin-right: -22px;
+      }
     }
 
     @media (max-width: 560px) {
@@ -1570,7 +1806,7 @@
 
 
       .intro-hero {
-        padding: 30px 8px 26px;
+        padding: 0 8px;
       }
 
       .intro-name {
@@ -1601,6 +1837,11 @@
         font-size: .68rem;
         line-height: 1.9;
       }
+
+      #video-reel {
+        margin-left: -14px;
+        margin-right: -14px;
+      }
     }
 
     @media (max-width: 380px) {}
@@ -1629,13 +1870,12 @@
       </div>
       <div class="sidebar-name">Arunava De</div>
       <div class="sidebar-role">// AI/ML · COMPUTER VISION</div>
-      <div class="sidebar-location"><i class="fa fa-location-dot"></i> Kolkata, West Bengal, India</div>
+      <div class="sidebar-location"><i class="fa fa-location-dot"></i> Newtown, Kolkata, West Bengal, India</div>
     </div>
 
     <nav class="sidebar-nav">
       <div class="nav-label">Navigate</div>
-      <a class="nav-item active" href="#about"><i class="fa fa-user"></i> About</a>
-      <a class="nav-item" href="#ai-engineering"><i class="fa fa-sitemap"></i> AI Architecture</a>
+      <a class="nav-item active" href="#about-bio"><i class="fa fa-user"></i> About</a>
       <a class="nav-item" href="#skills"><i class="fa fa-code"></i> Skills</a>
       <a class="nav-item" href="#experience"><i class="fa fa-briefcase"></i> Experience</a>
       <a class="nav-item" href="#projects"><i class="fa fa-diagram-project"></i> Projects</a>
@@ -1659,24 +1899,36 @@
     </div>
   </aside>
 
-  <!-- ══ MAIN ══ -->
+  <!-- ① Reel starts immediately — sidebar hidden until About section -->
   <main class="main">
 
-    <!-- About -->
-    <section class="section" id="about">
-      <div class="intro-hero">
-        <div class="intro-name">Arunava <span>De</span></div>
-        <div class="intro-welcome">AI/ML Engineer · Computer Vision Specialist</div>
-        <div class="intro-tagline">Exploring Real-Time Vision, Detection & Industrial AI</div>
-        <div class="intro-icons">
-          <div class="hero-icon-badge" title="Computer Vision"><i class="fa fa-eye"></i></div>
-          <div class="hero-icon-badge" title="Object Tracking"><i class="fa fa-crosshairs"></i></div>
-          <div class="hero-icon-badge" title="Real-Time Systems"><i class="fa fa-bolt"></i></div>
+    <!-- Scroll-driven frame reel -->
+    <section id="video-reel">
+      <div class="reel-track">
+        <div class="reel-sticky">
+          <!-- Canvas: frames drawn here -->
+          <canvas id="reel-canvas"></canvas>
+          <!-- Name overlay (top) -->
+          <div class="reel-name-overlay">
+            <div class="reel-line reel-line-name" id="rl-0">Arunava <span>De</span></div>
+          </div>
+          <!-- Details overlay (bottom) -->
+          <div class="reel-details-overlay" id="reel-overlay">
+            <div class="reel-line reel-line-role" id="rl-1">AI/ML Engineer &middot; Computer Vision Specialist</div>
+            <div class="reel-line reel-line-tagline" id="rl-2">Exploring Real-Time Vision, Detection &amp; Industrial AI
+            </div>
+            <div class="reel-line reel-line-company" id="rl-3">L2A Software Engineer I &middot; Adamas Tech Consulting
+              Pvt. Ltd.</div>
+            <div class="reel-line reel-line-stack" id="rl-4">Python<span class="dot">&bull;</span>YOLO<span
+                class="dot">&bull;</span>OpenCV<span class="dot">&bull;</span>Flask<span
+                class="dot">&bull;</span>PyTorch</div>
+          </div>
         </div>
-        <div class="intro-role">L2A Software Engineer I · Adamas Tech Consulting Pvt. Ltd.</div>
-        <div class="intro-skillline">Python <span class="dot">•</span> YOLO <span class="dot">•</span> OpenCV <span
-            class="dot">•</span> Flask <span class="dot">•</span> PyTorch</div>
       </div>
+    </section>
+
+    <!-- ② About bio panel — sidebar slides in when this appears -->
+    <section class="section" id="about-bio">
 
       <div class="section-header">
         <div class="section-icon"><i class="fa fa-user"></i></div>
@@ -1693,7 +1945,7 @@
         <div>
           <div class="hero-subtitle">L2A SOFTWARE ENGINEER I · AI/ML · COMPUTER VISION</div>
           <div class="hero-bio">
-            Computer Vision and AI/ML Engineer with <strong>3+ years</strong> of hands-on experience designing and
+            Computer Vision and AI/ML Engineer with <strong>4 years</strong> of hands-on experience designing and
             deploying
             real-world vision systems. Proven track record building production-grade pipelines for
             <strong>object detection</strong>, <strong>multi-object tracking</strong>, <strong>face
@@ -1754,8 +2006,11 @@
             </div>
           </div>
           <div class="skill-group">
-            <div class="skill-group-label">OCR & MULTIMODAL</div>
+            <div class="skill-group-label">OCR, DOCUMENT AI & GENAI</div>
             <div class="skill-pills">
+              <span class="skill-pill">LlamaParse</span>
+              <span class="skill-pill">OpenAI GPT-5.6 Luna</span>
+              <span class="skill-pill">Amazon Bedrock</span>
               <span class="skill-pill">Gemini Flash Pro</span>
               <span class="skill-pill">EasyOCR</span>
               <span class="skill-pill">Amazon Textract</span>
@@ -1775,8 +2030,8 @@
           <div class="skill-group">
             <div class="skill-group-label">DATA & CLOUD</div>
             <div class="skill-pills">
-              <span class="skill-pill">AWS (in progress)</span>
-              <span class="skill-pill">Amazon Bedrock</span>
+              <span class="skill-pill">AWS</span>
+              <span class="skill-pill">Amazon S3</span>
               <span class="skill-pill">Pandas</span>
               <span class="skill-pill">MySQL</span>
               <span class="skill-pill">Git</span>
@@ -1812,7 +2067,7 @@
             <div class="timeline-location"><i class="fa fa-location-dot"></i> Kolkata · Onsite</div>
 
             <div class="tl-project">
-              <div class="tl-project-name">AI-Based Worker & Machine Productivity Monitoring (Ongoing)</div>
+              <div class="tl-project-name">AI-Based Worker & Machine Productivity Monitoring</div>
               <ul class="tl-bullets">
                 <li>Pose-estimation-based system (currently YOLO-Pose, with migration to an alternative pose model
                   planned) to monitor worker activity within a defined ROI drawn over the machine area.</li>
@@ -2031,18 +2286,18 @@
             <div class="tl-project">
               <div class="tl-project-name">Exam Paper Translation Tool</div>
               <ul class="tl-bullets">
-                <li>Web app that translates exam question papers into Bengali, preserving question numbering and
-                  structure, and outputs a print-ready PDF.</li>
+                <li>Web app that uses LlamaParse for document parsing and OpenAI GPT-5.6 Luna through Amazon Bedrock
+                  for translation, preserving question order, tables, mathematical expressions, and embedded figures in a print-ready PDF.</li>
               </ul>
-              <div class="tl-tech"><span>Stack:</span> Flask, Document Parsing, PDF Generation</div>
+              <div class="tl-tech"><span>Stack:</span> Flask, PyMuPDF, LlamaParse, Amazon S3, Amazon Bedrock, OpenAI GPT-5.6 Luna, WeasyPrint</div>
               <div class="tl-project-toggle"><i class="fa fa-plus"></i></div>
               <div class="tl-expand">
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
                   <div class="pe-plan-text">Manually translating exam papers into Bengali while preserving exact
-                    question numbering and layout is slow and error-prone. This tool automates the pipeline: upload the
-                    source exam PDF, extract its structure, translate the content, and generate a print-ready Bengali
-                    PDF.</div>
+                    question numbering, layout, and embedded images is slow and error-prone. This tool automates the
+                    full pipeline: extract figures and insert protected placeholders, parse the document with LlamaParse,
+                    translate only the content with Bedrock, then restore the source figures and generate a print-ready PDF.</div>
                 </div>
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
@@ -2055,31 +2310,40 @@
                     <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
                     <div class="pipeline-step">
                       <div class="pipeline-step-icon"><i class="fa fa-sitemap"></i></div>
-                      <div class="pipeline-step-label">Structured Parsing</div>
-                      <div class="pipeline-step-sub">Extract questions & layout</div>
+                      <div class="pipeline-step-label">Figure Extraction</div>
+                      <div class="pipeline-step-sub">PyMuPDF + protected placeholders</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-cloud-arrow-up"></i></div>
+                      <div class="pipeline-step-label">LlamaParse</div>
+                      <div class="pipeline-step-sub">Structured Markdown parsing</div>
                     </div>
                     <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
                     <div class="pipeline-step">
                       <div class="pipeline-step-icon"><i class="fa fa-language"></i></div>
-                      <div class="pipeline-step-label">Bengali Translation</div>
-                      <div class="pipeline-step-sub">Preserves numbering</div>
+                      <div class="pipeline-step-label">Bedrock Translation</div>
+                      <div class="pipeline-step-sub">OpenAI GPT-5.6 Luna → target language</div>
                     </div>
                     <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
                     <div class="pipeline-step">
                       <div class="pipeline-step-icon"><i class="fa fa-file-export"></i></div>
-                      <div class="pipeline-step-label">PDF Rendering</div>
-                      <div class="pipeline-step-sub">Print-ready output</div>
+                      <div class="pipeline-step-label">Validation & PDF</div>
+                      <div class="pipeline-step-sub">Restore figures, render math, export</div>
                     </div>
                   </div>
-                  <div class="pe-caveat">Shown at a high level — internal infrastructure and vendor-specific details are
-                    intentionally omitted since this was built for an employer.</div>
+                  <div class="pe-caveat">Shown at a high level — employer infrastructure and implementation details are
+                    intentionally omitted.</div>
                 </div>
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
                   <ul class="pe-impl-list">
                     <li>Flask web application handling upload, processing, and download</li>
-                    <li>Structured document parsing preserves question numbering and formatting through translation</li>
-                    <li>Custom font handling for correct Bengali script rendering in the output PDF</li>
+                    <li>PyMuPDF extracts source figures before parsing; each figure is represented by a protected placeholder and stored with the source PDF, metadata, and raw parsed Markdown in Amazon S3</li>
+                    <li>LlamaParse is used only for document parsing. The Markdown is cleaned and split at question boundaries while retaining relevant section context</li>
+                    <li>OpenAI GPT-5.6 Luna, accessed through Amazon Bedrock, translates the content while preserving placeholders, question numbering, and source-language questions that must remain unchanged</li>
+                    <li>Validation detects missing or rewritten placeholders and restores them; original figure bytes are embedded as data URIs so final rendering never depends on an expiring S3 presigned URL</li>
+                    <li>LaTeX expressions are rendered as SVGs and WeasyPrint generates an A4 two-column PDF with Bengali font support</li>
                   </ul>
                 </div>
                 <div class="pe-block">
@@ -2525,6 +2789,46 @@
             </div>
           </div>
 
+          <div class="project-card">
+            <div class="project-card-head">
+              <div class="project-icon"><i class="fa fa-car-side"></i></div>
+              <div class="project-title">Vehicle Recommendation Platform</div>
+              <div class="project-desc"><strong>Phase 1 complete:</strong> a guided preference questionnaire builds a structured vehicle profile. <strong>Phase 2 planned:</strong> a chatbot over the existing data and recommendation pipeline.</div>
+              <div class="project-tags">
+                <span class="tag">Flask</span><span class="tag">HTML/CSS/JS</span><span class="tag">Recommendations</span><span class="tag">LLM Integration</span>
+              </div>
+              <div class="project-toggle"><i class="fa fa-plus"></i></div>
+            </div>
+            <div class="project-expand">
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
+                <div class="pe-plan-text">Choosing a vehicle usually involves comparing budget, body type, running needs, seating, fuel preference, and practical constraints. The platform turns those inputs into a structured profile and a transparent shortlist instead of relying on a generic search.</div>
+              </div>
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-diagram-project"></i>Delivery Roadmap</div>
+                <div class="pipeline">
+                  <div class="pipeline-step"><div class="pipeline-step-icon"><i class="fa fa-list-check"></i></div><div class="pipeline-step-label">Phase 1 Complete</div><div class="pipeline-step-sub">Guided preferences form</div></div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step"><div class="pipeline-step-icon"><i class="fa fa-database"></i></div><div class="pipeline-step-label">Existing Pipeline</div><div class="pipeline-step-sub">Profile + vehicle data</div></div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step"><div class="pipeline-step-icon"><i class="fa fa-robot"></i></div><div class="pipeline-step-label">Phase 2 Planned</div><div class="pipeline-step-sub">Conversational assistant</div></div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step"><div class="pipeline-step-icon"><i class="fa fa-comments"></i></div><div class="pipeline-step-label">Guided Choice</div><div class="pipeline-step-sub">Answers + explanations</div></div>
+                </div>
+              </div>
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-code"></i>Implementation Plan</div>
+                <ul class="pe-impl-list">
+                  <li><strong>Phase 1 — completed:</strong> implement the responsive multi-step questionnaire and capture preferences as structured data for the recommendation workflow</li>
+                  <li><strong>Phase 2 — planned:</strong> add a chat interface that receives the saved profile, relevant vehicle data, and current recommendation results as controlled context</li>
+                  <li>Design the assistant to answer follow-up questions, explain why a vehicle matches the profile, compare shortlisted options, and request only missing details</li>
+                  <li>Keep recommendation calculations deterministic in the existing pipeline; use the LLM for conversation, clarification, and explanation rather than allowing it to invent specifications or rankings</li>
+                  <li>Add evaluation cases for conflicting preferences, missing values, and grounded answers before exposing the chatbot to users</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
         </div>
         <div class="section-note">The vision/ML pipelines above are custom-built; frontend interfaces for these projects
           were developed with the assistance of Claude and ChatGPT.</div>
@@ -2708,6 +3012,8 @@
         © 2026 ARUNAVA DE | AI/ML Engineer | Photographer | Videographer | Content Creator
       </div>
 
+    </section><!-- /#about-bio -->
+
   </main>
 
   <script>
@@ -2780,6 +3086,167 @@
   </script>
 
   <script>
+    // ── Scroll-driven frame reel with text overlay & sidebar reveal ──────────
+    (function () {
+      // Reset scroll position to top on refresh
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+
+      const FRAME_COUNT = 38;
+      const BASE = 'photos/gwr_frames/frame_';
+
+      // Activate reel-mode immediately (sidebar hidden, main full-width)
+      document.body.classList.add('reel-mode');
+
+      const canvas = document.getElementById('reel-canvas');
+      const ctx = canvas.getContext('2d');
+      const track = document.querySelector('.reel-track');
+      const overlay = document.getElementById('reel-overlay');
+
+      // Restrict saving/copying the canvas image
+      canvas.addEventListener('contextmenu', e => e.preventDefault());
+
+      // Text lines: name after approx 2 frames (0.05), rest staggered
+      const lines = [
+        { el: document.getElementById('rl-0'), threshold: 0.05 },
+        { el: document.getElementById('rl-1'), threshold: 0.22 },
+        { el: document.getElementById('rl-2'), threshold: 0.38 },
+        { el: document.getElementById('rl-3'), threshold: 0.55 },
+        { el: document.getElementById('rl-4'), threshold: 0.70 },
+      ];
+
+      let loaded = 0;
+      let ready = false;
+      let lastIdx = -1;
+      const images = [];
+
+      function pad(n) { return String(n).padStart(3, '0'); }
+
+      // ── Cover-scale draw helper ──────────────────────────────────────────
+      function drawCover(img) {
+        const cw = canvas.width, ch = canvas.height;
+        const iw = img.naturalWidth, ih = img.naturalHeight;
+        if (!iw || !ih) return;
+        const scale = Math.max(cw / iw, ch / ih);
+        const dw = iw * scale, dh = ih * scale;
+        const dx = (cw - dw) / 2, dy = (ch - dh) / 2;
+        ctx.drawImage(img, dx, dy, dw, dh);
+      }
+
+      // ── Stable viewport height (won't fluctuate as mobile chrome shows/hides)
+      function getVW() {
+        return (window.visualViewport ? window.visualViewport.width : window.innerWidth);
+      }
+      function getVH() {
+        return (window.visualViewport ? window.visualViewport.height : window.innerHeight);
+      }
+
+      // Cached stable value — only updated on real orientation/resize
+      let stableVH = getVH();
+      let stableVW = getVW();
+
+      // ── Resize canvas to viewport ────────────────────────────────────────
+      function resizeCanvas() {
+        stableVH = getVH();
+        stableVW = getVW();
+        canvas.width = stableVW;
+        canvas.height = stableVH;
+        // Redraw current frame after resize
+        if (ready && lastIdx >= 0) {
+          const img = images[lastIdx];
+          if (img && img.complete && img.naturalWidth) drawCover(img);
+        }
+      }
+
+      // Set canvas size immediately
+      resizeCanvas();
+
+      // Preload all frames silently (frames 003 – 040)
+      for (let i = 3; i <= 40; i++) {
+        const img = new Image();
+        img.src = BASE + pad(i) + '.webp';
+        img.onload = img.onerror = () => {
+          loaded++;
+          if (loaded === FRAME_COUNT) onReady();
+        };
+        images.push(img);
+      }
+
+      function onReady() {
+        ready = true;
+        updateFrame();
+      }
+
+      function updateFrame() {
+        if (!ready) return;
+        const rect = track.getBoundingClientRect();
+        // Use stableVH so thresholds fire at the same scroll progress on every device
+        const trackScroll = track.offsetHeight - stableVH;
+        const scrolled = Math.max(0, -rect.top);
+        const progress = Math.min(1, scrolled / trackScroll);
+        const frameIdx = Math.min(FRAME_COUNT - 1, Math.floor(progress * FRAME_COUNT));
+
+        // Draw frame with cover scaling
+        if (frameIdx !== lastIdx) {
+          const img = images[frameIdx];
+          if (img && img.complete && img.naturalWidth) drawCover(img);
+          lastIdx = frameIdx;
+        }
+
+        // Reveal text lines one by one (stay visible once shown)
+        let anyDetailsVisible = false;
+        lines.forEach((item, index) => {
+          if (progress >= item.threshold) {
+            item.el.classList.add('visible');
+            if (index > 0) anyDetailsVisible = true;
+          }
+        });
+        // Show frosted backdrop once any details line is visible
+        if (anyDetailsVisible) overlay.classList.add('any-visible');
+      }
+
+      window.addEventListener('scroll', updateFrame, { passive: true });
+
+      // Real resize (orientation change, window resize) — update canvas + stable values
+      window.addEventListener('resize', () => { resizeCanvas(); updateFrame(); }, { passive: true });
+
+      // visualViewport resize fires on mobile for chrome show/hide AND orientation
+      // We only update stableVH on significant size changes (>50px) to avoid chrome-jitter
+      if (window.visualViewport) {
+        let lastKnownVH = stableVH;
+        window.visualViewport.addEventListener('resize', () => {
+          const newVH = window.visualViewport.height;
+          if (Math.abs(newVH - lastKnownVH) > 50) {
+            // Significant change (likely orientation flip) — update
+            lastKnownVH = newVH;
+            resizeCanvas();
+            updateFrame();
+          }
+          // Small change (browser chrome show/hide) — ignore to keep thresholds stable
+        });
+      }
+
+      // ── Sidebar: show when About enters viewport, hide when scrolling back up
+      const aboutSection = document.getElementById('about-bio');
+      if (aboutSection && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          const entry = entries[0];
+          if (entry.isIntersecting) {
+            // About is visible → show sidebar
+            document.body.classList.remove('reel-mode');
+          } else if (entry.boundingClientRect.top > 0) {
+            // About is below viewport → user scrolled back up → hide sidebar
+            document.body.classList.add('reel-mode');
+          }
+        }, { threshold: 0.05 });
+        io.observe(aboutSection);
+      }
+    })();
+  </script>
+
+  <script>
     // Mobile nav toggle
     const sidebar = document.getElementById('sidebar');
     const hamburger = document.getElementById('hamburger');
@@ -2814,14 +3281,23 @@
       if (expand) expand.addEventListener('click', (e) => e.stopPropagation());
     });
 
-    // Active nav on scroll
+    // Active nav on scroll — skip video-reel (sidebar is hidden then)
     const sections = document.querySelectorAll('section[id]');
     const navItems = document.querySelectorAll('.nav-item[href^="#"]');
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 140) current = s.id;
+        if (s.id === 'video-reel') return; // ignore reel
+        const rect = s.getBoundingClientRect();
+        // If the top of the section is scrolled past 150px from the top of the viewport
+        if (rect.top <= 150) {
+          current = s.id;
+        }
       });
+      // Fallback: if we are near the top of the page, default to about-bio
+      if (!current) {
+        current = 'about-bio';
+      }
       navItems.forEach(n => {
         n.classList.toggle('active', n.getAttribute('href') === '#' + current);
       });
