@@ -167,13 +167,15 @@ AI Engineering Architecture
 ### **Intern (AI / Computer Vision)** — *Xiphos Technology Solutions Pvt. Ltd.*
 `Sep 2022 – Mar 2023` · Kolkata, West Bengal
 
+- 🔹 Supported maintenance and monitoring of YOLOv3-based safety detection systems.
+- 🔹 Assisted with on-site troubleshooting during initial phase.
 ---
 
 ## 🌟 Personal Featured Projects
 
 | Project Name | Highlights & Features | Technologies Used |
 |:---|:---|:---|
-| 🚗 **Vehicle Recommendation Platform** | **Phase 1 complete:** guided preference questionnaire builds a structured vehicle profile. **Phase 2 planned:** conversational assistant over the existing data and recommendation pipeline, with follow-up Q&A and match explanations. | `Flask` `HTML/CSS/JS` `LLM Integration (planned)` |
+| 🚗 **Vehicle Recommendation Platform** | **Completed:** Flask-based conversational vehicle recommendation system. Combines deterministic Python engine with LLM for natural language, budget tracking, and geolocation-based dealer/service lookups. | `Flask` `Python` `LLM Integration` `Google Places API` |
 | 🚘 **Vehicle Speed & Line-Cross Counter** | Real-time vehicle speed estimation using perspective transformation, virtual calibration lines, and directional counter | `YOLOv8` `DeepSORT` `OpenCV` `Python` |
 | 👤 **AI Face Recognition Attendance** | Employee verification with automatic in/out logging, spoof prevention, and log generation | `FaceNet` `OpenCV` `Python` `SQLite` |
 

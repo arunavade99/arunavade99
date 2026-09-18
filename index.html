@@ -1777,8 +1777,8 @@
     }
 
     .reel-track {
-      height: 5600px;
-      /* scroll travel: controls playback speed */
+      height: calc(100vh + 10px);
+      /* Minimal scroll travel — frame progression is controlled by wheel/touch events */
     }
 
     /* ── Reel sticky: full viewport cover ── */
@@ -2770,74 +2770,135 @@
             <div class="project-card-head">
               <div class="project-icon"><i class="fa fa-car-side"></i></div>
               <div class="project-title">Vehicle Recommendation Platform</div>
-              <div class="project-desc"><strong>Phase 1 complete:</strong> a guided preference questionnaire builds a
-                structured vehicle profile. <strong>Phase 2 planned:</strong> a chatbot over the existing data and
-                recommendation pipeline.</div>
+              <div class="project-desc"><strong>Completed:</strong> A Flask-based conversational vehicle recommendation system for Indian 2-wheelers and 4-wheelers. Combines a deterministic Python engine with an LLM for natural-language understanding, budget tracking, and geolocation-based dealer/service lookups.</div>
               <div class="project-tags">
                 <span class="tag">Flask</span><span class="tag">HTML/CSS/JS</span><span
-                  class="tag">Recommendations</span><span class="tag">LLM Integration</span>
+                  class="tag">Recommendations</span><span class="tag">LLM Integration</span><span class="tag">Python</span>
               </div>
               <div class="project-toggle"><i class="fa fa-plus"></i></div>
             </div>
             <div class="project-expand">
               <div class="pe-block">
                 <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
-                <div class="pe-plan-text">Choosing a vehicle usually involves comparing budget, body type, running
-                  needs, seating, fuel preference, and practical constraints. The platform turns those inputs into a
-                  structured profile and a transparent shortlist instead of relying on a generic search.</div>
+                <div class="pe-plan-text">Choosing a vehicle usually involves comparing budget, body type, running needs, seating, fuel preference, and practical constraints. The platform turns those inputs into a structured profile and a transparent shortlist instead of relying on a generic search.</div>
               </div>
               <div class="pe-block">
                 <div class="pe-label"><i class="fa fa-diagram-project"></i>Delivery Roadmap</div>
                 <div class="pipeline">
                   <div class="pipeline-step">
                     <div class="pipeline-step-icon"><i class="fa fa-list-check"></i></div>
-                    <div class="pipeline-step-label">Phase 1 Complete</div>
-                    <div class="pipeline-step-sub">Guided preferences form</div>
+                    <div class="pipeline-step-label">Guided Choices</div>
+                    <div class="pipeline-step-sub">Structured preferences</div>
                   </div>
                   <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
                   <div class="pipeline-step">
                     <div class="pipeline-step-icon"><i class="fa fa-database"></i></div>
-                    <div class="pipeline-step-label">Existing Pipeline</div>
-                    <div class="pipeline-step-sub">Profile + vehicle data</div>
+                    <div class="pipeline-step-label">Data Engine</div>
+                    <div class="pipeline-step-sub">Deterministic matching</div>
                   </div>
                   <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
                   <div class="pipeline-step">
                     <div class="pipeline-step-icon"><i class="fa fa-robot"></i></div>
-                    <div class="pipeline-step-label">Phase 2 Planned</div>
-                    <div class="pipeline-step-sub">Conversational assistant</div>
+                    <div class="pipeline-step-label">AI Chatbot</div>
+                    <div class="pipeline-step-sub">NLP understanding</div>
                   </div>
                   <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
                   <div class="pipeline-step">
-                    <div class="pipeline-step-icon"><i class="fa fa-comments"></i></div>
-                    <div class="pipeline-step-label">Guided Choice</div>
-                    <div class="pipeline-step-sub">Answers + explanations</div>
+                    <div class="pipeline-step-icon"><i class="fa fa-location-dot"></i></div>
+                    <div class="pipeline-step-label">Geolocation</div>
+                    <div class="pipeline-step-sub">Dealer & service lookup</div>
                   </div>
                 </div>
               </div>
               <div class="pe-block">
                 <div class="pe-label"><i class="fa fa-code"></i>Implementation Plan</div>
                 <ul class="pe-impl-list">
-                  <li><strong>Phase 1 — completed:</strong> implement the responsive multi-step questionnaire and
-                    capture preferences as structured data for the recommendation workflow</li>
-                  <li><strong>Phase 2 — planned:</strong> add a chat interface that receives the saved profile, relevant
-                    vehicle data, and current recommendation results as controlled context</li>
-                  <li>Design the assistant to answer follow-up questions, explain why a vehicle matches the profile,
-                    compare shortlisted options, and request only missing details</li>
-                  <li>Keep recommendation calculations deterministic in the existing pipeline; use the LLM for
-                    conversation, clarification, and explanation rather than allowing it to invent specifications or
-                    rankings</li>
-                  <li>Add evaluation cases for conflicting preferences, missing values, and grounded answers before
-                    exposing the chatbot to users</li>
+                  <li>Built a conversational interface that receives user inputs and extracts constraints without hallucinating specifications.</li>
+                  <li>Integrated a deterministic Python recommender using local vehicle datasets.</li>
+                  <li>Implemented budget-aware ranking considering total budget versus cash/down payment and finance estimations.</li>
+                  <li>Added browser geolocation with Google Places API to recommend nearby authorized dealers and service centers.</li>
                 </ul>
               </div>
               <div class="pe-block">
-                <div class="pe-label"><i class="fa fa-video"></i>In Action</div>
+                <div class="pe-label"><i class="fa fa-image"></i>In Action</div>
                 <div class="pe-media-grid">
-                  <div class="pe-media pe-media-video">
-                    <video src="photos/project infos/vehicle_recomendation.mp4" controls preload="metadata" playsinline muted loop></video>
+                  <div class="pe-media">
+                    <img src="photos/project infos/vehicle_recomendation.png" alt="Vehicle Recommendation Output">
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card-head">
+              <div class="project-icon"><i class="fa fa-id-badge"></i></div>
+              <div class="project-title">AI-Based Attendance System</div>
+              <div class="project-desc">FaceNet-based attendance system recognising employees by name and ID with
+                real-time daily in/out time tracking. Automated to reduce manual effort and improve accuracy.</div>
+              <div class="project-tags">
+                <span class="tag">FaceNet</span><span class="tag">Face Recognition</span><span
+                  class="tag">Python</span><span class="tag">OpenCV</span>
+              </div>
+              <div class="project-toggle"><i class="fa fa-plus"></i></div>
+            </div>
+            <div class="project-expand">
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
+                <div class="pe-plan-text">Manual attendance registers are slow and error-prone at scale. The goal was a
+                  touchless system that identifies each employee by face, logs daily in/out time automatically, and
+                  removes the need for ID cards or manual entry.</div>
+              </div>
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
+                <div class="pipeline">
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-camera"></i></div>
+                    <div class="pipeline-step-label">Camera Feed</div>
+                    <div class="pipeline-step-sub">Live entry-point video</div>
+                  </div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-user"></i></div>
+                    <div class="pipeline-step-label">Face Detection</div>
+                    <div class="pipeline-step-sub">Locate face in frame</div>
+                  </div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-fingerprint"></i></div>
+                    <div class="pipeline-step-label">FaceNet Embedding</div>
+                    <div class="pipeline-step-sub">128-d identity vector</div>
+                  </div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-check-double"></i></div>
+                    <div class="pipeline-step-label">Match to ID</div>
+                    <div class="pipeline-step-sub">Compare vs known encodings</div>
+                  </div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-clock"></i></div>
+                    <div class="pipeline-step-label">Log In/Out</div>
+                    <div class="pipeline-step-sub">Timestamped record</div>
+                  </div>
+                </div>
+              </div>
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
+                <ul class="pe-impl-list">
+                  <li>MTCNN detects and aligns faces from the dataset (<code>align.py</code>), producing consistent
+                    crops for embedding</li>
+                  <li><code>facenet-pytorch</code> generates the identity embeddings, built into a searchable database
+                    (<code>build_db.py</code> → <code>embeddings.npz</code>)</li>
+                  <li>Live recognition (<code>main.py</code>) matches webcam faces against the embedding database using
+                    a distance threshold; no close match is labeled "Unknown"</li>
+                  <li><code>rebuild_db.py</code> syncs the dataset and re-generates embeddings whenever employees are
+                    added or removed</li>
+                  <li>Runs on GPU automatically when available, falling back to CPU otherwise</li>
+                </ul>
+              </div>
+
             </div>
           </div>
 
@@ -2914,77 +2975,6 @@
                       alt="Vehicle Speed Detection & People Analytics in Action">
                   </div>
                 </div>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-card-head">
-              <div class="project-icon"><i class="fa fa-id-badge"></i></div>
-              <div class="project-title">AI-Based Attendance System</div>
-              <div class="project-desc">FaceNet-based attendance system recognising employees by name and ID with
-                real-time daily in/out time tracking. Automated to reduce manual effort and improve accuracy.</div>
-              <div class="project-tags">
-                <span class="tag">FaceNet</span><span class="tag">Face Recognition</span><span
-                  class="tag">Python</span><span class="tag">OpenCV</span>
-              </div>
-              <div class="project-toggle"><i class="fa fa-plus"></i></div>
-            </div>
-            <div class="project-expand">
-              <div class="pe-block">
-                <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
-                <div class="pe-plan-text">Manual attendance registers are slow and error-prone at scale. The goal was a
-                  touchless system that identifies each employee by face, logs daily in/out time automatically, and
-                  removes the need for ID cards or manual entry.</div>
-              </div>
-              <div class="pe-block">
-                <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
-                <div class="pipeline">
-                  <div class="pipeline-step">
-                    <div class="pipeline-step-icon"><i class="fa fa-camera"></i></div>
-                    <div class="pipeline-step-label">Camera Feed</div>
-                    <div class="pipeline-step-sub">Live entry-point video</div>
-                  </div>
-                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
-                  <div class="pipeline-step">
-                    <div class="pipeline-step-icon"><i class="fa fa-user"></i></div>
-                    <div class="pipeline-step-label">Face Detection</div>
-                    <div class="pipeline-step-sub">Locate face in frame</div>
-                  </div>
-                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
-                  <div class="pipeline-step">
-                    <div class="pipeline-step-icon"><i class="fa fa-fingerprint"></i></div>
-                    <div class="pipeline-step-label">FaceNet Embedding</div>
-                    <div class="pipeline-step-sub">128-d identity vector</div>
-                  </div>
-                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
-                  <div class="pipeline-step">
-                    <div class="pipeline-step-icon"><i class="fa fa-check-double"></i></div>
-                    <div class="pipeline-step-label">Match to ID</div>
-                    <div class="pipeline-step-sub">Compare vs known encodings</div>
-                  </div>
-                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
-                  <div class="pipeline-step">
-                    <div class="pipeline-step-icon"><i class="fa fa-clock"></i></div>
-                    <div class="pipeline-step-label">Log In/Out</div>
-                    <div class="pipeline-step-sub">Timestamped record</div>
-                  </div>
-                </div>
-              </div>
-              <div class="pe-block">
-                <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
-                <ul class="pe-impl-list">
-                  <li>MTCNN detects and aligns faces from the dataset (<code>align.py</code>), producing consistent
-                    crops for embedding</li>
-                  <li><code>facenet-pytorch</code> generates the identity embeddings, built into a searchable database
-                    (<code>build_db.py</code> → <code>embeddings.npz</code>)</li>
-                  <li>Live recognition (<code>main.py</code>) matches webcam faces against the embedding database using
-                    a distance threshold; no close match is labeled "Unknown"</li>
-                  <li><code>rebuild_db.py</code> syncs the dataset and re-generates embeddings whenever employees are
-                    added or removed</li>
-                  <li>Runs on GPU automatically when available, falling back to CPU otherwise</li>
-                </ul>
               </div>
 
             </div>
@@ -3248,6 +3238,7 @@
 
   <script>
     // ── Scroll-driven frame reel with text overlay & sidebar reveal ──────────
+    // 3-SCROLL REEL: exactly 3 mouse scrolls (or touch swipes) play the full reel.
     (function () {
       // Reset scroll position to top on refresh
       if ('scrollRestoration' in history) {
@@ -3257,6 +3248,7 @@
 
       const FRAME_COUNT = 38;
       const BASE = 'photos/gwr_frames/frame_';
+      const TOTAL_STEPS = 3; // exactly 3 scrolls to complete the reel
 
       // Activate reel-mode immediately (sidebar hidden, main full-width)
       document.body.classList.add('reel-mode');
@@ -3265,11 +3257,12 @@
       const ctx = canvas.getContext('2d');
       const track = document.querySelector('.reel-track');
       const overlay = document.getElementById('reel-overlay');
+      const reelSection = document.getElementById('video-reel');
 
       // Restrict saving/copying the canvas image
       canvas.addEventListener('contextmenu', e => e.preventDefault());
 
-      // Text lines: name after approx 2 frames (0.05), rest staggered
+      // Text lines: reveal thresholds mapped to 0–1 progress
       const lines = [
         { el: document.getElementById('rl-0'), threshold: 0.05 },
         { el: document.getElementById('rl-1'), threshold: 0.22 },
@@ -3282,6 +3275,18 @@
       let ready = false;
       let lastIdx = -1;
       const images = [];
+
+      // ── 3-scroll step tracking ──
+      let currentStep = 0;       // 0 = start, 1 = 1/3, 2 = 2/3, 3 = done
+      let animProgress = 0;      // smooth 0→1 progress for frame drawing
+      let targetProgress = 0;    // target progress based on currentStep
+      let animRAF = null;
+      let reelFinished = false;  // true once step 3 is reached
+      let scrollCooldown = false; // debounce rapid scrolls
+
+      // Touch tracking
+      let touchStartY = 0;
+      let touchHandled = false;
 
       function pad(n) { return String(n).padStart(3, '0'); }
 
@@ -3296,7 +3301,7 @@
         ctx.drawImage(img, dx, dy, dw, dh);
       }
 
-      // ── Stable viewport height (won't fluctuate as mobile chrome shows/hides)
+      // ── Stable viewport dimensions ──
       function getVW() {
         return (window.visualViewport ? window.visualViewport.width : window.innerWidth);
       }
@@ -3304,7 +3309,6 @@
         return (window.visualViewport ? window.visualViewport.height : window.innerHeight);
       }
 
-      // Cached stable value — only updated on real orientation/resize
       let stableVH = getVH();
       let stableVW = getVW();
 
@@ -3314,14 +3318,12 @@
         stableVW = getVW();
         canvas.width = stableVW;
         canvas.height = stableVH;
-        // Redraw current frame after resize
         if (ready && lastIdx >= 0) {
           const img = images[lastIdx];
           if (img && img.complete && img.naturalWidth) drawCover(img);
         }
       }
 
-      // Set canvas size immediately
       resizeCanvas();
 
       // Preload all frames silently (frames 003 – 040)
@@ -3337,26 +3339,21 @@
 
       function onReady() {
         ready = true;
-        updateFrame();
+        renderAtProgress(0);
       }
 
-      function updateFrame() {
+      // ── Render frame + text overlays at a given progress (0–1) ──
+      function renderAtProgress(progress) {
         if (!ready) return;
-        const rect = track.getBoundingClientRect();
-        // Use stableVH so thresholds fire at the same scroll progress on every device
-        const trackScroll = track.offsetHeight - stableVH;
-        const scrolled = Math.max(0, -rect.top);
-        const progress = Math.min(1, scrolled / trackScroll);
         const frameIdx = Math.min(FRAME_COUNT - 1, Math.floor(progress * FRAME_COUNT));
 
-        // Draw frame with cover scaling
         if (frameIdx !== lastIdx) {
           const img = images[frameIdx];
           if (img && img.complete && img.naturalWidth) drawCover(img);
           lastIdx = frameIdx;
         }
 
-        // Reveal text lines one by one (stay visible once shown)
+        // Reveal text lines
         let anyDetailsVisible = false;
         lines.forEach((item, index) => {
           if (progress >= item.threshold) {
@@ -3364,28 +3361,153 @@
             if (index > 0) anyDetailsVisible = true;
           }
         });
-        // Show frosted backdrop once any details line is visible
         if (anyDetailsVisible) overlay.classList.add('any-visible');
       }
 
-      window.addEventListener('scroll', updateFrame, { passive: true });
+      // ── Smooth animation from current progress to target ──
+      function animateToTarget() {
+        if (animRAF) cancelAnimationFrame(animRAF);
 
-      // Real resize (orientation change, window resize) — update canvas + stable values
-      window.addEventListener('resize', () => { resizeCanvas(); updateFrame(); }, { passive: true });
+        function step() {
+          const diff = targetProgress - animProgress;
+          if (Math.abs(diff) < 0.005) {
+            animProgress = targetProgress;
+            renderAtProgress(animProgress);
+            animRAF = null;
 
-      // visualViewport resize fires on mobile for chrome show/hide AND orientation
-      // We only update stableVH on significant size changes (>50px) to avoid chrome-jitter
+            // If reel is complete, scroll to About section after a short delay
+            if (reelFinished && animProgress >= 0.99) {
+              setTimeout(() => {
+                const aboutSection = document.getElementById('about-bio');
+                if (aboutSection) {
+                  // Remove reel-mode to show sidebar before scrolling
+                  document.body.classList.remove('reel-mode');
+                  aboutSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 400);
+            }
+            return;
+          }
+          // Ease toward target — lerp factor controls speed
+          animProgress += diff * 0.08;
+          renderAtProgress(animProgress);
+          animRAF = requestAnimationFrame(step);
+        }
+        animRAF = requestAnimationFrame(step);
+      }
+
+      // ── Check if reel section is currently in viewport ──
+      function isReelInView() {
+        const rect = reelSection.getBoundingClientRect();
+        // Reel is "in view" if its top is at or above viewport top
+        // and it hasn't scrolled completely past
+        return rect.top <= 10 && rect.bottom > 0;
+      }
+
+      // ── Advance reel by one step (called on each scroll/swipe) ──
+      function advanceReel(direction) {
+        if (scrollCooldown) return;
+        if (!ready) return;
+
+        // Only intercept when reel is in view and not finished
+        if (!isReelInView() && currentStep === 0) return;
+
+        if (direction > 0) {
+          // Scroll down
+          if (currentStep >= TOTAL_STEPS) {
+            // Reel already finished — let normal scroll happen
+            reelFinished = true;
+            return false; // don't prevent default
+          }
+          currentStep = Math.min(TOTAL_STEPS, currentStep + 1);
+        } else {
+          // Scroll up
+          if (currentStep <= 0) {
+            return false; // at beginning — let normal scroll happen
+          }
+          currentStep = Math.max(0, currentStep - 1);
+          reelFinished = false;
+        }
+
+        targetProgress = currentStep / TOTAL_STEPS;
+        animateToTarget();
+
+        if (currentStep === TOTAL_STEPS) {
+          reelFinished = true;
+        }
+
+        // Cooldown to debounce rapid scrolls
+        scrollCooldown = true;
+        setTimeout(() => { scrollCooldown = false; }, 500);
+
+        return true; // we handled it, prevent default
+      }
+
+      // ── Wheel event handler ──
+      function onWheel(e) {
+        // Only intercept when reel is visible
+        const rect = reelSection.getBoundingClientRect();
+        const reelVisible = rect.top <= 10 && rect.bottom > stableVH * 0.5;
+
+        if (!reelVisible) return;
+        if (reelFinished && e.deltaY > 0) return; // already done, let page scroll
+        if (currentStep === 0 && e.deltaY < 0) return; // at top, let page scroll up
+
+        const direction = e.deltaY > 0 ? 1 : -1;
+        const handled = advanceReel(direction);
+
+        if (handled) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }
+
+      // ── Touch event handlers ──
+      function onTouchStart(e) {
+        touchStartY = e.touches[0].clientY;
+        touchHandled = false;
+      }
+
+      function onTouchMove(e) {
+        if (touchHandled) return;
+
+        const rect = reelSection.getBoundingClientRect();
+        const reelVisible = rect.top <= 10 && rect.bottom > stableVH * 0.5;
+        if (!reelVisible) return;
+
+        const deltaY = touchStartY - e.touches[0].clientY;
+        const threshold = 50; // px swipe to count as a scroll
+
+        if (Math.abs(deltaY) < threshold) return;
+
+        const direction = deltaY > 0 ? 1 : -1;
+
+        if (reelFinished && direction > 0) return;
+        if (currentStep === 0 && direction < 0) return;
+
+        const handled = advanceReel(direction);
+        if (handled) {
+          touchHandled = true;
+          e.preventDefault();
+        }
+      }
+
+      // Attach wheel listener (non-passive to allow preventDefault)
+      window.addEventListener('wheel', onWheel, { passive: false });
+      window.addEventListener('touchstart', onTouchStart, { passive: true });
+      window.addEventListener('touchmove', onTouchMove, { passive: false });
+
+      // Real resize
+      window.addEventListener('resize', () => { resizeCanvas(); }, { passive: true });
+
       if (window.visualViewport) {
         let lastKnownVH = stableVH;
         window.visualViewport.addEventListener('resize', () => {
           const newVH = window.visualViewport.height;
           if (Math.abs(newVH - lastKnownVH) > 50) {
-            // Significant change (likely orientation flip) — update
             lastKnownVH = newVH;
             resizeCanvas();
-            updateFrame();
           }
-          // Small change (browser chrome show/hide) — ignore to keep thresholds stable
         });
       }
 
@@ -3395,10 +3517,8 @@
         const io = new IntersectionObserver((entries) => {
           const entry = entries[0];
           if (entry.isIntersecting) {
-            // About is visible → show sidebar
             document.body.classList.remove('reel-mode');
           } else if (entry.boundingClientRect.top > 0) {
-            // About is below viewport → user scrolled back up → hide sidebar
             document.body.classList.add('reel-mode');
           }
         }, { threshold: 0.05 });
