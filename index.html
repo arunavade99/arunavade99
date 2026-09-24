@@ -3326,10 +3326,13 @@
       }
       // Keyboard scrolling, restored scroll positions, and section links also
       // reveal navigation without requiring mouse or touch gestures.
+      let previousScrollY = window.scrollY;
       function revealOnNavigation() {
+        const movingUp = window.scrollY < previousScrollY;
+        previousScrollY = window.scrollY;
         const rect = reel.getBoundingClientRect();
         const introActive = document.body.classList.contains('intro-active');
-        if (!introActive && rect.top >= -10 && rect.bottom > window.innerHeight * .65) {
+        if (!introActive && movingUp && rect.top >= -10 && rect.bottom > window.innerHeight * .65) {
           // Returning to the top restores the full-screen reel at its last frame.
           skipped = false;
           document.body.classList.add('intro-active');
