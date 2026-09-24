@@ -26,7 +26,6 @@
       --white: #e8f4fa;
       --glow: 0 0 24px rgba(0, 220, 160, 0.15);
       --glow2: 0 0 24px rgba(0, 180, 255, 0.15);
-      --sidebar-w: 270px;
     }
 
     *,
@@ -45,8 +44,8 @@
       font-family: 'Space Grotesk', sans-serif;
       background: var(--bg);
       color: var(--text);
-      display: flex;
       min-height: 100vh;
+      overflow-x: clip;
     }
 
     #network-bg {
@@ -57,55 +56,6 @@
       z-index: 0;
       opacity: 0.55;
       pointer-events: none;
-    }
-
-    /* ══════════ SIDEBAR ══════════ */
-    .sidebar {
-      width: var(--sidebar-w);
-      min-width: var(--sidebar-w);
-      background: var(--bg2);
-      border-right: 1px solid var(--border);
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      overflow-y: auto;
-      z-index: 200;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* ══ REEL MODE: sidebar hidden, main full-width ══ */
-    body.reel-mode .sidebar {
-      transform: translateX(-110%);
-    }
-
-    body.reel-mode .main {
-      margin-left: 0 !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-      padding-top: 0 !important;
-    }
-
-    body.reel-mode .hamburger {
-      display: none !important;
-    }
-
-    body.reel-mode #video-reel {
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-    }
-
-    /* Sidebar reveal animation when reel ends */
-    .sidebar {
-      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* Smooth main width transition when sidebar appears */
-    .main {
-      transition: margin-left 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-        padding 0.7s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     /* ══ REEL NAME OVERLAY ══ */
@@ -216,128 +166,6 @@
       margin: 0 7px;
     }
 
-    .sidebar::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 2px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--neon), var(--neon2), transparent);
-      opacity: 0.55;
-    }
-
-    /* hamburger — hidden on desktop */
-    .hamburger {
-      display: none;
-      position: fixed;
-      top: 14px;
-      left: 14px;
-      z-index: 300;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      width: 40px;
-      height: 40px;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: var(--neon);
-      font-size: 1.1rem;
-    }
-
-    /* overlay for mobile nav */
-    .nav-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 150;
-    }
-
-    .nav-overlay.open {
-      display: block;
-    }
-
-    .sidebar-top {
-      padding: 32px 24px 22px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .avatar-wrap {
-      position: relative;
-      width: 72px;
-      height: 72px;
-      margin-bottom: 14px;
-    }
-
-    .avatar-ring {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--neon), var(--neon2));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    .avatar-ring img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .avatar-initials {
-      font-family: 'EB Garamond', monospace;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--bg);
-    }
-
-    .sidebar-name {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: .02em;
-    }
-
-    .sidebar-role {
-      font-family: 'EB Garamond', monospace;
-      font-size: 0.65rem;
-      color: var(--neon);
-      margin-top: 4px;
-      letter-spacing: .06em;
-    }
-
-    .sidebar-location {
-      font-size: .74rem;
-      color: var(--muted);
-      margin-top: 8px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .sidebar-nav {
-      padding: 18px 12px;
-      flex: 1;
-    }
-
-    .nav-label {
-      font-family: 'EB Garamond', monospace;
-      font-size: .58rem;
-      letter-spacing: .15em;
-      color: var(--muted);
-      text-transform: uppercase;
-      padding: 0 10px;
-      margin-bottom: 5px;
-      margin-top: 12px;
-    }
-
     .nav-item {
       display: flex;
       align-items: center;
@@ -376,38 +204,10 @@
       font-size: .82rem;
     }
 
-    .sidebar-contacts {
-      padding: 14px 24px 22px;
-      border-top: 1px solid var(--border);
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: .71rem;
-      padding: 4px 0;
-      transition: color .2s;
-      font-family: 'EB Garamond', monospace;
-    }
-
-    .contact-link:hover {
-      color: var(--neon);
-    }
-
-    .contact-link i {
-      width: 13px;
-      font-size: .78rem;
-    }
-
     /* ══════════ MAIN ══════════ */
     .main {
-      margin-left: var(--sidebar-w);
-      flex: 1;
-      padding: 52px 52px 90px;
-      max-width: calc(100% - var(--sidebar-w));
+      width: 100%;
+      min-width: 0;
       position: relative;
       z-index: 2;
     }
@@ -1705,21 +1505,7 @@
       box-shadow: var(--glow);
     }
 
-    /* scrollbar */
-    .sidebar::-webkit-scrollbar {
-      width: 3px;
-    }
-
-    .sidebar::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .sidebar::-webkit-scrollbar-thumb {
-      background: rgba(0, 220, 160, .2);
-      border-radius: 3px;
-    }
-
-    /* ══════════ VIDEO REEL ══════════ */
+/* ══════════ VIDEO REEL ══════════ */
 
     /* Hero becomes full-screen landing */
     .intro-hero {
@@ -1771,13 +1557,13 @@
     #video-reel {
       position: relative;
       background: var(--bg);
-      margin-left: -52px;
-      margin-right: -52px;
+      width: 100%;
       margin-bottom: 58px;
     }
 
     .reel-track {
-      height: calc(100vh + 10px);
+      height: 100vh;
+      height: 100dvh;
       /* Minimal scroll travel — frame progression is controlled by wheel/touch events */
     }
 
@@ -1785,7 +1571,7 @@
     .reel-sticky {
       position: sticky;
       top: 0;
-      width: 100vw;
+      width: 100%;
       height: 100vh;
       /* fallback */
       height: 100dvh;
@@ -1807,44 +1593,7 @@
 
     /* ══════════ RESPONSIVE ══════════ */
 
-    /* Tablet: collapse sidebar to icon-rail */
-    @media (max-width: 1024px) {
-      :root {
-        --sidebar-w: 220px;
-      }
-
-      .main {
-        padding: 40px 36px 80px;
-      }
-
-      #video-reel {
-        margin-left: -36px;
-        margin-right: -36px;
-      }
-    }
-
     @media (max-width: 820px) {
-      .hamburger {
-        display: flex;
-      }
-
-      .sidebar {
-        transform: translateX(-100%);
-        width: 260px;
-        min-width: 260px;
-      }
-
-      .sidebar.open {
-        transform: translateX(0);
-        box-shadow: 4px 0 40px rgba(0, 0, 0, 0.6);
-      }
-
-      .main {
-        margin-left: 0;
-        max-width: 100%;
-        padding: 68px 22px 70px;
-      }
-
       .projects-grid {
         grid-template-columns: 1fr;
       }
@@ -1889,18 +1638,10 @@
         justify-content: center;
       }
 
-      #video-reel {
-        margin-left: -22px;
-        margin-right: -22px;
-      }
-    }
+}
 
     @media (max-width: 560px) {
-      .main {
-        padding: 66px 14px 60px;
-      }
-
-      .hero-card {
+.hero-card {
         padding: 22px 18px;
       }
 
@@ -1950,13 +1691,51 @@
         line-height: 1.9;
       }
 
-      #video-reel {
-        margin-left: -14px;
-        margin-right: -14px;
-      }
+}
+
+
+    /* Full-width intro, readable content, and wrapping navigation on every screen. */
+    #about-bio, .section-nav {
+      width: min(100%, 1200px);
+      margin-inline: auto;
+      padding-inline: clamp(16px, 4vw, 52px);
+    }
+    #about-bio { padding-bottom: 40px; outline: none; }
+    .section-nav { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 30px; }
+    .section-nav .nav-item { min-height: 44px; }
+    .section-nav .nav-item.active::before { display: none; }
+    .profile-panel > *, .skill-group > *, .contact-card > *, .tl-header > * { min-width: 0; }
+    .section { overflow-wrap: anywhere; }
+    img, video, iframe { max-width: 100%; }
+    #reel-canvas { width: 100%; height: 100%; }
+    .reel-line-name { opacity: 1; transform: none; }
+    .reel-skip, .reel-hint { position: absolute; z-index: 30; font-size: .8rem; }
+    .reel-skip { top: 16px; right: 16px; padding: 12px 16px; color: var(--white);
+      border: 1px solid var(--border); border-radius: 24px; background: var(--bg2); }
+    .reel-hint { bottom: max(16px, env(safe-area-inset-bottom)); left: 0;
+      width: 100%; text-align: center; color: var(--white); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--neon); outline-offset: 4px; }
+    .project-card.open .project-expand, .tl-project.open .tl-expand { max-height: none; }
+    @media (max-width: 560px) {
+      .profile-panel { padding: 24px 16px; }
+      .tl-header { flex-wrap: wrap; gap: 8px; }
+      .contact-card { padding: 16px; }
+      .pipeline-step { min-width: 0; flex: 1 1 120px; }
+      .section-header { gap: 9px; }
+    }
+    @media (max-height: 500px) and (orientation: landscape) {
+      .reel-name-overlay { top: 10%; }
+      .reel-line-name { font-size: 1.8rem; }
+      .reel-details-overlay { bottom: 15%; }
+      .reel-line-company, .reel-line-tagline { margin-bottom: 5px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .section { opacity: 1; transform: none; }
+      #network-bg { display: none; }
     }
 
-    @media (max-width: 380px) {}
   </style>
 </head>
 
@@ -1964,54 +1743,6 @@
 
   <canvas id="network-bg"></canvas>
 
-  <!-- hamburger button -->
-  <button class="hamburger" id="hamburger" aria-label="Open menu">
-    <i class="fa fa-bars"></i>
-  </button>
-
-  <!-- overlay -->
-  <div class="nav-overlay" id="navOverlay"></div>
-
-  <!-- ══ SIDEBAR ══ -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-top">
-      <div class="avatar-wrap">
-        <div class="avatar-ring">
-          <img src="photos/profile_photo/image.jpeg" alt="Arunava De" />
-        </div>
-      </div>
-      <div class="sidebar-name">Arunava De</div>
-      <div class="sidebar-role">// AI/ML · COMPUTER VISION</div>
-      <div class="sidebar-location"><i class="fa fa-location-dot"></i> Newtown, Kolkata, West Bengal, India</div>
-    </div>
-
-    <nav class="sidebar-nav">
-      <div class="nav-label">Navigate</div>
-      <a class="nav-item active" href="#about-bio"><i class="fa fa-user"></i> About</a>
-      <a class="nav-item" href="#skills"><i class="fa fa-code"></i> Skills</a>
-      <a class="nav-item" href="#experience"><i class="fa fa-briefcase"></i> Experience</a>
-      <a class="nav-item" href="#projects"><i class="fa fa-diagram-project"></i> Projects</a>
-      <a class="nav-item" href="#education"><i class="fa fa-graduation-cap"></i> Education</a>
-      <a class="nav-item" href="#certifications"><i class="fa fa-certificate"></i> Certifications</a>
-      <a class="nav-item" href="#highlights"><i class="fa fa-star"></i> Highlights</a>
-      <a class="nav-item" href="#contact"><i class="fa fa-envelope"></i> Contact</a>
-      <div class="nav-label" style="margin-top:16px">Portfolio</div>
-      <a class="nav-item" href="photography.html"><i class="fa fa-camera"></i> Photography</a>
-    </nav>
-
-    <div class="sidebar-contacts">
-      <a class="contact-link" href="mailto:arunava_de@outlook.com"><i class="fa fa-envelope"></i>
-        arunava_de@outlook.com</a>
-      <a class="contact-link" href="https://linkedin.com/in/arunavade99" target="_blank"><i class="fab fa-linkedin"></i>
-        linkedin.com/in/arunavade99</a>
-      <a class="contact-link" href="https://github.com/arunavade99" target="_blank"><i class="fab fa-github"></i>
-        github.com/arunavade99</a>
-      <a class="contact-link" href="https://www.instagram.com/arunava_de_official" target="_blank"><i
-          class="fab fa-instagram"></i> @arunava_de_official</a>
-    </div>
-  </aside>
-
-  <!-- ① Reel starts immediately — sidebar hidden until About section -->
   <main class="main">
 
     <!-- Scroll-driven frame reel -->
@@ -2020,6 +1751,8 @@
         <div class="reel-sticky">
           <!-- Canvas: frames drawn here -->
           <canvas id="reel-canvas"></canvas>
+          <a class="reel-skip" href="#about-bio">Skip intro ↓</a>
+          <p class="reel-hint" id="reel-status" aria-live="polite">Scroll or swipe up · 0 / 3</p>
           <!-- Name overlay (top) -->
           <div class="reel-name-overlay">
             <div class="reel-line reel-line-name" id="rl-0">Arunava <span>De</span></div>
@@ -2038,8 +1771,18 @@
       </div>
     </section>
 
-    <!-- ② About bio panel — sidebar slides in when this appears -->
-    <section class="section" id="about-bio">
+    <nav class="section-nav" aria-label="Portfolio sections">
+      <a class="nav-item" href="#about-bio">About</a>
+      <a class="nav-item" href="#skills">Skills</a>
+      <a class="nav-item" href="#experience">Experience</a>
+      <a class="nav-item" href="#projects">Projects</a>
+      <a class="nav-item" href="#education">Education</a>
+      <a class="nav-item" href="#certifications">Certifications</a>
+      <a class="nav-item" href="#contact">Contact</a>
+      <a class="nav-item" href="photography.html">Photography</a>
+    </nav>
+
+    <section class="section" id="about-bio" tabindex="-1">
 
       <div class="section-header">
         <div class="section-icon"><i class="fa fa-user"></i></div>
@@ -3237,318 +2980,150 @@
   </script>
 
   <script>
-    // ── Scroll-driven frame reel with text overlay & sidebar reveal ──────────
-    // 3-SCROLL REEL: exactly 3 mouse scrolls (or touch swipes) play the full reel.
+    // Three deliberate wheel gestures or touch swipes complete the intro.
     (function () {
-      // Reset scroll position to top on refresh
-      if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-      }
-      window.scrollTo(0, 0);
-
+      const TOTAL_STEPS = 3;
       const FRAME_COUNT = 38;
-      const BASE = 'photos/gwr_frames/frame_';
-      const TOTAL_STEPS = 3; // exactly 3 scrolls to complete the reel
-
-      // Activate reel-mode immediately (sidebar hidden, main full-width)
-      document.body.classList.add('reel-mode');
-
       const canvas = document.getElementById('reel-canvas');
       const ctx = canvas.getContext('2d');
-      const track = document.querySelector('.reel-track');
+      const reel = document.getElementById('video-reel');
+      const stage = reel.querySelector('.reel-sticky');
+      const about = document.getElementById('about-bio');
       const overlay = document.getElementById('reel-overlay');
-      const reelSection = document.getElementById('video-reel');
-
-      // Restrict saving/copying the canvas image
-      canvas.addEventListener('contextmenu', e => e.preventDefault());
-
-      // Text lines: reveal thresholds mapped to 0–1 progress
-      const lines = [
-        { el: document.getElementById('rl-0'), threshold: 0.05 },
-        { el: document.getElementById('rl-1'), threshold: 0.22 },
-        { el: document.getElementById('rl-2'), threshold: 0.38 },
-        { el: document.getElementById('rl-3'), threshold: 0.55 },
-        { el: document.getElementById('rl-4'), threshold: 0.70 },
-      ];
-
-      let loaded = 0;
-      let ready = false;
-      let lastIdx = -1;
+      const status = document.getElementById('reel-status');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const images = [];
+      let currentStep = 0, progress = 0, target = 0;
+      let raf = 0, exitTimer = 0, completed = false, skipped = false;
+      let wheelTimer = 0, wheelUsed = false, wheelDelta = 0;
+      let touchActive = false, touchUsed = false, touchStartY = 0, touchStartX = 0;
+      const lines = [0, .22, .38, .55, .70].map((threshold, i) => ({
+        el: document.getElementById('rl-' + i), threshold
+      }));
 
-      // ── 3-scroll step tracking ──
-      let currentStep = 0;       // 0 = start, 1 = 1/3, 2 = 2/3, 3 = done
-      let animProgress = 0;      // smooth 0→1 progress for frame drawing
-      let targetProgress = 0;    // target progress based on currentStep
-      let animRAF = null;
-      let reelFinished = false;  // true once step 3 is reached
-      let scrollCooldown = false; // debounce rapid scrolls
-
-      // Touch tracking
-      let touchStartY = 0;
-      let touchHandled = false;
-
-      function pad(n) { return String(n).padStart(3, '0'); }
-
-      // ── Cover-scale draw helper ──────────────────────────────────────────
-      function drawCover(img) {
-        const cw = canvas.width, ch = canvas.height;
-        const iw = img.naturalWidth, ih = img.naturalHeight;
-        if (!iw || !ih) return;
-        const scale = Math.max(cw / iw, ch / ih);
-        const dw = iw * scale, dh = ih * scale;
-        const dx = (cw - dw) / 2, dy = (ch - dh) / 2;
-        ctx.drawImage(img, dx, dy, dw, dh);
+      function inView() {
+        const rect = reel.getBoundingClientRect();
+        return rect.top <= 10 && rect.bottom > stage.clientHeight * .65;
       }
-
-      // ── Stable viewport dimensions ──
-      function getVW() {
-        return (window.visualViewport ? window.visualViewport.width : window.innerWidth);
-      }
-      function getVH() {
-        return (window.visualViewport ? window.visualViewport.height : window.innerHeight);
-      }
-
-      let stableVH = getVH();
-      let stableVW = getVW();
-
-      // ── Resize canvas to viewport ────────────────────────────────────────
-      function resizeCanvas() {
-        stableVH = getVH();
-        stableVW = getVW();
-        canvas.width = stableVW;
-        canvas.height = stableVH;
-        if (ready && lastIdx >= 0) {
-          const img = images[lastIdx];
-          if (img && img.complete && img.naturalWidth) drawCover(img);
+      function draw() {
+        let index = Math.min(FRAME_COUNT - 1, Math.floor(progress * (FRAME_COUNT - 1)));
+        // Render available frames immediately; loading never blocks navigation.
+        let img = images[index];
+        if (!img || !img.naturalWidth) {
+          img = images.slice(0, index + 1).reverse().find(frame => frame.naturalWidth);
         }
-      }
-
-      resizeCanvas();
-
-      // Preload all frames silently (frames 003 – 040)
-      for (let i = 3; i <= 40; i++) {
-        const img = new Image();
-        img.src = BASE + pad(i) + '.webp';
-        img.onload = img.onerror = () => {
-          loaded++;
-          if (loaded === FRAME_COUNT) onReady();
-        };
-        images.push(img);
-      }
-
-      function onReady() {
-        ready = true;
-        renderAtProgress(0);
-      }
-
-      // ── Render frame + text overlays at a given progress (0–1) ──
-      function renderAtProgress(progress) {
-        if (!ready) return;
-        const frameIdx = Math.min(FRAME_COUNT - 1, Math.floor(progress * FRAME_COUNT));
-
-        if (frameIdx !== lastIdx) {
-          const img = images[frameIdx];
-          if (img && img.complete && img.naturalWidth) drawCover(img);
-          lastIdx = frameIdx;
+        if (ctx && img && img.naturalWidth) {
+          const scale = Math.max(canvas.width / img.naturalWidth, canvas.height / img.naturalHeight);
+          const w = img.naturalWidth * scale, h = img.naturalHeight * scale;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, (canvas.width - w) / 2, (canvas.height - h) / 2, w, h);
         }
-
-        // Reveal text lines
-        let anyDetailsVisible = false;
-        lines.forEach((item, index) => {
-          if (progress >= item.threshold) {
-            item.el.classList.add('visible');
-            if (index > 0) anyDetailsVisible = true;
+        lines.forEach(line => line.el.classList.toggle('visible', progress >= line.threshold));
+        overlay.classList.toggle('any-visible', progress >= .22);
+      }
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(stage.clientWidth * dpr);
+        canvas.height = Math.round(stage.clientHeight * dpr);
+        draw();
+      }
+      function scheduleExit() {
+        clearTimeout(exitTimer);
+        if (!completed || touchActive || skipped) return;
+        exitTimer = setTimeout(() => {
+          if (completed && inView()) {
+            about.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
           }
-        });
-        if (anyDetailsVisible) overlay.classList.add('any-visible');
+        }, 260);
       }
-
-      // ── Smooth animation from current progress to target ──
-      function animateToTarget() {
-        if (animRAF) cancelAnimationFrame(animRAF);
-
-        function step() {
-          const diff = targetProgress - animProgress;
-          if (Math.abs(diff) < 0.005) {
-            animProgress = targetProgress;
-            renderAtProgress(animProgress);
-            animRAF = null;
-
-            // If reel is complete, scroll to About section after a short delay
-            if (reelFinished && animProgress >= 0.99) {
-              setTimeout(() => {
-                const aboutSection = document.getElementById('about-bio');
-                if (aboutSection) {
-                  // Remove reel-mode to show sidebar before scrolling
-                  document.body.classList.remove('reel-mode');
-                  aboutSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }, 400);
-            }
-            return;
+      function advance(direction) {
+        clearTimeout(exitTimer);
+        completed = false;
+        currentStep = Math.max(0, Math.min(TOTAL_STEPS, currentStep + direction));
+        target = currentStep / TOTAL_STEPS;
+        status.textContent = 'Scroll or swipe up · ' + currentStep + ' / ' + TOTAL_STEPS;
+        cancelAnimationFrame(raf);
+        const from = progress, start = performance.now();
+        function animate(now) {
+          const t = reducedMotion ? 1 : Math.min(1, (now - start) / 420);
+          progress = from + (target - from) * (1 - Math.pow(1 - t, 3));
+          draw();
+          if (t < 1) raf = requestAnimationFrame(animate);
+          else {
+            completed = currentStep === TOTAL_STEPS;
+            scheduleExit();
           }
-          // Ease toward target — lerp factor controls speed
-          animProgress += diff * 0.08;
-          renderAtProgress(animProgress);
-          animRAF = requestAnimationFrame(step);
         }
-        animRAF = requestAnimationFrame(step);
+        raf = requestAnimationFrame(animate);
       }
-
-      // ── Check if reel section is currently in viewport ──
-      function isReelInView() {
-        const rect = reelSection.getBoundingClientRect();
-        // Reel is "in view" if its top is at or above viewport top
-        // and it hasn't scrolled completely past
-        return rect.top <= 10 && rect.bottom > 0;
-      }
-
-      // ── Advance reel by one step (called on each scroll/swipe) ──
-      function advanceReel(direction) {
-        if (scrollCooldown) return;
-        if (!ready) return;
-
-        // Only intercept when reel is in view and not finished
-        if (!isReelInView() && currentStep === 0) return;
-
-        if (direction > 0) {
-          // Scroll down
-          if (currentStep >= TOTAL_STEPS) {
-            // Reel already finished — let normal scroll happen
-            reelFinished = true;
-            return false; // don't prevent default
-          }
-          currentStep = Math.min(TOTAL_STEPS, currentStep + 1);
-        } else {
-          // Scroll up
-          if (currentStep <= 0) {
-            return false; // at beginning — let normal scroll happen
-          }
-          currentStep = Math.max(0, currentStep - 1);
-          reelFinished = false;
-        }
-
-        targetProgress = currentStep / TOTAL_STEPS;
-        animateToTarget();
-
-        if (currentStep === TOTAL_STEPS) {
-          reelFinished = true;
-        }
-
-        // Cooldown to debounce rapid scrolls
-        scrollCooldown = true;
-        setTimeout(() => { scrollCooldown = false; }, 500);
-
-        return true; // we handled it, prevent default
-      }
-
-      // ── Wheel event handler ──
-      function onWheel(e) {
-        // Only intercept when reel is visible
-        const rect = reelSection.getBoundingClientRect();
-        const reelVisible = rect.top <= 10 && rect.bottom > stableVH * 0.5;
-
-        if (!reelVisible) return;
-        if (reelFinished && e.deltaY > 0) return; // already done, let page scroll
-        if (currentStep === 0 && e.deltaY < 0) return; // at top, let page scroll up
-
-        const direction = e.deltaY > 0 ? 1 : -1;
-        const handled = advanceReel(direction);
-
-        if (handled) {
-          e.preventDefault();
-          e.stopPropagation();
+      function onWheel(event) {
+        if (event.ctrlKey || Math.abs(event.deltaX) > Math.abs(event.deltaY) || !event.deltaY) return;
+        if (skipped || !inView() || (completed && !wheelUsed)) return;
+        if (currentStep === 0 && event.deltaY < 0) return;
+        // Consume the whole burst, including inertia; a quiet gap starts a new gesture.
+        event.preventDefault();
+        clearTimeout(wheelTimer);
+        wheelTimer = setTimeout(() => { wheelUsed = false; wheelDelta = 0; }, 160);
+        if (wheelUsed) return;
+        const pixels = event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? stage.clientHeight : 1);
+        wheelDelta += pixels;
+        if (Math.abs(wheelDelta) >= 24) {
+          wheelUsed = true;
+          advance(Math.sign(wheelDelta));
         }
       }
-
-      // ── Touch event handlers ──
-      function onTouchStart(e) {
-        touchStartY = e.touches[0].clientY;
-        touchHandled = false;
-      }
-
-      function onTouchMove(e) {
-        if (touchHandled) return;
-
-        const rect = reelSection.getBoundingClientRect();
-        const reelVisible = rect.top <= 10 && rect.bottom > stableVH * 0.5;
-        if (!reelVisible) return;
-
-        const deltaY = touchStartY - e.touches[0].clientY;
-        const threshold = 50; // px swipe to count as a scroll
-
-        if (Math.abs(deltaY) < threshold) return;
-
-        const direction = deltaY > 0 ? 1 : -1;
-
-        if (reelFinished && direction > 0) return;
-        if (currentStep === 0 && direction < 0) return;
-
-        const handled = advanceReel(direction);
-        if (handled) {
-          touchHandled = true;
-          e.preventDefault();
+      function onTouchStart(event) {
+        touchActive = event.touches.length === 1 && !skipped && !completed && inView();
+        touchUsed = false;
+        if (touchActive) {
+          touchStartY = event.touches[0].clientY;
+          touchStartX = event.touches[0].clientX;
         }
       }
-
-      // Attach wheel listener (non-passive to allow preventDefault)
+      function onTouchMove(event) {
+        if (event.touches.length !== 1) { touchActive = false; return; }
+        if (!touchActive) return;
+        const dy = touchStartY - event.touches[0].clientY;
+        const dx = touchStartX - event.touches[0].clientX;
+        if (!touchUsed && Math.abs(dx) > Math.abs(dy)) return;
+        if (!touchUsed && currentStep === 0 && dy < 0) { touchActive = false; return; }
+        // Cancel from the first vertical movement, not only after the threshold.
+        // Continue consuming moves after the step so one swipe cannot scroll away.
+        if (event.cancelable) event.preventDefault();
+        if (!touchUsed && Math.abs(dy) >= 40) {
+          touchUsed = true;
+          advance(Math.sign(dy));
+        }
+      }
+      function onTouchEnd(event) {
+        if (event.touches.length) return;
+        touchActive = false;
+        scheduleExit();
+      }
+      reel.querySelector('.reel-skip').addEventListener('click', () => {
+        skipped = true;
+        clearTimeout(exitTimer);
+        cancelAnimationFrame(raf);
+        about.focus({ preventScroll: true });
+      });
       window.addEventListener('wheel', onWheel, { passive: false });
-      window.addEventListener('touchstart', onTouchStart, { passive: true });
-      window.addEventListener('touchmove', onTouchMove, { passive: false });
-
-      // Real resize
-      window.addEventListener('resize', () => { resizeCanvas(); }, { passive: true });
-
-      if (window.visualViewport) {
-        let lastKnownVH = stableVH;
-        window.visualViewport.addEventListener('resize', () => {
-          const newVH = window.visualViewport.height;
-          if (Math.abs(newVH - lastKnownVH) > 50) {
-            lastKnownVH = newVH;
-            resizeCanvas();
-          }
-        });
-      }
-
-      // ── Sidebar: show when About enters viewport, hide when scrolling back up
-      const aboutSection = document.getElementById('about-bio');
-      if (aboutSection && 'IntersectionObserver' in window) {
-        const io = new IntersectionObserver((entries) => {
-          const entry = entries[0];
-          if (entry.isIntersecting) {
-            document.body.classList.remove('reel-mode');
-          } else if (entry.boundingClientRect.top > 0) {
-            document.body.classList.add('reel-mode');
-          }
-        }, { threshold: 0.05 });
-        io.observe(aboutSection);
+      reel.addEventListener('touchstart', onTouchStart, { passive: true });
+      reel.addEventListener('touchmove', onTouchMove, { passive: false });
+      reel.addEventListener('touchend', onTouchEnd, { passive: true });
+      reel.addEventListener('touchcancel', () => { touchActive = false; scheduleExit(); }, { passive: true });
+      window.addEventListener('resize', resize, { passive: true });
+      if ('ResizeObserver' in window) new ResizeObserver(resize).observe(stage);
+      resize();
+      for (let i = 0; i < FRAME_COUNT; i++) {
+        const img = new Image();
+        images.push(img);
+        img.onload = draw;
+        img.src = 'photos/gwr_frames/frame_' + String(i + 3).padStart(3, '0') + '.webp';
       }
     })();
   </script>
 
   <script>
-    // Mobile nav toggle
-    const sidebar = document.getElementById('sidebar');
-    const hamburger = document.getElementById('hamburger');
-    const overlay = document.getElementById('navOverlay');
-
-    hamburger.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-      overlay.classList.toggle('open');
-    });
-    overlay.addEventListener('click', () => {
-      sidebar.classList.remove('open');
-      overlay.classList.remove('open');
-    });
-    // Close on nav link tap (mobile)
-    document.querySelectorAll('.nav-item').forEach(item => {
-      item.addEventListener('click', () => {
-        sidebar.classList.remove('open');
-        overlay.classList.remove('open');
-      });
-    });
-
     // Expandable project cards (Personal Projects section)
     document.querySelectorAll('.project-card').forEach(card => {
       const head = card.querySelector('.project-card-head');
@@ -3562,7 +3137,7 @@
       if (expand) expand.addEventListener('click', (e) => e.stopPropagation());
     });
 
-    // Active nav on scroll — skip video-reel (sidebar is hidden then)
+    // Highlight the current content section.
     const sections = document.querySelectorAll('section[id]');
     const navItems = document.querySelectorAll('.nav-item[href^="#"]');
 
