@@ -2,19 +2,18 @@
 
 # Arunava De
 
-### AI/ML Engineer · Computer Vision Specialist · MLOps & GenAI
+### Computer Vision · AI/ML Engineering · Generative AI
 
 <a href="https://linkedin.com/in/arunavade99" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
 <a href="https://github.com/arunavade99" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-24292e?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
 <a href="https://arunavadeportfolio.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Portfolio-00C896?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio"/></a>
 <a href="mailto:arunava_de@outlook.com" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Email-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white" alt="Email"/></a>
-<a href="https://www.instagram.com/arunava_de_official" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"/></a>
 
 📍 **Kolkata, West Bengal, India**
 
 ---
 
-### 🚀 Tech Highlights at a Glance
+### Building with
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
 ![YOLOv8](https://img.shields.io/badge/YOLOv8-00FFFF?style=flat-square&logo=ultralytics&logoColor=black)
@@ -25,6 +24,8 @@
 ![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi-C51A4A?style=flat-square&logo=raspberry-pi&logoColor=white)
 
 </div>
+
+[Projects](#-personal-featured-projects) · [Experience](#-work-experience) · [Skills](#-tech-stack--skill-matrix) · [Education](#-education--certifications)
 
 ---
 
@@ -43,107 +44,13 @@ Computer Vision and AI/ML Engineer with **4+ years** of hands-on experience desi
 
 ---
 
-## ⚡ AI Engineering Architecture
+## 🌟 Personal Featured Projects
 
-The graphical visual map below outlines my core technical architecture spanning Computer Vision, Generative AI, MLOps Deployment, and Hardware Edge AI:
-
-### AI Architecture
-
-```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': { 'lineColor': '#00dca0', 'primaryColor': '#0b1118', 'primaryBorderColor': '#00dca0', 'primaryTextColor': '#ffffff'} }}%%
-flowchart TD
-    ROOT["🧠 AI Engineering Architecture"]
-
-    ROOT --> CV["👁️ Computer Vision"]
-    ROOT --> GAI["✨ Generative AI"]
-    ROOT --> DEP["🚀 Deployment & MLOps"]
-    ROOT --> HW["⚡ Hardware & Edge AI"]
-
-    CV --> CV1["🎯 YOLOv8"]
-    CV --> CV2["📷 OpenCV"]
-    CV --> CV3["🔄 DeepSORT"]
-    CV --> CV4["👤 FaceNet"]
-    CV --> CV5["🔍 InsightFace"]
-
-    GAI --> GAI1["♊ Gemini"]
-    GAI --> GAI2["☁️ Amazon Bedrock"]
-    GAI --> GAI3["💬 Prompt Engineering"]
-
-    DEP --> DEP1["🌶️ Flask"]
-    DEP --> DEP2["🎸 Django"]
-    DEP --> DEP3["☁️ AWS"]
-    DEP --> DEP4["🌿 Git"]
-
-    HW --> HW1["🍓 Raspberry Pi"]
-    HW --> HW2["📡 PIR Sensors"]
-    HW --> HW3["🤖 Embedded AI"]
-
-    classDef rootStyle fill:#0f1923,stroke:#00dca0,stroke-width:3px,color:#ffffff,font-weight:bold;
-    classDef cvStyle fill:#0b1821,stroke:#00dca0,stroke-width:2px,color:#00dca0;
-    classDef genStyle fill:#1a0f26,stroke:#a855f7,stroke-width:2px,color:#d8b4fe;
-    classDef depStyle fill:#091726,stroke:#00b4ff,stroke-width:2px,color:#38bdf8;
-    classDef hwStyle fill:#261809,stroke:#ffaa00,stroke-width:2px,color:#fbbf24;
-
-    class ROOT rootStyle;
-    class CV cvStyle;
-    class GAI genStyle;
-    class DEP depStyle;
-    class HW hwStyle;
-```
-
-<details>
-<summary><b>📂 Text Graphical Tree Representation (Click to Expand)</b></summary>
-
-```
-AI Engineering Architecture
-│
-├── 👁️ Computer Vision
-│     ├── 🎯 YOLOv8
-│     ├── 📷 OpenCV
-│     ├── 🔄 DeepSORT
-│     ├── 👤 FaceNet
-│     └── 🔍 InsightFace
-│
-├── ✨ Generative AI
-│     ├── ♊ Gemini
-│     ├── ☁️ Amazon Bedrock
-│     └── 💬 Prompt Engineering
-│
-├── 🚀 Deployment
-│     ├── 🌶️ Flask
-│     ├── 🎸 Django
-│     ├── ☁️ AWS
-│     └── 🌿 Git
-│
-└── ⚡ Hardware AI
-      ├── 🍓 Raspberry Pi
-      ├── 📡 PIR Sensors
-      └── 🤖 Embedded AI
-```
-
-</details>
-
----
-
-## 🛠️ Tech Stack & Skill Matrix
-
-| Category | Skill / Tool Badge | Key Applications & Scope |
+| Project Name | Highlights & Features | Technologies Used |
 |:---|:---|:---|
-| **Computer Vision** | `OpenCV` `YOLOv8` `YOLO26` `YOLO-Pose` `InsightFace` `FaceNet` `MediaPipe` `DeepSORT` `RF-DeTR` `Supervision` | Real-time object tracking, safety compliance monitoring, pose estimation, face attendance |
-| **Deep Learning** | `PyTorch` `CNNs` `Transfer Learning` `Object Detection` `Image Segmentation` | Custom neural net fine-tuning, dataset annotation, multi-class classification |
-| **OCR, Document AI & GenAI** | `LlamaParse` `OpenAI GPT-5.6 Luna` `Amazon Bedrock` `EasyOCR` `Amazon Textract` `Gemini Flash Pro` `Mobile SAM` | Structured document parsing, Bengali translation, license plate OCR, multimodal extraction, segmentation |
-| **Backend & Web** | `Python` `Flask` `Django` `MySQL` `RESTful APIs` | AI dashboard development, video stream ingestion pipelines, backend REST endpoints |
-| **Cloud & DevOps** | `AWS` `Amazon S3` `Amazon Bedrock` `Git` `GitHub Actions` `Power BI` | Cloud document assets, model integration, dataset management, version control, analytics reporting |
-| **Hardware & Edge** | `Raspberry Pi` `PIR Sensors` `Embedded AI` `NVIDIA Jetson` | On-device video inference, IoT sensor trigger automation, edge deployment |
-
----
-
-<div align="center">
-
-### 🌊 Dynamic AI Model & Pipeline Activity
-![Dynamic AI Workflow Sine Wave Cadence](photos/ai_workflow_cadence.svg)
-
-</div>
+| 🚗 **Vehicle Recommendation Platform** | **Completed:** Flask-based conversational vehicle recommendation system. Combines deterministic Python engine with LLM for natural language, budget tracking, and geolocation-based dealer/service lookups. | `Flask` `Python` `LLM Integration` `Google Places API` |
+| 🚘 **Vehicle Speed & Line-Cross Counter** | Real-time vehicle speed estimation using perspective transformation, virtual calibration lines, and directional counter | `YOLOv8` `DeepSORT` `OpenCV` `Python` |
+| 👤 **AI Face Recognition Attendance** | Employee verification with automatic in/out logging, spoof prevention, and log generation | `FaceNet` `OpenCV` `Python` `SQLite` |
 
 ---
 
@@ -156,6 +63,8 @@ AI Engineering Architecture
 - 🔹 Developed AI-powered jewelry hand measurement system utilizing **MediaPipe** and **Mobile SAM**.
 - 🔹 Built real-time face recognition attendance and automated people counter (**InsightFace** + **YOLOv8**).
 - 🔹 Designed ANPR pipeline with **RF-DeTR**, benchmarking **EasyOCR**, **Amazon Textract**, and **Gemini Flash Pro**.
+
+- 🔹 Produced AI product demos for virtual try-on scenarios featuring **Tommy Hilfiger, Blackberrys, and Manyavar**, plus AI wall-paint and interior-colour visualisation. Wrote demo scripts, incorporated **AI-generated voiceovers**, and edited videos in **Shotcut on Ubuntu** to communicate product capabilities. Contribution was **demo production**, not development of the underlying try-on or wall-paint models.
 
 ### **Junior Developer (Computer Vision / AI)** — *Xiphos Technology Solutions Pvt. Ltd.*
 `Mar 2023 – Jan 2026` · Kolkata, West Bengal
@@ -171,13 +80,16 @@ AI Engineering Architecture
 - 🔹 Assisted with on-site troubleshooting during initial phase.
 ---
 
-## 🌟 Personal Featured Projects
+## 🛠️ Tech Stack & Skill Matrix
 
-| Project Name | Highlights & Features | Technologies Used |
+| Category | Skill / Tool Badge | Key Applications & Scope |
 |:---|:---|:---|
-| 🚗 **Vehicle Recommendation Platform** | **Completed:** Flask-based conversational vehicle recommendation system. Combines deterministic Python engine with LLM for natural language, budget tracking, and geolocation-based dealer/service lookups. | `Flask` `Python` `LLM Integration` `Google Places API` |
-| 🚘 **Vehicle Speed & Line-Cross Counter** | Real-time vehicle speed estimation using perspective transformation, virtual calibration lines, and directional counter | `YOLOv8` `DeepSORT` `OpenCV` `Python` |
-| 👤 **AI Face Recognition Attendance** | Employee verification with automatic in/out logging, spoof prevention, and log generation | `FaceNet` `OpenCV` `Python` `SQLite` |
+| **Computer Vision** | `OpenCV` `YOLOv8` `YOLO26` `YOLO-Pose` `InsightFace` `FaceNet` `MediaPipe` `DeepSORT` `RF-DeTR` `Supervision` | Real-time object tracking, safety compliance monitoring, pose estimation, face attendance |
+| **Deep Learning** | `PyTorch` `CNNs` `Transfer Learning` `Object Detection` `Image Segmentation` | Custom neural net fine-tuning, dataset annotation, multi-class classification |
+| **OCR, Document AI & GenAI** | `LlamaParse` `OpenAI GPT-5.6 Luna` `Amazon Bedrock` `EasyOCR` `Amazon Textract` `Gemini Flash Pro` `Mobile SAM` | Structured document parsing, Bengali translation, license plate OCR, multimodal extraction, segmentation |
+| **Backend & Web** | `Python` `Flask` `Django` `MySQL` `RESTful APIs` | AI dashboard development, video stream ingestion pipelines, backend REST endpoints |
+| **Cloud & DevOps** | `AWS` `Amazon S3` `Amazon Bedrock` `Git` `GitHub Actions` `Power BI` | Cloud document assets, model integration, dataset management, version control, analytics reporting |
+| **Hardware & Edge** | `Raspberry Pi` `PIR Sensors` `Embedded AI` `NVIDIA Jetson` | On-device video inference, IoT sensor trigger automation, edge deployment |
 
 ---
 
@@ -197,6 +109,6 @@ AI Engineering Architecture
 
 <div align="center">
 
-**<a href="https://arunavade99.github.io/arunavade99/" target="_blank" rel="noopener noreferrer">🌐 Explore My Full Web Portfolio & Projects →</a>**
+**<a href="https://arunavadeportfolio.vercel.app/" target="_blank" rel="noopener noreferrer">🌐 Explore My Full Web Portfolio & Projects →</a>**
 
 </div>
