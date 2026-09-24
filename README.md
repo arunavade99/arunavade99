@@ -64,6 +64,8 @@ Computer Vision and AI/ML Engineer with **4+ years** of hands-on experience desi
 - 🔹 Built real-time face recognition attendance and automated people counter (**InsightFace** + **YOLOv8**).
 - 🔹 Designed ANPR pipeline with **RF-DeTR**, benchmarking **EasyOCR**, **Amazon Textract**, and **Gemini Flash Pro**.
 
+- 🔹 Produced AI product demos for virtual try-on scenarios featuring **Tommy Hilfiger, Blackberrys, and Manyavar**, plus AI wall-paint and interior-colour visualisation. Wrote demo scripts, incorporated **AI-generated voiceovers**, and edited videos in **Shotcut on Ubuntu** to communicate product capabilities. Contribution was **demo production**, not development of the underlying try-on or wall-paint models.
+
 ### **Junior Developer (Computer Vision / AI)** — *Xiphos Technology Solutions Pvt. Ltd.*
 `Mar 2023 – Jan 2026` · Kolkata, West Bengal
 
