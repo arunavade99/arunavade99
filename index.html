@@ -1695,7 +1695,7 @@
 
 
     /* Full-width intro, readable content, and wrapping navigation on every screen. */
-    #about-bio {
+    .section {
       width: min(100%, 1200px);
       margin-inline: auto;
       padding-inline: clamp(16px, 4vw, 52px);
@@ -2069,12 +2069,13 @@
             (YOLO-Pose),
             <strong>biometrics &amp; face recognition</strong> (InsightFace), and <strong>multimodal GenAI &amp; LLM
               integration</strong>
-            (LlamaParse, Bedrock GPT-5.6 Luna, Gemini OCR). Experienced across the full lifecycle — from custom dataset
-            curation
-            and edge optimization to live factory floor deployment and interactive recommendation platforms. Actively
-            expanding
-            cloud ML capabilities on <strong>AWS</strong> and preparing for the AWS Certified AI Practitioner
-            certification.
+            (LlamaParse, Bedrock GPT-5.6 Luna, Gemini OCR). Recently architected a <strong>fully serverless AWS
+              pipeline</strong>
+            (Lambda Docker containers, API Gateway, DynamoDB, S3) for document translation, and currently leading R&amp;D on
+            <strong>multi-camera person Re-Identification &amp; trail mapping</strong> using OSNet deep embeddings with
+            cosine gallery matching across industrial camera networks. Also building an <strong>advanced industrial
+              OpenCV vision suite</strong> covering crowd detection, unattended object detection, and violence/aggression
+            analytics.
           </div>
           <div class="hero-tags">
             <span class="hero-tag">Computer Vision</span>
@@ -2083,7 +2084,8 @@
             <span class="hero-tag">GenAI &amp; LLMs</span>
             <span class="hero-tag">Face Recognition</span>
             <span class="hero-tag">ANPR &amp; OCR</span>
-            <span class="hero-tag">AWS AI</span>
+            <span class="hero-tag">AWS Serverless</span>
+            <span class="hero-tag">Multi-Camera Re-ID</span>
             <span class="hero-tag">Industrial MLOps</span>
           </div>
           <div class="hero-quote">"Turning research-grade vision &amp; LLM models into production pipelines that run
@@ -2112,6 +2114,10 @@
               <span class="skill-pill">DeepSORT</span>
               <span class="skill-pill">Supervision</span>
               <span class="skill-pill">RF-DeTR</span>
+              <span class="skill-pill">OSNet Re-ID</span>
+              <span class="skill-pill">Multi-Camera Tracking</span>
+              <span class="skill-pill">Crowd Detection</span>
+              <span class="skill-pill">Violence Analytics</span>
             </div>
           </div>
           <div class="skill-group">
@@ -2152,6 +2158,12 @@
             <div class="skill-pills">
               <span class="skill-pill">AWS</span>
               <span class="skill-pill">Amazon S3</span>
+              <span class="skill-pill">AWS Lambda</span>
+              <span class="skill-pill">API Gateway</span>
+              <span class="skill-pill">Amazon DynamoDB</span>
+              <span class="skill-pill">AWS SAM</span>
+              <span class="skill-pill">Docker</span>
+              <span class="skill-pill">Makefiles</span>
               <span class="skill-pill">Pandas</span>
               <span class="skill-pill">MySQL</span>
               <span class="skill-pill">Git</span>
@@ -2404,56 +2416,55 @@
               </div>
             </div>
             <div class="tl-project">
-              <div class="tl-project-name">Exam Paper Translation Tool</div>
+              <div class="tl-project-name">Exam Paper Translation Tool — Serverless AWS Architecture</div>
               <ul class="tl-bullets">
-                <li>Web app that uses LlamaParse for document parsing and OpenAI GPT-5.6 Luna through Amazon Bedrock
-                  for translation, preserving question order, tables, mathematical expressions, and embedded figures in
-                  a print-ready PDF.</li>
+                <li>Migrated from a monolithic Flask app to a <strong>fully serverless AWS architecture</strong> using AWS SAM, API Gateway (X-Api-Key auth), S3 (static frontend + storage), DynamoDB (jobs table), and Lambda Docker Container images built via Makefiles with WeasyPrint &amp; Bengali TTF fonts.</li>
+                <li>LlamaParse for document parsing and OpenAI GPT-5.6 Luna through Amazon Bedrock for translation, preserving question order, tables, mathematical expressions, and embedded figures in a print-ready PDF.</li>
               </ul>
-              <div class="tl-tech"><span>Stack:</span> Flask, PyMuPDF, LlamaParse, Amazon S3, Amazon Bedrock, OpenAI
-                GPT-5.6 Luna, WeasyPrint</div>
+              <div class="tl-tech"><span>Stack:</span> AWS Lambda, API Gateway, Amazon DynamoDB, Amazon S3, AWS SAM, Docker, Makefiles, PyMuPDF, LlamaParse, Amazon Bedrock, OpenAI GPT-5.6 Luna, WeasyPrint</div>
               <div class="tl-project-toggle"><i class="fa fa-plus"></i></div>
               <div class="tl-expand">
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
-                  <div class="pe-plan-text">Manually translating exam papers into Bengali while preserving exact
-                    question numbering, layout, and embedded images is slow and error-prone. This tool automates the
-                    full pipeline: extract figures and insert protected placeholders, parse the document with
-                    LlamaParse,
-                    translate only the content with Bedrock, then restore the source figures and generate a print-ready
-                    PDF.</div>
+                  <div class="pe-plan-text">The original Flask-based translation tool worked well as a prototype but was tightly coupled to a single server. The goal was to port it to a fully serverless AWS architecture — S3 for static hosting &amp; object storage, API Gateway for routing with API key auth, DynamoDB for job tracking, and Lambda Docker Container images (with WeasyPrint &amp; Bengali fonts baked in) for the heavy document processing. Makefiles and AWS SAM automate the build and deployment pipeline.</div>
                 </div>
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
                   <div class="pipeline">
                     <div class="pipeline-step">
-                      <div class="pipeline-step-icon"><i class="fa fa-file-pdf"></i></div>
-                      <div class="pipeline-step-label">PDF Upload</div>
-                      <div class="pipeline-step-sub">Source exam paper</div>
+                      <div class="pipeline-step-icon"><i class="fa fa-globe"></i></div>
+                      <div class="pipeline-step-label">S3 Static Frontend</div>
+                      <div class="pipeline-step-sub">HTML/CSS/JS hosted on S3</div>
                     </div>
                     <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
                     <div class="pipeline-step">
-                      <div class="pipeline-step-icon"><i class="fa fa-sitemap"></i></div>
-                      <div class="pipeline-step-label">Figure Extraction</div>
-                      <div class="pipeline-step-sub">PyMuPDF + protected placeholders</div>
+                      <div class="pipeline-step-icon"><i class="fa fa-shield-halved"></i></div>
+                      <div class="pipeline-step-label">API Gateway</div>
+                      <div class="pipeline-step-sub">X-Api-Key auth routing</div>
                     </div>
                     <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
                     <div class="pipeline-step">
-                      <div class="pipeline-step-icon"><i class="fa fa-cloud-arrow-up"></i></div>
-                      <div class="pipeline-step-label">LlamaParse</div>
-                      <div class="pipeline-step-sub">Structured Markdown parsing</div>
+                      <div class="pipeline-step-icon"><i class="fa fa-docker"></i></div>
+                      <div class="pipeline-step-label">Lambda Docker</div>
+                      <div class="pipeline-step-sub">Container via Makefile + SAM</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-database"></i></div>
+                      <div class="pipeline-step-label">DynamoDB Jobs</div>
+                      <div class="pipeline-step-sub">Job tracking &amp; status</div>
                     </div>
                     <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
                     <div class="pipeline-step">
                       <div class="pipeline-step-icon"><i class="fa fa-language"></i></div>
                       <div class="pipeline-step-label">Bedrock Translation</div>
-                      <div class="pipeline-step-sub">OpenAI GPT-5.6 Luna → target language</div>
+                      <div class="pipeline-step-sub">LlamaParse + GPT-5.6 Luna</div>
                     </div>
                     <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
                     <div class="pipeline-step">
                       <div class="pipeline-step-icon"><i class="fa fa-file-export"></i></div>
-                      <div class="pipeline-step-label">Validation & PDF</div>
-                      <div class="pipeline-step-sub">Restore figures, render math, export</div>
+                      <div class="pipeline-step-label">PDF Output</div>
+                      <div class="pipeline-step-sub">WeasyPrint + Bengali fonts</div>
                     </div>
                   </div>
                   <div class="pe-caveat">Shown at a high level — employer infrastructure and implementation details are
@@ -2462,17 +2473,14 @@
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
                   <ul class="pe-impl-list">
-                    <li>Flask web application handling upload, processing, and download</li>
-                    <li>PyMuPDF extracts source figures before parsing; each figure is represented by a protected
-                      placeholder and stored with the source PDF, metadata, and raw parsed Markdown in Amazon S3</li>
-                    <li>LlamaParse is used only for document parsing. The Markdown is cleaned and split at question
-                      boundaries while retaining relevant section context</li>
-                    <li>OpenAI GPT-5.6 Luna, accessed through Amazon Bedrock, translates the content while preserving
-                      placeholders, question numbering, and source-language questions that must remain unchanged</li>
-                    <li>Validation detects missing or rewritten placeholders and restores them; original figure bytes
-                      are embedded as data URIs so final rendering never depends on an expiring S3 presigned URL</li>
-                    <li>LaTeX expressions are rendered as SVGs and WeasyPrint generates an A4 two-column PDF with
-                      Bengali font support</li>
+                    <li>Migrated from monolithic Flask to a <strong>fully serverless AWS stack</strong> deployed via <strong>AWS SAM</strong> templates</li>
+                    <li>Frontend hosted as static files on <strong>Amazon S3</strong>; all API calls routed through <strong>API Gateway</strong> with <strong>X-Api-Key</strong> authentication</li>
+                    <li><strong>Lambda Docker Container images</strong> built via <strong>Makefiles</strong> — containers bundle WeasyPrint, Bengali TTF fonts, and all Python dependencies for PDF rendering inside Lambda</li>
+                    <li><strong>Amazon DynamoDB</strong> tracks job lifecycle: upload → processing → completed/failed, with status polling from the frontend</li>
+                    <li>PyMuPDF extracts source figures before parsing; each figure is represented by a protected placeholder and stored alongside the source PDF in <strong>S3</strong></li>
+                    <li>LlamaParse parses the document into structured Markdown; <strong>OpenAI GPT-5.6 Luna via Amazon Bedrock</strong> translates content while preserving placeholders, question numbering, and source-language text</li>
+                    <li>Validation detects missing or rewritten placeholders and restores them; original figure bytes are embedded as data URIs so final rendering never depends on expiring S3 presigned URLs</li>
+                    <li>LaTeX expressions are rendered as SVGs and WeasyPrint generates an A4 two-column PDF with Bengali font support</li>
                   </ul>
                 </div>
                 <div class="pe-block">
@@ -2488,6 +2496,134 @@
                 </div>
               </div>
             </div>
+
+            <div class="tl-project">
+              <div class="tl-project-name">Industrial OpenCV Computer Vision Suite</div>
+              <ul class="tl-bullets">
+                <li>Built a <strong>crowd detection &amp; density analytics</strong> system for real-time headcount and high-density zone alerting.</li>
+                <li>Developed <strong>unattended object detection</strong> with stationary persistence tracking for abandoned luggage/items in monitored zones.</li>
+                <li>Created a <strong>violence &amp; altercation detection</strong> module using pose-based physical aggression and fight detection.</li>
+              </ul>
+              <div class="tl-tech"><span>Stack:</span> Python, OpenCV, YOLO-Pose, Supervision</div>
+              <div class="tl-project-toggle"><i class="fa fa-plus"></i></div>
+              <div class="tl-expand">
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
+                  <div class="pe-plan-text">Traditional surveillance relies on manual monitoring — impractical at scale. The goal was a modular OpenCV-based vision suite that runs multiple analytics in parallel on the same camera feeds: counting people in crowds, flagging abandoned objects that remain stationary beyond a threshold, and detecting physical altercations via pose analysis — all feeding a unified alert dashboard.</div>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
+                  <div class="pipeline">
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-video"></i></div>
+                      <div class="pipeline-step-label">Camera Feed</div>
+                      <div class="pipeline-step-sub">RTSP / NVR stream</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-users"></i></div>
+                      <div class="pipeline-step-label">Crowd Detection</div>
+                      <div class="pipeline-step-sub">Headcount &amp; density zones</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-suitcase"></i></div>
+                      <div class="pipeline-step-label">Unattended Object</div>
+                      <div class="pipeline-step-sub">Stationary persistence</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-hand-fist"></i></div>
+                      <div class="pipeline-step-label">Violence Detection</div>
+                      <div class="pipeline-step-sub">Pose-based aggression</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-bell"></i></div>
+                      <div class="pipeline-step-label">Alert Dashboard</div>
+                      <div class="pipeline-step-sub">Unified event log</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
+                  <ul class="pe-impl-list">
+                    <li><strong>Crowd Detection:</strong> Person detection with YOLO, counting heads within defined zones and triggering density alerts when thresholds are exceeded</li>
+                    <li><strong>Unattended Object:</strong> Background subtraction and object persistence tracking — items stationary beyond a configurable time threshold are flagged as potentially abandoned</li>
+                    <li><strong>Violence Detection:</strong> Pose-based analysis using YOLO-Pose keypoints to detect physical altercations and aggressive body postures, generating incident alerts</li>
+                  </ul>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-image"></i>In Action</div>
+                  <div class="pe-media-grid">
+                    <div class="pe-media">
+                      <img src="photos/project infos/unattended_object.png" alt="Unattended Object Detection">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-project">
+              <div class="tl-project-name">Multi-Camera Person Re-Identification &amp; Trail Mapping (Ongoing R&amp;D)</div>
+              <ul class="tl-bullets">
+                <li>Building a <strong>real-time multi-camera person tracking &amp; cross-camera identity matching</strong> system using YOLO detection, Supervision ByteTrack, and <strong>OSNet</strong> deep feature extractor (512-d L2-normalized embeddings).</li>
+                <li>Cosine gallery matching (Match ≥ 0.70, Merge ≥ 0.80) with async non-blocking writes to <strong>Amazon DynamoDB</strong> with Global Secondary Indexes for trail query.</li>
+              </ul>
+              <div class="tl-tech"><span>Stack:</span> YOLO26, Supervision ByteTrack, OSNet, Amazon DynamoDB, Python, OpenCV</div>
+              <div class="tl-project-toggle"><i class="fa fa-plus"></i></div>
+              <div class="tl-expand">
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
+                  <div class="pe-plan-text">Tracking a person across multiple non-overlapping cameras is an unsolved challenge in most surveillance setups. The goal is a system that detects people per camera, extracts deep appearance embeddings (OSNet), and matches them across camera views using a cosine similarity gallery — building a persistent trail map stored in DynamoDB for real-time querying and historical analysis.</div>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
+                  <div class="pipeline">
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-video"></i></div>
+                      <div class="pipeline-step-label">Multi-Camera Feeds</div>
+                      <div class="pipeline-step-sub">N camera streams</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-crosshairs"></i></div>
+                      <div class="pipeline-step-label">YOLO Detection</div>
+                      <div class="pipeline-step-sub">yolo26s.pt per frame</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-fingerprint"></i></div>
+                      <div class="pipeline-step-label">OSNet Embeddings</div>
+                      <div class="pipeline-step-sub">512-d L2-normalized</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-code-compare"></i></div>
+                      <div class="pipeline-step-label">Cosine Gallery</div>
+                      <div class="pipeline-step-sub">Match ≥ 0.70, Merge ≥ 0.80</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-database"></i></div>
+                      <div class="pipeline-step-label">DynamoDB Trail</div>
+                      <div class="pipeline-step-sub">Async writes + GSI query</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
+                  <ul class="pe-impl-list">
+                    <li>YOLO26 detection + Supervision ByteTrack for per-camera intra-frame tracking</li>
+                    <li><strong>OSNet</strong> deep feature extractor generates 512-dimensional L2-normalized appearance embeddings per detected person crop</li>
+                    <li>Cosine similarity gallery matches identities across cameras: Match threshold ≥ 0.70 links an existing identity, Merge threshold ≥ 0.80 consolidates duplicate gallery entries</li>
+                    <li>Async non-blocking writes persist trail events to <strong>Amazon DynamoDB</strong> with Global Secondary Indexes for efficient cross-camera trail queries</li>
+                    <li>Currently in active R&amp;D — exploring temporal smoothing and camera-handoff optimizations</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
             <div class="tl-project">
               <div class="tl-project-name">AI Product Demo Production &amp; Technical Storytelling</div>
               <ul class="tl-bullets">
@@ -2846,7 +2982,7 @@
                 <div class="pe-label"><i class="fa fa-image"></i>In Action</div>
                 <div class="pe-media-grid">
                   <div class="pe-media">
-                    <img src="photos/project infos/vehicle_recomendation.png" alt="Vehicle Recommendation Output">
+                    <video src="photos/project infos/vehicle_recomendation.mp4" controls preload="metadata" style="width:100%; border-radius: 8px;"></video>
                   </div>
                 </div>
               </div>
@@ -3099,19 +3235,32 @@
             </div>
           </div>
           <div class="hl-card">
+            <div class="hl-icon"><i class="fa fa-cloud"></i></div>
+            <div>
+              <div class="hl-title">AWS Serverless Translation Architecture</div>
+              <div class="hl-desc">Migrated exam paper translation to fully serverless AWS (Lambda Docker, API Gateway, DynamoDB, S3, SAM) with Makefiles-based container builds and LlamaParse + Bedrock GenAI pipeline.</div>
+            </div>
+          </div>
+          <div class="hl-card">
+            <div class="hl-icon"><i class="fa fa-fingerprint"></i></div>
+            <div>
+              <div class="hl-title">Multi-Camera Person Re-ID &amp; Trail Mapping</div>
+              <div class="hl-desc">Building real-time multi-camera person tracking with OSNet deep embeddings, cosine gallery matching, and DynamoDB-backed trail maps across industrial camera networks.</div>
+            </div>
+          </div>
+          <div class="hl-card">
+            <div class="hl-icon"><i class="fa fa-eye"></i></div>
+            <div>
+              <div class="hl-title">Industrial OpenCV Vision Suite</div>
+              <div class="hl-desc">Crowd detection &amp; density analytics, unattended object detection, and violence/altercation detection — modular analytics running on live surveillance feeds.</div>
+            </div>
+          </div>
+          <div class="hl-card">
             <div class="hl-icon"><i class="fa fa-file-contract"></i></div>
             <div>
               <div class="hl-title">GenAI Multimodal Document Intelligence</div>
               <div class="hl-desc">Integrated LlamaParse and Amazon Bedrock (GPT-5.6 Luna) to parse, translate, and
                 preserve layout, math formulas, and figures in complex documents.</div>
-            </div>
-          </div>
-          <div class="hl-card">
-            <div class="hl-icon"><i class="fa fa-car-side"></i></div>
-            <div>
-              <div class="hl-title">LLM-Powered ANPR &amp; Multimodal OCR</div>
-              <div class="hl-desc">Benchmarking RF-DeTR license plate detection against EasyOCR, Textract, and Gemini
-                Flash Pro for high-precision real-time OCR.</div>
             </div>
           </div>
         </div>
@@ -3462,7 +3611,7 @@
 
     function updateActiveNav() {
       let current = '';
-      const isAtBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60);
+      const isAtBottom = Math.ceil(window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 150);
 
       if (isAtBottom) {
         current = 'contact';
@@ -3470,7 +3619,7 @@
         sections.forEach(s => {
           if (s.id === 'video-reel') return; // ignore reel
           const rect = s.getBoundingClientRect();
-          if (rect.top <= 220) {
+          if (rect.top <= window.innerHeight * 0.4) {
             current = s.id;
           }
         });
@@ -3587,20 +3736,14 @@
 
       // Use capture phase (true) so parent stopPropagation() in bubble phase doesn't block this
       window.addEventListener('click', function (e) {
-        const img = e.target.closest('.pe-media img, .pe-media-grid img');
-        if (img) {
-          e.preventDefault();
-          e.stopPropagation();
-          openLightbox(img.src, img.alt);
-          return;
-        }
         const mediaBox = e.target.closest('.pe-media');
         if (mediaBox) {
-          const innerImg = mediaBox.querySelector('img');
-          if (innerImg) {
+          const img = mediaBox.querySelector('img');
+          // If the clicked target is the image or inside the media box (and there is an image)
+          if (img && (e.target === img || mediaBox.contains(e.target))) {
             e.preventDefault();
             e.stopPropagation();
-            openLightbox(innerImg.src, innerImg.alt);
+            openLightbox(img.src, img.alt);
           }
         }
       }, true);

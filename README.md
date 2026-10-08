@@ -25,6 +25,10 @@
 
 </div>
 
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=arunavade99&theme=tokyo-night&hide_border=true&area=true" alt="Arunava's Activity Graph" width="800" />
+</div>
+
 [Projects](#-personal-featured-projects) · [Experience](#-work-experience) · [Skills](#-tech-stack--skill-matrix) · [Education](#-education--certifications)
 
 ---
@@ -33,14 +37,14 @@
 
 Computer Vision and AI/ML Engineer with **4+ years** of hands-on experience designing, training, and deploying production-grade AI systems. Specializing in **object detection & pose tracking (YOLO-Pose)**, **multimodal GenAI (Amazon Bedrock, GPT-5.6 Luna)**, **face recognition**, and **real-time edge analytics** — taking models from prototype to live factory floor & web platform deployment.
 
-> **Production Achievements:** Engineered pose-estimation worker productivity tracking (YOLO-Pose + Flask dashboard), deployed production-grade PPE compliance AI across live camera feeds with automated real-time violation triggers, built exam paper translation pipelines with LlamaParse & Bedrock (GPT-5.6 Luna), and benchmarked EasyOCR, Textract, and Gemini Flash Pro for high-accuracy ANPR pipelines.
+> **Production Achievements:** Engineered pose-estimation worker productivity tracking (YOLO-Pose + Flask dashboard), architected fully serverless AWS exam paper translation pipelines (Lambda, API Gateway, DynamoDB) with LlamaParse & Bedrock (GPT-5.6 Luna), developed multi-camera OSNet person Re-ID & trail mapping, and built an industrial OpenCV vision suite for crowd detection, unattended object, and violence analytics.
 
 - ⚙️ **Productivity Monitoring:** Engineered pose-estimation worker & station activity tracking (YOLO-Pose + Flask dashboard).
-- 🏭 **Industrial Vision AI:** Live deployment of real-time camera feed analytics (PPE compliance, molten metal hazard detection).
-- 📄 **Multimodal GenAI & Translation:** Exam paper parsing & Bengali translation pipeline using LlamaParse & Amazon Bedrock (GPT-5.6 Luna).
+- ☁️ **AWS Serverless & GenAI:** Exam paper parsing & Bengali translation pipeline using fully serverless AWS architecture (Lambda, S3, DynamoDB, API Gateway, Docker), LlamaParse & Amazon Bedrock (GPT-5.6 Luna).
+- 🔍 **Multi-Camera Vision AI:** Leading R&D on multi-camera person Re-Identification & trail mapping using YOLO, OSNet embeddings, and DynamoDB.
+- 🏭 **Industrial Vision AI:** Live deployment of OpenCV vision suites (crowd, violence, unattended object detection) and PPE compliance.
 - 🚗 **ANPR & OCR:** Benchmarking EasyOCR, Amazon Textract, and Gemini Flash Pro using RF-DeTR object detection.
 - 👤 **Biometrics & Analytics:** Real-time face recognition attendance & people counting system.
-- ☁️ **Cloud & Generative AI:** Hands-on experience with Amazon Bedrock & AWS S3, preparing for **AWS Certified AI Practitioner** certification.
 
 ---
 
@@ -60,6 +64,9 @@ Computer Vision and AI/ML Engineer with **4+ years** of hands-on experience desi
 `Feb 2026 – Present` · Kolkata, West Bengal
 
 - 🔹 Engineered worker & machine productivity tracking system using **YOLO-Pose** and interactive **Flask** dashboards.
+- 🔹 Architected **fully serverless AWS** exam paper translation tool using **Lambda**, **API Gateway**, **DynamoDB**, **S3**, **LlamaParse** and **Amazon Bedrock (GPT-5.6 Luna)**.
+- 🔹 Building **Multi-Camera Person Re-ID** tracking system utilizing **OSNet** deep embeddings and **DynamoDB**.
+- 🔹 Developed **Industrial OpenCV Vision Suite** for real-time crowd density, unattended objects, and violence detection.
 - 🔹 Developed AI-powered jewelry hand measurement system utilizing **MediaPipe** and **Mobile SAM**.
 - 🔹 Built real-time face recognition attendance and automated people counter (**InsightFace** + **YOLOv8**).
 - 🔹 Designed ANPR pipeline with **RF-DeTR**, benchmarking **EasyOCR**, **Amazon Textract**, and **Gemini Flash Pro**.
@@ -84,11 +91,11 @@ Computer Vision and AI/ML Engineer with **4+ years** of hands-on experience desi
 
 | Category | Skill / Tool Badge | Key Applications & Scope |
 |:---|:---|:---|
-| **Computer Vision** | `OpenCV` `YOLOv8` `YOLO26` `YOLO-Pose` `InsightFace` `FaceNet` `MediaPipe` `DeepSORT` `RF-DeTR` `Supervision` | Real-time object tracking, safety compliance monitoring, pose estimation, face attendance |
+| **Computer Vision** | `OpenCV` `YOLOv8` `YOLO26` `YOLO-Pose` `InsightFace` `FaceNet` `MediaPipe` `DeepSORT` `RF-DeTR` `Supervision` `OSNet` | Real-time object tracking, safety compliance monitoring, pose estimation, face attendance, multi-camera re-id |
 | **Deep Learning** | `PyTorch` `CNNs` `Transfer Learning` `Object Detection` `Image Segmentation` | Custom neural net fine-tuning, dataset annotation, multi-class classification |
 | **OCR, Document AI & GenAI** | `LlamaParse` `OpenAI GPT-5.6 Luna` `Amazon Bedrock` `EasyOCR` `Amazon Textract` `Gemini Flash Pro` `Mobile SAM` | Structured document parsing, Bengali translation, license plate OCR, multimodal extraction, segmentation |
 | **Backend & Web** | `Python` `Flask` `Django` `MySQL` `RESTful APIs` | AI dashboard development, video stream ingestion pipelines, backend REST endpoints |
-| **Cloud & DevOps** | `AWS` `Amazon S3` `Amazon Bedrock` `Git` `GitHub Actions` `Power BI` | Cloud document assets, model integration, dataset management, version control, analytics reporting |
+| **AWS Serverless & Cloud** | `AWS Lambda` `Amazon DynamoDB` `API Gateway` `AWS SAM` `Docker` `Amazon S3` `Amazon Bedrock` `Makefiles` `Git` | Fully serverless scalable architectures, cloud document assets, cross-camera trail databases, deployment automation |
 | **Hardware & Edge** | `Raspberry Pi` `PIR Sensors` `Embedded AI` `NVIDIA Jetson` | On-device video inference, IoT sensor trigger automation, edge deployment |
 
 ---
