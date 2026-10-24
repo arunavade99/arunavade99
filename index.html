@@ -1505,7 +1505,7 @@
       box-shadow: var(--glow);
     }
 
-/* ══════════ VIDEO REEL ══════════ */
+    /* ══════════ VIDEO REEL ══════════ */
 
     /* Hero becomes full-screen landing */
     .intro-hero {
@@ -1638,10 +1638,10 @@
         justify-content: center;
       }
 
-}
+    }
 
     @media (max-width: 560px) {
-.hero-card {
+      .hero-card {
         padding: 22px 18px;
       }
 
@@ -1691,7 +1691,7 @@
         line-height: 1.9;
       }
 
-}
+    }
 
 
     /* Full-width intro, readable content, and wrapping navigation on every screen. */
@@ -1700,37 +1700,138 @@
       margin-inline: auto;
       padding-inline: clamp(16px, 4vw, 52px);
     }
-    #about-bio { padding-bottom: 40px; outline: none; }
-    .profile-panel > *, .skill-group > *, .contact-card > *, .tl-header > * { min-width: 0; }
-    .section { overflow-wrap: anywhere; }
-    img, video, iframe { max-width: 100%; }
-    #reel-canvas { width: 100%; height: 100%; }
-    .reel-line-name { opacity: 1; transform: none; }
-    .reel-skip, .reel-hint { position: absolute; z-index: 30; font-size: .8rem; }
-    .reel-skip { top: 16px; right: 16px; padding: 12px 16px; color: var(--white);
-      border: 1px solid var(--border); border-radius: 24px; background: var(--bg2); }
-    .reel-hint { bottom: max(16px, env(safe-area-inset-bottom)); left: 0;
-      width: 100%; text-align: center; color: var(--white); }
-    a:focus-visible, button:focus-visible { outline: 2px solid var(--neon); outline-offset: 4px; }
-    .project-card.open .project-expand, .tl-project.open .tl-expand { max-height: none; }
+
+    #about-bio {
+      padding-bottom: 40px;
+      outline: none;
+    }
+
+    .profile-panel>*,
+    .skill-group>*,
+    .contact-card>*,
+    .tl-header>* {
+      min-width: 0;
+    }
+
+    .section {
+      overflow-wrap: anywhere;
+    }
+
+    img,
+    video,
+    iframe {
+      max-width: 100%;
+    }
+
+    #reel-canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .reel-line-name {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reel-skip,
+    .reel-hint {
+      position: absolute;
+      z-index: 30;
+      font-size: .8rem;
+    }
+
+    .reel-skip {
+      top: 16px;
+      right: 16px;
+      padding: 12px 16px;
+      color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--bg2);
+    }
+
+    .reel-hint {
+      bottom: max(16px, env(safe-area-inset-bottom));
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: var(--white);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--neon);
+      outline-offset: 4px;
+    }
+
+    .project-card.open .project-expand,
+    .tl-project.open .tl-expand {
+      max-height: none;
+    }
+
     @media (max-width: 560px) {
-      .profile-panel { padding: 24px 16px; }
-      .tl-header { flex-wrap: wrap; gap: 8px; }
-      .contact-card { padding: 16px; }
-      .pipeline-step { min-width: 0; flex: 1 1 120px; }
-      .section-header { gap: 9px; }
+      .profile-panel {
+        padding: 24px 16px;
+      }
+
+      .tl-header {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .contact-card {
+        padding: 16px;
+      }
+
+      .pipeline-step {
+        min-width: 0;
+        flex: 1 1 120px;
+      }
+
+      .section-header {
+        gap: 9px;
+      }
     }
+
     @media (max-height: 500px) and (orientation: landscape) {
-      .reel-name-overlay { top: 10%; }
-      .reel-line-name { font-size: 1.8rem; }
-      .reel-details-overlay { bottom: 15%; }
-      .reel-line-company, .reel-line-tagline { margin-bottom: 5px; }
+      .reel-name-overlay {
+        top: 10%;
+      }
+
+      .reel-line-name {
+        font-size: 1.8rem;
+      }
+
+      .reel-details-overlay {
+        bottom: 15%;
+      }
+
+      .reel-line-company,
+      .reel-line-tagline {
+        margin-bottom: 5px;
+      }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-      .section { opacity: 1; transform: none; }
-      #network-bg { display: none; }
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .section {
+        opacity: 1;
+        transform: none;
+      }
+
+      #network-bg {
+        display: none;
+      }
     }
 
     .sidebar {
@@ -1936,26 +2037,77 @@
     }
 
 
-    :root { --sidebar-w: 270px; }
-    .sidebar { height: 100dvh; overscroll-behavior: contain; }
-    .sidebar .nav-item { min-height: 44px; }
-    .sidebar .contact-link { overflow-wrap: anywhere; }
-    .main { margin-left: var(--sidebar-w); width: calc(100% - var(--sidebar-w)); }
+    :root {
+      --sidebar-w: 270px;
+    }
+
+    .sidebar {
+      height: 100dvh;
+      overscroll-behavior: contain;
+    }
+
+    .sidebar .nav-item {
+      min-height: 44px;
+    }
+
+    .sidebar .contact-link {
+      overflow-wrap: anywhere;
+    }
+
+    .main {
+      margin-left: var(--sidebar-w);
+      width: calc(100% - var(--sidebar-w));
+    }
+
     @media (max-width: 820px) {
-      .main { margin-left: 0; width: 100%; }
-      .sidebar { width: min(270px, 86vw); min-width: 0; transform: translateX(-110%); visibility: hidden; transition: transform .25s ease, visibility .25s; }
-      .sidebar.open { transform: translateX(0); visibility: visible; }
-      .hamburger { display: flex; width: 44px; height: 44px; }
-      .sidebar-top { padding-top: 72px; }
-      body.nav-open { overflow: hidden; }
+      .main {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .sidebar {
+        width: min(270px, 86vw);
+        min-width: 0;
+        transform: translateX(-110%);
+        visibility: hidden;
+        transition: transform .25s ease, visibility .25s;
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+        visibility: visible;
+      }
+
+      .hamburger {
+        display: flex;
+        width: 44px;
+        height: 44px;
+      }
+
+      .sidebar-top {
+        padding-top: 72px;
+      }
+
+      body.nav-open {
+        overflow: hidden;
+      }
     }
 
     /* The intro owns the full viewport until it finishes or is skipped. */
-    body.intro-active .main { margin-left: 0; width: 100%; }
-    body.intro-active .sidebar { transform: translateX(-110%); visibility: hidden; }
-    body.intro-active .hamburger,
-    body.intro-active .nav-overlay { display: none; }
+    body.intro-active .main {
+      margin-left: 0;
+      width: 100%;
+    }
 
+    body.intro-active .sidebar {
+      transform: translateX(-110%);
+      visibility: hidden;
+    }
+
+    body.intro-active .hamburger,
+    body.intro-active .nav-overlay {
+      display: none;
+    }
   </style>
 </head>
 
@@ -2007,12 +2159,14 @@
     <div class="sidebar-contacts">
       <a class="contact-link" href="mailto:arunava_de@outlook.com"><i class="fa fa-envelope"></i>
         arunava_de@outlook.com</a>
-      <a class="contact-link" href="https://linkedin.com/in/arunavade99" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i>
+      <a class="contact-link" href="https://linkedin.com/in/arunavade99" target="_blank" rel="noopener noreferrer"><i
+          class="fab fa-linkedin"></i>
         linkedin.com/in/arunavade99</a>
-      <a class="contact-link" href="https://github.com/arunavade99" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>
+      <a class="contact-link" href="https://github.com/arunavade99" target="_blank" rel="noopener noreferrer"><i
+          class="fab fa-github"></i>
         github.com/arunavade99</a>
-      <a class="contact-link" href="https://www.instagram.com/arunava_de_official" target="_blank" rel="noopener noreferrer"><i
-          class="fab fa-instagram"></i> @arunava_de_official</a>
+      <a class="contact-link" href="https://www.instagram.com/arunava_de_official" target="_blank"
+        rel="noopener noreferrer"><i class="fab fa-instagram"></i> @arunava_de_official</a>
     </div>
   </aside>
 
@@ -2071,10 +2225,12 @@
               integration</strong>
             (LlamaParse, Bedrock GPT-5.6 Luna, Gemini OCR). Recently architected a <strong>fully serverless AWS
               pipeline</strong>
-            (Lambda Docker containers, API Gateway, DynamoDB, S3) for document translation, and currently leading R&amp;D on
+            (Lambda Docker containers, API Gateway, DynamoDB, S3) for document translation, and currently leading
+            R&amp;D on
             <strong>multi-camera person Re-Identification &amp; trail mapping</strong> using OSNet deep embeddings with
             cosine gallery matching across industrial camera networks. Also building an <strong>advanced industrial
-              OpenCV vision suite</strong> covering crowd detection, unattended object detection, and violence/aggression
+              OpenCV vision suite</strong> covering crowd detection, unattended object detection, and
+            violence/aggression
             analytics.
           </div>
           <div class="hero-tags">
@@ -2278,7 +2434,7 @@
             </div>
 
             <div class="tl-project">
-              <div class="tl-project-name">AI-Based Jewelry Size Measurement (Ongoing)</div>
+              <div class="tl-project-name">AI-Based Jewelry Size Measurement</div>
               <ul class="tl-bullets">
                 <li>Hand measurement system using MediaPipe landmarks for ring-finger and wrist sizing.</li>
                 <li>Integrated Mobile SAM for segmentation-based thickness analysis; classifies size as thick/normal for
@@ -2418,15 +2574,25 @@
             <div class="tl-project">
               <div class="tl-project-name">Exam Paper Translation Tool — Serverless AWS Architecture</div>
               <ul class="tl-bullets">
-                <li>Migrated from a monolithic Flask app to a <strong>fully serverless AWS architecture</strong> using AWS SAM, API Gateway (X-Api-Key auth), S3 (static frontend + storage), DynamoDB (jobs table), and Lambda Docker Container images built via Makefiles with WeasyPrint &amp; Bengali TTF fonts.</li>
-                <li>LlamaParse for document parsing and OpenAI GPT-5.6 Luna through Amazon Bedrock for translation, preserving question order, tables, mathematical expressions, and embedded figures in a print-ready PDF.</li>
+                <li>Migrated from a monolithic Flask app to a <strong>fully serverless AWS architecture</strong> using
+                  AWS SAM, API Gateway (X-Api-Key auth), S3 (static frontend + storage), DynamoDB (jobs table), and
+                  Lambda Docker Container images built via Makefiles with WeasyPrint &amp; Bengali TTF fonts.</li>
+                <li>LlamaParse for document parsing and OpenAI GPT-5.6 Luna through Amazon Bedrock for translation,
+                  preserving question order, tables, mathematical expressions, and embedded figures in a print-ready
+                  PDF.</li>
               </ul>
-              <div class="tl-tech"><span>Stack:</span> AWS Lambda, API Gateway, Amazon DynamoDB, Amazon S3, AWS SAM, Docker, Makefiles, PyMuPDF, LlamaParse, Amazon Bedrock, OpenAI GPT-5.6 Luna, WeasyPrint</div>
+              <div class="tl-tech"><span>Stack:</span> AWS Lambda, API Gateway, Amazon DynamoDB, Amazon S3, AWS SAM,
+                Docker, Makefiles, PyMuPDF, LlamaParse, Amazon Bedrock, OpenAI GPT-5.6 Luna, WeasyPrint</div>
               <div class="tl-project-toggle"><i class="fa fa-plus"></i></div>
               <div class="tl-expand">
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
-                  <div class="pe-plan-text">The original Flask-based translation tool worked well as a prototype but was tightly coupled to a single server. The goal was to port it to a fully serverless AWS architecture — S3 for static hosting &amp; object storage, API Gateway for routing with API key auth, DynamoDB for job tracking, and Lambda Docker Container images (with WeasyPrint &amp; Bengali fonts baked in) for the heavy document processing. Makefiles and AWS SAM automate the build and deployment pipeline.</div>
+                  <div class="pe-plan-text">The original Flask-based translation tool worked well as a prototype but was
+                    tightly coupled to a single server. The goal was to port it to a fully serverless AWS architecture —
+                    S3 for static hosting &amp; object storage, API Gateway for routing with API key auth, DynamoDB for
+                    job tracking, and Lambda Docker Container images (with WeasyPrint &amp; Bengali fonts baked in) for
+                    the heavy document processing. Makefiles and AWS SAM automate the build and deployment pipeline.
+                  </div>
                 </div>
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
@@ -2473,14 +2639,26 @@
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
                   <ul class="pe-impl-list">
-                    <li>Migrated from monolithic Flask to a <strong>fully serverless AWS stack</strong> deployed via <strong>AWS SAM</strong> templates</li>
-                    <li>Frontend hosted as static files on <strong>Amazon S3</strong>; all API calls routed through <strong>API Gateway</strong> with <strong>X-Api-Key</strong> authentication</li>
-                    <li><strong>Lambda Docker Container images</strong> built via <strong>Makefiles</strong> — containers bundle WeasyPrint, Bengali TTF fonts, and all Python dependencies for PDF rendering inside Lambda</li>
-                    <li><strong>Amazon DynamoDB</strong> tracks job lifecycle: upload → processing → completed/failed, with status polling from the frontend</li>
-                    <li>PyMuPDF extracts source figures before parsing; each figure is represented by a protected placeholder and stored alongside the source PDF in <strong>S3</strong></li>
-                    <li>LlamaParse parses the document into structured Markdown; <strong>OpenAI GPT-5.6 Luna via Amazon Bedrock</strong> translates content while preserving placeholders, question numbering, and source-language text</li>
-                    <li>Validation detects missing or rewritten placeholders and restores them; original figure bytes are embedded as data URIs so final rendering never depends on expiring S3 presigned URLs</li>
-                    <li>LaTeX expressions are rendered as SVGs and WeasyPrint generates an A4 two-column PDF with Bengali font support</li>
+                    <li>Migrated from monolithic Flask to a <strong>fully serverless AWS stack</strong> deployed via
+                      <strong>AWS SAM</strong> templates
+                    </li>
+                    <li>Frontend hosted as static files on <strong>Amazon S3</strong>; all API calls routed through
+                      <strong>API Gateway</strong> with <strong>X-Api-Key</strong> authentication
+                    </li>
+                    <li><strong>Lambda Docker Container images</strong> built via <strong>Makefiles</strong> —
+                      containers bundle WeasyPrint, Bengali TTF fonts, and all Python dependencies for PDF rendering
+                      inside Lambda</li>
+                    <li><strong>Amazon DynamoDB</strong> tracks job lifecycle: upload → processing → completed/failed,
+                      with status polling from the frontend</li>
+                    <li>PyMuPDF extracts source figures before parsing; each figure is represented by a protected
+                      placeholder and stored alongside the source PDF in <strong>S3</strong></li>
+                    <li>LlamaParse parses the document into structured Markdown; <strong>OpenAI GPT-5.6 Luna via Amazon
+                        Bedrock</strong> translates content while preserving placeholders, question numbering, and
+                      source-language text</li>
+                    <li>Validation detects missing or rewritten placeholders and restores them; original figure bytes
+                      are embedded as data URIs so final rendering never depends on expiring S3 presigned URLs</li>
+                    <li>LaTeX expressions are rendered as SVGs and WeasyPrint generates an A4 two-column PDF with
+                      Bengali font support</li>
                   </ul>
                 </div>
                 <div class="pe-block">
@@ -2500,16 +2678,23 @@
             <div class="tl-project">
               <div class="tl-project-name">Industrial OpenCV Computer Vision Suite</div>
               <ul class="tl-bullets">
-                <li>Built a <strong>crowd detection &amp; density analytics</strong> system for real-time headcount and high-density zone alerting.</li>
-                <li>Developed <strong>unattended object detection</strong> with stationary persistence tracking for abandoned luggage/items in monitored zones.</li>
-                <li>Created a <strong>violence &amp; altercation detection</strong> module using pose-based physical aggression and fight detection.</li>
+                <li>Built a <strong>crowd detection &amp; density analytics</strong> system for real-time headcount and
+                  high-density zone alerting.</li>
+                <li>Developed <strong>unattended object detection</strong> with stationary persistence tracking for
+                  abandoned luggage/items in monitored zones.</li>
+                <li>Created a <strong>violence &amp; altercation detection</strong> module using pose-based physical
+                  aggression and fight detection.</li>
               </ul>
               <div class="tl-tech"><span>Stack:</span> Python, OpenCV, YOLO-Pose, Supervision</div>
               <div class="tl-project-toggle"><i class="fa fa-plus"></i></div>
               <div class="tl-expand">
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
-                  <div class="pe-plan-text">Traditional surveillance relies on manual monitoring — impractical at scale. The goal was a modular OpenCV-based vision suite that runs multiple analytics in parallel on the same camera feeds: counting people in crowds, flagging abandoned objects that remain stationary beyond a threshold, and detecting physical altercations via pose analysis — all feeding a unified alert dashboard.</div>
+                  <div class="pe-plan-text">Traditional surveillance relies on manual monitoring — impractical at scale.
+                    The goal was a modular OpenCV-based vision suite that runs multiple analytics in parallel on the
+                    same camera feeds: counting people in crowds, flagging abandoned objects that remain stationary
+                    beyond a threshold, and detecting physical altercations via pose analysis — all feeding a unified
+                    alert dashboard.</div>
                 </div>
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
@@ -2548,9 +2733,12 @@
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
                   <ul class="pe-impl-list">
-                    <li><strong>Crowd Detection:</strong> Person detection with YOLO, counting heads within defined zones and triggering density alerts when thresholds are exceeded</li>
-                    <li><strong>Unattended Object:</strong> Background subtraction and object persistence tracking — items stationary beyond a configurable time threshold are flagged as potentially abandoned</li>
-                    <li><strong>Violence Detection:</strong> Pose-based analysis using YOLO-Pose keypoints to detect physical altercations and aggressive body postures, generating incident alerts</li>
+                    <li><strong>Crowd Detection:</strong> Person detection with YOLO, counting heads within defined
+                      zones and triggering density alerts when thresholds are exceeded</li>
+                    <li><strong>Unattended Object:</strong> Background subtraction and object persistence tracking —
+                      items stationary beyond a configurable time threshold are flagged as potentially abandoned</li>
+                    <li><strong>Violence Detection:</strong> Pose-based analysis using YOLO-Pose keypoints to detect
+                      physical altercations and aggressive body postures, generating incident alerts</li>
                   </ul>
                 </div>
                 <div class="pe-block">
@@ -2565,17 +2753,27 @@
             </div>
 
             <div class="tl-project">
-              <div class="tl-project-name">Multi-Camera Person Re-Identification &amp; Trail Mapping (Ongoing R&amp;D)</div>
+              <div class="tl-project-name">Multi-Camera Person Re-Identification &amp; Trail Mapping (Ongoing R&amp;D)
+              </div>
               <ul class="tl-bullets">
-                <li>Building a <strong>real-time multi-camera person tracking &amp; cross-camera identity matching</strong> system using YOLO detection, Supervision ByteTrack, and <strong>OSNet</strong> deep feature extractor (512-d L2-normalized embeddings).</li>
-                <li>Cosine gallery matching (Match ≥ 0.70, Merge ≥ 0.80) with async non-blocking writes to <strong>Amazon DynamoDB</strong> with Global Secondary Indexes for trail query.</li>
+                <li>Building a <strong>real-time multi-camera person tracking &amp; cross-camera identity
+                    matching</strong> system using YOLO detection, Supervision ByteTrack, and <strong>OSNet</strong>
+                  deep feature extractor (512-d L2-normalized embeddings).</li>
+                <li>Cosine gallery matching (Match ≥ 0.70, Merge ≥ 0.80) with async non-blocking writes to
+                  <strong>Amazon DynamoDB</strong> with Global Secondary Indexes for trail query.
+                </li>
               </ul>
-              <div class="tl-tech"><span>Stack:</span> YOLO26, Supervision ByteTrack, OSNet, Amazon DynamoDB, Python, OpenCV</div>
+              <div class="tl-tech"><span>Stack:</span> YOLO26, Supervision ByteTrack, OSNet, Amazon DynamoDB, Python,
+                OpenCV</div>
               <div class="tl-project-toggle"><i class="fa fa-plus"></i></div>
               <div class="tl-expand">
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
-                  <div class="pe-plan-text">Tracking a person across multiple non-overlapping cameras is an unsolved challenge in most surveillance setups. The goal is a system that detects people per camera, extracts deep appearance embeddings (OSNet), and matches them across camera views using a cosine similarity gallery — building a persistent trail map stored in DynamoDB for real-time querying and historical analysis.</div>
+                  <div class="pe-plan-text">Tracking a person across multiple non-overlapping cameras is an unsolved
+                    challenge in most surveillance setups. The goal is a system that detects people per camera, extracts
+                    deep appearance embeddings (OSNet), and matches them across camera views using a cosine similarity
+                    gallery — building a persistent trail map stored in DynamoDB for real-time querying and historical
+                    analysis.</div>
                 </div>
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
@@ -2615,9 +2813,12 @@
                   <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
                   <ul class="pe-impl-list">
                     <li>YOLO26 detection + Supervision ByteTrack for per-camera intra-frame tracking</li>
-                    <li><strong>OSNet</strong> deep feature extractor generates 512-dimensional L2-normalized appearance embeddings per detected person crop</li>
-                    <li>Cosine similarity gallery matches identities across cameras: Match threshold ≥ 0.70 links an existing identity, Merge threshold ≥ 0.80 consolidates duplicate gallery entries</li>
-                    <li>Async non-blocking writes persist trail events to <strong>Amazon DynamoDB</strong> with Global Secondary Indexes for efficient cross-camera trail queries</li>
+                    <li><strong>OSNet</strong> deep feature extractor generates 512-dimensional L2-normalized appearance
+                      embeddings per detected person crop</li>
+                    <li>Cosine similarity gallery matches identities across cameras: Match threshold ≥ 0.70 links an
+                      existing identity, Merge threshold ≥ 0.80 consolidates duplicate gallery entries</li>
+                    <li>Async non-blocking writes persist trail events to <strong>Amazon DynamoDB</strong> with Global
+                      Secondary Indexes for efficient cross-camera trail queries</li>
                     <li>Currently in active R&amp;D — exploring temporal smoothing and camera-handoff optimizations</li>
                   </ul>
                 </div>
@@ -2627,16 +2828,157 @@
             <div class="tl-project">
               <div class="tl-project-name">AI Product Demo Production &amp; Technical Storytelling</div>
               <ul class="tl-bullets">
-                <li>Wrote scripts and produced demonstration videos for AI virtual try-on scenarios featuring Tommy Hilfiger, Blackberrys, and Manyavar.</li>
-                <li>Created an AI wall-paint and interior-colour visualisation demo, helping communicate the product's use cases.</li>
-                <li>Combined AI-generated voiceovers with video editing in Shotcut on Ubuntu to present product capabilities clearly.</li>
+                <li>Wrote scripts and produced demonstration videos for AI virtual try-on scenarios featuring Tommy
+                  Hilfiger, Blackberrys, and Manyavar.</li>
+                <li>Created an AI wall-paint and interior-colour visualisation demo, helping communicate the product's
+                  use cases.</li>
+                <li>Combined AI-generated voiceovers with video editing in Shotcut on Ubuntu to present product
+                  capabilities clearly.</li>
               </ul>
-              <div class="tl-tech"><span>Contribution:</span> Demo scripting, narration integration, and video editing; not development of the underlying AI models.</div>
+              <div class="tl-tech"><span>Contribution:</span> Demo scripting, narration integration, and video editing;
+                not development of the underlying AI models.</div>
               <div class="tl-project-toggle"><i class="fa fa-plus"></i></div>
               <div class="tl-expand">
                 <div class="pe-block">
                   <div class="pe-label"><i class="fa fa-video"></i>Scope</div>
-                  <div class="pe-plan-text">Supported Adamas Tech Consulting's product demonstration work through clear scripts, AI-generated narration, and edited walkthroughs. Brand names describe the demo scenarios; the contribution was demonstration production rather than AI model development.</div>
+                  <div class="pe-plan-text">Supported Adamas Tech Consulting's product demonstration work through clear
+                    scripts, AI-generated narration, and edited walkthroughs. Brand names describe the demo scenarios;
+                    the contribution was demonstration production rather than AI model development.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-project">
+              <div class="tl-project-name">Pandit Ji — Daily Horoscope Video Generator <span style="font-weight:400;color:var(--neon);font-size:.7rem;">(Demo Ready · w/ Debjit)</span></div>
+              <ul class="tl-bullets">
+                <li>Flask web app that generates personalised 40-second talking-head horoscope videos for any zodiac sign in English, Hindi, or Bengali.</li>
+                <li>Claude (Amazon Bedrock) writes culturally adapted scripts — two-pass approach for Hindi &amp; Bengali ensures authentic, non-literal speech avoiding borrowed English words.</li>
+                <li>Gemini image model extends the avatar photo to 16:9; Gemini Omni Flash (Vertex AI) generates 4 × 10-second talking clips stitched by FFmpeg. Full caching by date/sign/language means repeat requests cost nothing.</li>
+              </ul>
+              <div class="tl-tech"><span>Stack:</span> Python, Flask, AWS Bedrock (Claude), Gemini Omni Flash, Vertex AI, Gemini Image Model, FFmpeg, Groq</div>
+              <div class="tl-project-toggle"><i class="fa fa-plus"></i></div>
+              <div class="tl-expand">
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
+                  <div class="pe-plan-text">Astrology content is consumed daily by millions in India. The goal was to automate personalised video horoscopes — culturally accurate in Hindi &amp; Bengali, not a literal translation — so a single backend call produces a publish-ready video for any sign and language.</div>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
+                  <div class="pipeline">
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-scroll"></i></div>
+                      <div class="pipeline-step-label">Sign &amp; Language</div>
+                      <div class="pipeline-step-sub">Web UI selection</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-robot"></i></div>
+                      <div class="pipeline-step-label">Claude Scripting</div>
+                      <div class="pipeline-step-sub">Bedrock · culturally adapted</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-image"></i></div>
+                      <div class="pipeline-step-label">16:9 Frame</div>
+                      <div class="pipeline-step-sub">Gemini image extend · cached</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-video"></i></div>
+                      <div class="pipeline-step-label">4× Talking Clips</div>
+                      <div class="pipeline-step-sub">Gemini Omni Flash · Vertex AI</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-film"></i></div>
+                      <div class="pipeline-step-label">FFmpeg Stitch</div>
+                      <div class="pipeline-step-sub">40-second final video</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
+                  <ul class="pe-impl-list">
+                    <li>Horoscope paragraphs read from CSV; spoken date always in Asia/Kolkata timezone.</li>
+                    <li>Claude (Amazon Bedrock) writes the script; for Hindi &amp; Bengali, a two-pass approach first extracts language-neutral key ideas, then a native-speaker "Pandit Ji" prompt composes culturally authentic speech — avoiding borrowed English words.</li>
+                    <li>Pandit Ji avatar photo extended to 16:9 via Gemini image model and cached to avoid repeat costs.</li>
+                    <li>4 × 10-second talking clips generated with Gemini Omni Flash on Vertex AI, stitched by FFmpeg.</li>
+                    <li>Full caching by date, sign, language, and script version — repeat requests are completely free.</li>
+                    <li>Groq (gpt-oss-120b) available as an LLM fallback via <code>SCRIPT_PROVIDER=groq</code>.</li>
+                  </ul>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-video"></i>In Action</div>
+                  <div class="pe-media-grid">
+                    <div class="pe-media">
+                      <video src="photos/project infos/Astro_Demo_web.webm" controls preload="metadata" style="width:100%; border-radius: 8px;"></video>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-project">
+              <div class="tl-project-name">Broadcast News — PDF to AI TV Bulletin <span style="font-weight:400;color:var(--neon);font-size:.7rem;">(Demo Ready · w/ Aswaini)</span></div>
+              <ul class="tl-bullets">
+                <li>Full-stack pipeline that converts any news PDF into a broadcast-style TV bulletin — AI anchor voices each story while synced code-rendered visuals (headline, photo, bullets, or chart) play in precise sync. No video generation API required.</li>
+                <li>Claude (AWS Bedrock) splits the PDF into scenes; AWS Polly measures real clip length per scene for frame-accurate Remotion (React) playback.</li>
+                <li>Auto-generates charts when no image exists; full in-memory caching means replay is free. Bundled CNBC TV18 scraper for fresh news PDFs.</li>
+              </ul>
+              <div class="tl-tech"><span>Stack:</span> Python, FastAPI, React, TypeScript, Vite, Remotion, AWS Bedrock (Claude), AWS Polly, LlamaParse, pdfplumber, Gemini TTS</div>
+              <div class="tl-project-toggle"><i class="fa fa-plus"></i></div>
+              <div class="tl-expand">
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
+                  <div class="pe-plan-text">Turning a PDF newspaper into a broadcast takes dozens of manual steps. The goal was a single upload that automatically extracts stories, voices them, and renders a TV-style bulletin where every visual is in perfect sync with the anchor audio — no video generation API or manual editing needed.</div>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
+                  <div class="pipeline">
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-file-pdf"></i></div>
+                      <div class="pipeline-step-label">PDF Upload</div>
+                      <div class="pipeline-step-sub">LlamaParse · pdfplumber fallback</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-brain"></i></div>
+                      <div class="pipeline-step-label">Claude Summarise</div>
+                      <div class="pipeline-step-sub">Headline · bullets · script</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-microphone"></i></div>
+                      <div class="pipeline-step-label">AWS Polly TTS</div>
+                      <div class="pipeline-step-sub">Voice · measures clip length</div>
+                    </div>
+                    <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                    <div class="pipeline-step">
+                      <div class="pipeline-step-icon"><i class="fa fa-clapperboard"></i></div>
+                      <div class="pipeline-step-label">Remotion Player</div>
+                      <div class="pipeline-step-sub">Scenes laid by audio duration</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
+                  <ul class="pe-impl-list">
+                    <li>PDF parsed with LlamaParse (cloud) or pdfplumber/pypdfium2 (local fallback); page-aware <code>[IMAGE: key]</code> markers tell the LLM which photo belongs to which article.</li>
+                    <li>Claude (AWS Bedrock) splits the document into scenes — each with a headline, bullets, full spoken script, and image key; intro &amp; outro added programmatically.</li>
+                    <li>AWS Polly voices every scene; real clip length (<code>audio_seconds</code>) stored per scene for frame-accurate sync. Gemini TTS available as fallback.</li>
+                    <li>Remotion (React-based, no video API) lays scenes end-to-end — each lasting <code>audio_seconds</code> + a short lead-in — so picture and voice always match.</li>
+                    <li>Visual priority: photo → auto-generated chart → key stat → decorative panel. Auto-charts rendered when no image exists in the PDF.</li>
+                    <li>Story, images &amp; audio cached in memory — replaying the bulletin costs nothing. <code>/reset</code> clears cache for new uploads.</li>
+                    <li>Bundled scraper (<code>scrape_cnbctv18.py</code>) auto-generates a fresh news PDF from CNBC TV18.</li>
+                  </ul>
+                </div>
+                <div class="pe-block">
+                  <div class="pe-label"><i class="fa fa-video"></i>In Action</div>
+                  <div class="pe-media-grid">
+                    <div class="pe-media">
+                      <video src="photos/project infos/bodcastdemo_web.webm" controls preload="metadata" style="width:100%; border-radius: 8px;"></video>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2929,17 +3271,22 @@
             <div class="project-card-head">
               <div class="project-icon"><i class="fa fa-car-side"></i></div>
               <div class="project-title">Vehicle Recommendation Platform</div>
-              <div class="project-desc"><strong>Completed:</strong> A Flask-based conversational vehicle recommendation system for Indian 2-wheelers and 4-wheelers. Combines a deterministic Python engine with an LLM for natural-language understanding, budget tracking, and geolocation-based dealer/service lookups.</div>
+              <div class="project-desc"><strong>Completed:</strong> A Flask-based conversational vehicle recommendation
+                system for Indian 2-wheelers and 4-wheelers. Combines a deterministic Python engine with an LLM for
+                natural-language understanding, budget tracking, and geolocation-based dealer/service lookups.</div>
               <div class="project-tags">
                 <span class="tag">Flask</span><span class="tag">HTML/CSS/JS</span><span
-                  class="tag">Recommendations</span><span class="tag">LLM Integration</span><span class="tag">Python</span>
+                  class="tag">Recommendations</span><span class="tag">LLM Integration</span><span
+                  class="tag">Python</span>
               </div>
               <div class="project-toggle"><i class="fa fa-plus"></i></div>
             </div>
             <div class="project-expand">
               <div class="pe-block">
                 <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
-                <div class="pe-plan-text">Choosing a vehicle usually involves comparing budget, body type, running needs, seating, fuel preference, and practical constraints. The platform turns those inputs into a structured profile and a transparent shortlist instead of relying on a generic search.</div>
+                <div class="pe-plan-text">Choosing a vehicle usually involves comparing budget, body type, running
+                  needs, seating, fuel preference, and practical constraints. The platform turns those inputs into a
+                  structured profile and a transparent shortlist instead of relying on a generic search.</div>
               </div>
               <div class="pe-block">
                 <div class="pe-label"><i class="fa fa-diagram-project"></i>Delivery Roadmap</div>
@@ -2972,22 +3319,25 @@
               <div class="pe-block">
                 <div class="pe-label"><i class="fa fa-code"></i>Implementation Plan</div>
                 <ul class="pe-impl-list">
-                  <li>Built a conversational interface that receives user inputs and extracts constraints without hallucinating specifications.</li>
+                  <li>Built a conversational interface that receives user inputs and extracts constraints without
+                    hallucinating specifications.</li>
                   <li>Integrated a deterministic Python recommender using local vehicle datasets.</li>
-                  <li>Implemented budget-aware ranking considering total budget versus cash/down payment and finance estimations.</li>
-                  <li>Added browser geolocation with Google Places API to recommend nearby authorized dealers and service centers.</li>
+                  <li>Implemented budget-aware ranking considering total budget versus cash/down payment and finance
+                    estimations.</li>
+                  <li>Added browser geolocation with Google Places API to recommend nearby authorized dealers and
+                    service centers.</li>
                 </ul>
               </div>
               <div class="pe-block">
                 <div class="pe-label"><i class="fa fa-image"></i>In Action</div>
                 <div class="pe-media-grid">
                   <div class="pe-media">
-                    <video src="photos/project infos/vehicle_recomendation.mp4" controls preload="metadata" style="width:100%; border-radius: 8px;"></video>
+                    <video src="photos/project infos/vehicle_recomendation.mp4" controls preload="metadata"
+                      style="width:100%; border-radius: 8px;"></video>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
           </div>
 
           <div class="project-card">
@@ -3139,6 +3489,176 @@
             </div>
           </div>
 
+
+          <div class="project-card">
+            <div class="project-card-head">
+              <div class="project-icon"><i class="fa fa-star-and-crescent"></i></div>
+              <div class="project-title">Pandit Ji — Daily Horoscope Video Generator</div>
+              <div class="project-desc"><strong>Demo Ready</strong> (w/ Debjit): Pick a zodiac sign and language — the
+                app writes a warm spoken script and produces a 40-second 16:9 talking-head video of "Pandit Ji"
+                delivering the day's horoscope in English, Hindi, or Bengali.</div>
+              <div class="project-tags">
+                <span class="tag">Python · Flask</span><span class="tag">AWS Bedrock · Claude</span><span
+                  class="tag">Gemini Omni Flash</span><span class="tag">Vertex AI</span><span
+                  class="tag">FFmpeg</span><span class="tag">LLM Scripting</span>
+              </div>
+              <div class="project-toggle"><i class="fa fa-plus"></i></div>
+            </div>
+            <div class="project-expand">
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
+                <div class="pe-plan-text">Astrology content is consumed daily by millions in India. The goal was to
+                  automate personalised video horoscopes — culturally accurate in Hindi &amp; Bengali, not a literal
+                  translation — so a single backend call produces a publish-ready video for any sign and language.</div>
+              </div>
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
+                <div class="pipeline">
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-scroll"></i></div>
+                    <div class="pipeline-step-label">Sign &amp; Language</div>
+                    <div class="pipeline-step-sub">Web UI selection</div>
+                  </div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-robot"></i></div>
+                    <div class="pipeline-step-label">Claude Scripting</div>
+                    <div class="pipeline-step-sub">Bedrock · culturally adapted</div>
+                  </div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-image"></i></div>
+                    <div class="pipeline-step-label">16:9 Frame</div>
+                    <div class="pipeline-step-sub">Gemini image extend · cached</div>
+                  </div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-video"></i></div>
+                    <div class="pipeline-step-label">4× Talking Clips</div>
+                    <div class="pipeline-step-sub">Gemini Omni Flash · Vertex AI</div>
+                  </div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-film"></i></div>
+                    <div class="pipeline-step-label">FFmpeg Stitch</div>
+                    <div class="pipeline-step-sub">40-second final video</div>
+                  </div>
+                </div>
+              </div>
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
+                <ul class="pe-impl-list">
+                  <li>Horoscope paragraphs read from CSV; spoken date always in Asia/Kolkata timezone.</li>
+                  <li>Claude (Amazon Bedrock) writes the script; for Hindi &amp; Bengali, a two-pass approach first
+                    extracts language-neutral key ideas, then a native-speaker "Pandit Ji" prompt composes culturally
+                    authentic speech — avoiding borrowed English words.</li>
+                  <li>Pandit Ji avatar photo extended to 16:9 via Gemini image model and cached to avoid repeat costs.
+                  </li>
+                  <li>4 × 10-second talking clips generated with Gemini Omni Flash on Vertex AI, stitched by FFmpeg.
+                  </li>
+                  <li>Full caching by date, sign, language, and script version — repeat requests are completely free.
+                  </li>
+                  <li>Groq (gpt-oss-120b) available as an LLM fallback via <code>SCRIPT_PROVIDER=groq</code>.</li>
+                </ul>
+              </div>
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-video"></i>In Action</div>
+                <div class="pe-media-grid">
+                  <div class="pe-media">
+                    <video src="photos/project infos/Astro_Demo_web.webm" controls preload="metadata"
+                      style="width:100%; border-radius: 8px;"></video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Broadcast News -->
+          <div class="project-card">
+            <div class="project-card-head">
+              <div class="project-icon"><i class="fa fa-tv"></i></div>
+              <div class="project-title">Broadcast News — PDF to AI TV Bulletin</div>
+              <div class="project-desc"><strong>Demo Ready</strong> (w/ Aswaini): Upload any news PDF and watch it
+                transform into a broadcast-style bulletin — an AI anchor reads each story aloud while a code-rendered
+                visual (headline, photo, bullets, or chart) plays in precise sync. No video generation API required.
+              </div>
+              <div class="project-tags">
+                <span class="tag">FastAPI · Python</span><span class="tag">React · Vite · TypeScript</span><span
+                  class="tag">Remotion</span><span class="tag">AWS Bedrock · Claude</span><span class="tag">AWS
+                  Polly</span><span class="tag">LlamaParse</span>
+              </div>
+              <div class="project-toggle"><i class="fa fa-plus"></i></div>
+            </div>
+            <div class="project-expand">
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-lightbulb"></i>The Plan</div>
+                <div class="pe-plan-text">Turning a PDF newspaper into a broadcast takes dozens of manual steps. The
+                  goal was a single upload that automatically extracts stories, voices them, and renders a TV-style
+                  bulletin where every visual is in perfect sync with the anchor audio — no video generation API or
+                  manual editing needed.</div>
+              </div>
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-diagram-project"></i>Architecture</div>
+                <div class="pipeline">
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-file-pdf"></i></div>
+                    <div class="pipeline-step-label">PDF Upload</div>
+                    <div class="pipeline-step-sub">LlamaParse · pdfplumber fallback</div>
+                  </div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-brain"></i></div>
+                    <div class="pipeline-step-label">Claude Summarise</div>
+                    <div class="pipeline-step-sub">Headline · bullets · script</div>
+                  </div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-microphone"></i></div>
+                    <div class="pipeline-step-label">AWS Polly TTS</div>
+                    <div class="pipeline-step-sub">Voice · measures clip length</div>
+                  </div>
+                  <div class="pipeline-arrow"><i class="fa fa-chevron-right"></i></div>
+                  <div class="pipeline-step">
+                    <div class="pipeline-step-icon"><i class="fa fa-clapperboard"></i></div>
+                    <div class="pipeline-step-label">Remotion Player</div>
+                    <div class="pipeline-step-sub">Scenes laid by audio duration</div>
+                  </div>
+                </div>
+              </div>
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-code"></i>Implementation</div>
+                <ul class="pe-impl-list">
+                  <li>PDF parsed with LlamaParse (cloud) or pdfplumber/pypdfium2 (local fallback); page-aware
+                    <code>[IMAGE: key]</code> markers tell the LLM which photo belongs to which article.
+                  </li>
+                  <li>Claude (AWS Bedrock) splits the document into scenes — each with a headline, bullets, full spoken
+                    script, and image key; intro &amp; outro added programmatically.</li>
+                  <li>AWS Polly voices every scene; real clip length (<code>audio_seconds</code>) stored per scene for
+                    frame-accurate sync. Gemini TTS available as fallback.</li>
+                  <li>Remotion (React-based, no video API) lays scenes end-to-end — each lasting
+                    <code>audio_seconds</code> + a short lead-in — so picture and voice always match.
+                  </li>
+                  <li>Visual priority: photo → auto-generated chart → key stat → decorative panel. Auto-charts rendered
+                    when no image exists in the PDF.</li>
+                  <li>Story, images &amp; audio cached in memory — replaying the bulletin costs nothing.
+                    <code>/reset</code> clears cache for new uploads.
+                  </li>
+                  <li>Bundled scraper (<code>scrape_cnbctv18.py</code>) auto-generates a fresh news PDF from CNBC TV18.
+                  </li>
+                </ul>
+              </div>
+              <div class="pe-block">
+                <div class="pe-label"><i class="fa fa-video"></i>In Action</div>
+                <div class="pe-media-grid">
+                  <div class="pe-media">
+                    <video src="photos/project infos/bodcastdemo_web.webm" controls preload="metadata"
+                      style="width:100%; border-radius: 8px;"></video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
         <div class="section-note">The vision/ML pipelines above are custom-built; frontend interfaces for these projects
           were developed with the assistance of Claude and ChatGPT.</div>
@@ -3238,21 +3758,24 @@
             <div class="hl-icon"><i class="fa fa-cloud"></i></div>
             <div>
               <div class="hl-title">AWS Serverless Translation Architecture</div>
-              <div class="hl-desc">Migrated exam paper translation to fully serverless AWS (Lambda Docker, API Gateway, DynamoDB, S3, SAM) with Makefiles-based container builds and LlamaParse + Bedrock GenAI pipeline.</div>
+              <div class="hl-desc">Migrated exam paper translation to fully serverless AWS (Lambda Docker, API Gateway,
+                DynamoDB, S3, SAM) with Makefiles-based container builds and LlamaParse + Bedrock GenAI pipeline.</div>
             </div>
           </div>
           <div class="hl-card">
             <div class="hl-icon"><i class="fa fa-fingerprint"></i></div>
             <div>
               <div class="hl-title">Multi-Camera Person Re-ID &amp; Trail Mapping</div>
-              <div class="hl-desc">Building real-time multi-camera person tracking with OSNet deep embeddings, cosine gallery matching, and DynamoDB-backed trail maps across industrial camera networks.</div>
+              <div class="hl-desc">Building real-time multi-camera person tracking with OSNet deep embeddings, cosine
+                gallery matching, and DynamoDB-backed trail maps across industrial camera networks.</div>
             </div>
           </div>
           <div class="hl-card">
             <div class="hl-icon"><i class="fa fa-eye"></i></div>
             <div>
               <div class="hl-title">Industrial OpenCV Vision Suite</div>
-              <div class="hl-desc">Crowd detection &amp; density analytics, unattended object detection, and violence/altercation detection — modular analytics running on live surveillance feeds.</div>
+              <div class="hl-desc">Crowd detection &amp; density analytics, unattended object detection, and
+                violence/altercation detection — modular analytics running on live surveillance feeds.</div>
             </div>
           </div>
           <div class="hl-card">
@@ -3807,4 +4330,3 @@
 </body>
 
 </html>
-
