@@ -65,23 +65,25 @@ Computer Vision and AI/ML Engineer with **4+ years** of hands-on experience desi
 `Feb 2026 – Present` · Kolkata, West Bengal
 
 - 🔹 Engineered worker & machine productivity tracking system using **YOLO-Pose** and interactive **Flask** dashboards.
-- 🔹 Architected **fully serverless AWS** exam paper translation tool using **Lambda**, **API Gateway**, **DynamoDB**, **S3**, **LlamaParse** and **Amazon Bedrock (GPT-5.6 Luna)**.
-- 🔹 Building **Multi-Camera Person Re-ID** tracking system utilizing **OSNet** deep embeddings and **DynamoDB**.
-- 🔹 Developed **Industrial OpenCV Vision Suite** for real-time crowd density, unattended objects, and violence detection.
 - 🔹 Developed AI-powered jewelry hand measurement system utilizing **MediaPipe** and **Mobile SAM**.
-- 🔹 Built real-time face recognition attendance and automated people counter (**InsightFace** + **YOLOv8**).
+- 🔹 Built real-time face recognition attendance and automated people counter (**InsightFace** + **YOLOv8** + **Supervision**).
 - 🔹 Designed ANPR pipeline with **RF-DeTR**, benchmarking **EasyOCR**, **Amazon Textract**, and **Gemini Flash Pro**.
-
+- 🔹 Architected **fully serverless AWS** exam paper translation tool using **Lambda**, **API Gateway**, **DynamoDB**, **S3**, **AWS SAM**, **LlamaParse** and **Amazon Bedrock (GPT-5.6 Luna)**.
+- 🔹 Developed **Industrial OpenCV Vision Suite** for real-time crowd density, unattended objects, and violence detection.
+- 🔹 Building **Multi-Camera Person Re-ID & Trail Mapping** (ongoing R&D) using **YOLO26**, **ByteTrack**, **OSNet** deep embeddings and **DynamoDB**.
+- 🔹 Produced AI product demos for virtual try-on scenarios featuring **Tommy Hilfiger, Blackberrys, and Manyavar**, plus AI wall-paint and interior-colour visualisation. Wrote demo scripts, incorporated **AI-generated voiceovers**, and edited videos in **Shotcut on Ubuntu**. Contribution was **demo production**, not development of the underlying try-on or wall-paint models.
 - 🔹 Built **Pandit Ji**, a Flask talking-head daily horoscope video generator (English/Hindi/Bengali) using **Claude on Amazon Bedrock**, **Gemini Omni Flash (Vertex AI)** and **FFmpeg** *(Demo Ready · w/ Debjit)*.
 - 🔹 Built **Broadcast News**, a PDF-to-AI-TV-bulletin pipeline using **LlamaParse**, **Claude (Bedrock)**, **AWS Polly** and **Remotion** for frame-accurate picture/voice sync *(Demo Ready · w/ Aswaini)*.
-- 🔹 Produced AI product demos for virtual try-on scenarios featuring **Tommy Hilfiger, Blackberrys, and Manyavar**, plus AI wall-paint and interior-colour visualisation. Wrote demo scripts, incorporated **AI-generated voiceovers**, and edited videos in **Shotcut on Ubuntu** to communicate product capabilities. Contribution was **demo production**, not development of the underlying try-on or wall-paint models.
+
 
 ### **Junior Developer (Computer Vision / AI)** — *Xiphos Technology Solutions Pvt. Ltd.*
 `Mar 2023 – Jan 2026` · Kolkata, West Bengal
 
 - 🔹 Led architecture migration from **YOLOv3 → YOLOv8**; curated & annotated **15,000+ images** across 6 PPE classes.
 - 🔹 Created OpenCV-based molten metal detection system integrated with real-time safety alert triggers.
-- 🔹 Deployed vision pipelines in live factory environments with sub-second real-time camera processing.
+- 🔹 Deployed vision pipelines in live factory environments with real-time PPE violation alerts.
+- 🔹 Prototyped an IoT wildlife monitoring system (**Raspberry Pi** + **PIR sensors**) with elephant classification and false-alarm filtering (R&D).
+
 
 ### **Intern (AI / Computer Vision)** — *Xiphos Technology Solutions Pvt. Ltd.*
 `Sep 2022 – Mar 2023` · Kolkata, West Bengal
