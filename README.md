@@ -43,6 +43,7 @@ Computer Vision and AI/ML Engineer with **4+ years** of hands-on experience desi
 - ☁️ **AWS Serverless & GenAI:** Exam paper parsing & Bengali translation pipeline using fully serverless AWS architecture (Lambda, S3, DynamoDB, API Gateway, Docker), LlamaParse & Amazon Bedrock (GPT-5.6 Luna).
 - 🔍 **Multi-Camera Vision AI:** Leading R&D on multi-camera person Re-Identification & trail mapping using YOLO, OSNet embeddings, and DynamoDB.
 - 🏭 **Industrial Vision AI:** Live deployment of OpenCV vision suites (crowd, violence, unattended object detection) and PPE compliance.
+- 🎬 **GenAI Video & Media:** Pandit Ji talking-head horoscope video generator (Bedrock Claude + Gemini Omni Flash + FFmpeg) and Broadcast News PDF-to-AI-TV-bulletin pipeline (Claude + AWS Polly + Remotion).
 - 🚗 **ANPR & OCR:** Benchmarking EasyOCR, Amazon Textract, and Gemini Flash Pro using RF-DeTR object detection.
 - 👤 **Biometrics & Analytics:** Real-time face recognition attendance & people counting system.
 
@@ -52,9 +53,9 @@ Computer Vision and AI/ML Engineer with **4+ years** of hands-on experience desi
 
 | Project Name | Highlights & Features | Technologies Used |
 |:---|:---|:---|
-| 🚗 **Vehicle Recommendation Platform** | **Completed:** Flask-based conversational vehicle recommendation system. Combines deterministic Python engine with LLM for natural language, budget tracking, and geolocation-based dealer/service lookups. | `Flask` `Python` `LLM Integration` `Google Places API` |
-| 🚘 **Vehicle Speed & Line-Cross Counter** | Real-time vehicle speed estimation using perspective transformation, virtual calibration lines, and directional counter | `YOLOv8` `DeepSORT` `OpenCV` `Python` |
-| 👤 **AI Face Recognition Attendance** | Employee verification with automatic in/out logging, spoof prevention, and log generation | `FaceNet` `OpenCV` `Python` `SQLite` |
+<!-- Vehicle Recommendation Platform — hidden temporarily (matches portfolio & resume) -->
+| 🚘 **Vehicle Speed Detection & People Analytics** | YOLOv8 vehicle detection and tracking with virtual lines and dual-direction speed estimation, plus a ByteTrack-based live person counter | `YOLOv8` `ByteTrack` `OpenCV` `Python` |
+| 👤 **AI-Based Attendance System** | FaceNet-based employee recognition by name and ID with real-time daily in/out time tracking | `FaceNet` `OpenCV` `Python` |
 
 ---
 
@@ -71,6 +72,8 @@ Computer Vision and AI/ML Engineer with **4+ years** of hands-on experience desi
 - 🔹 Built real-time face recognition attendance and automated people counter (**InsightFace** + **YOLOv8**).
 - 🔹 Designed ANPR pipeline with **RF-DeTR**, benchmarking **EasyOCR**, **Amazon Textract**, and **Gemini Flash Pro**.
 
+- 🔹 Built **Pandit Ji**, a Flask talking-head daily horoscope video generator (English/Hindi/Bengali) using **Claude on Amazon Bedrock**, **Gemini Omni Flash (Vertex AI)** and **FFmpeg** *(Demo Ready · w/ Debjit)*.
+- 🔹 Built **Broadcast News**, a PDF-to-AI-TV-bulletin pipeline using **LlamaParse**, **Claude (Bedrock)**, **AWS Polly** and **Remotion** for frame-accurate picture/voice sync *(Demo Ready · w/ Aswaini)*.
 - 🔹 Produced AI product demos for virtual try-on scenarios featuring **Tommy Hilfiger, Blackberrys, and Manyavar**, plus AI wall-paint and interior-colour visualisation. Wrote demo scripts, incorporated **AI-generated voiceovers**, and edited videos in **Shotcut on Ubuntu** to communicate product capabilities. Contribution was **demo production**, not development of the underlying try-on or wall-paint models.
 
 ### **Junior Developer (Computer Vision / AI)** — *Xiphos Technology Solutions Pvt. Ltd.*
@@ -91,6 +94,18 @@ Computer Vision and AI/ML Engineer with **4+ years** of hands-on experience desi
 
 | Category | Skill / Tool Badge | Key Applications & Scope |
 |:---|:---|:---|
+| **Computer Vision** | `OpenCV` `YOLOv8` `YOLO11` `YOLO26` `YOLO-Pose` `InsightFace` `FaceNet` `MediaPipe` `DeepSORT` `Supervision` `RF-DeTR` `Mobile SAM` `OSNet Re-ID` | Real-time object tracking, safety compliance monitoring, pose estimation, face attendance, multi-camera re-id, crowd & violence analytics |
+| **Deep Learning** | `PyTorch` `CNNs` `Transfer Learning` `Object Detection` `Multi-Object Tracking` `Pose Analytics` `Image Classification` | Custom neural net fine-tuning, dataset annotation, multi-class classification |
+| **LLM & GenAI** | `Amazon Bedrock` `Claude` `OpenAI GPT-5.6 Luna` `Gemini Omni Flash` `Gemini Image Model` `Groq` `Vertex AI` `LlamaParse` `Prompt Engineering` | Document translation, scripting, multimodal extraction, LLM-driven pipelines |
+| **OCR & Document AI** | `EasyOCR` `Amazon Textract` `Gemini Flash Pro` `ANPR` `Mobile SAM` | Structured document parsing, license plate OCR, segmentation |
+| **AI Media & Video** | `Gemini Omni Flash` `AWS Polly` `Gemini TTS` `FFmpeg` `Remotion` | Talking-head video generation, AI-voiced broadcast bulletins |
+| **Backend & Frontend** | `Python` `Flask` `FastAPI` `Django` `SQL` `RESTful APIs` `React` `TypeScript` `Vite` `HTML/CSS/JS` | AI dashboards, video stream ingestion pipelines, backend REST endpoints |
+| **AWS & Cloud** | `AWS Lambda` `Amazon S3` `API Gateway` `Amazon DynamoDB` `AWS SAM` `Docker` `Makefiles` `Amazon Bedrock` `AWS Polly` `Git` | Fully serverless architectures, cloud document assets, cross-camera trail databases, deployment automation |
+| **Data & Analytics** | `Pandas` `Power BI` `MySQL` `Data Annotation` | Dataset curation, reporting, analytics |
+| **Hardware & Edge** | `Raspberry Pi` `PIR Sensors` `Embedded AI` | On-device inference, IoT sensor trigger automation |
+| **Product Communication** | `Demo Scriptwriting` `AI Voiceover Integration` `Video Editing` `Shotcut` `Ubuntu` | AI product demo videos and technical storytelling |
+
+---|:---|:---|
 | **Computer Vision** | `OpenCV` `YOLOv8` `YOLO26` `YOLO-Pose` `InsightFace` `FaceNet` `MediaPipe` `DeepSORT` `RF-DeTR` `Supervision` `OSNet` | Real-time object tracking, safety compliance monitoring, pose estimation, face attendance, multi-camera re-id |
 | **Deep Learning** | `PyTorch` `CNNs` `Transfer Learning` `Object Detection` `Image Segmentation` | Custom neural net fine-tuning, dataset annotation, multi-class classification |
 | **OCR, Document AI & GenAI** | `LlamaParse` `OpenAI GPT-5.6 Luna` `Amazon Bedrock` `EasyOCR` `Amazon Textract` `Gemini Flash Pro` `Mobile SAM` | Structured document parsing, Bengali translation, license plate OCR, multimodal extraction, segmentation |
@@ -105,12 +120,14 @@ Computer Vision and AI/ML Engineer with **4+ years** of hands-on experience desi
 ### **Education**
 - 🎓 **B.Tech in Computer Science & Engineering**
   *Bengal Institute of Technology (TIG), MAKAUT* (`2018 – 2022`) · **CGPA: 8.83 / 10**
+- 🎓 **Higher Secondary — Pure Science**
+  *Sonamukhi B.J. High School (H.S)* (`2016 – 2018`)
 
 ### **Certifications**
 - 📜 **YOLOv8 & YOLO11: Custom Object Detection & Web Apps** (2025)
-- 📜 **PyTorch Deep Learning Bootcamp**
-- 📜 **OpenCV Computer Vision Masterclass**
-- 📜 **Python for Data Science & Machine Learning**
+- 📜 **PyTorch Bootcamp**
+- 📜 **OpenCV Bootcamp**
+- 📜 **Python for Data Science**
 
 ---
 
